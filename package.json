@@ -1,16 +1,13 @@
 {
-  "name": "ale",
-  "version": "0.1.0",
-  "private": true,
+  "name": "ALEssistant",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/CamBurrows/ALEssistant.git",
+  "author": "Juan Fox <foxj0875@gmail.com>",
+  "license": "MIT",
   "dependencies": {
-    "react": "^16.3.2",
-    "react-dom": "^16.3.2",
-    "react-scripts": "1.1.4"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "body-parser": "^1.18.2",
+    "express": "^4.16.3",
+    "mongoose": "^5.0.16"
   }
 }
