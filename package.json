@@ -4,5 +4,10 @@
   "main": "index.js",
   "repository": "https://github.com/CamBurrows/ALEssistant.git",
   "author": "Juan Fox <foxj0875@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.3",
+    "mongoose": "^5.0.16"
+  }
 }
