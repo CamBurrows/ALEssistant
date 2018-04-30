@@ -3,14 +3,41 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.3",
+    "material-ui": "^0.20.0",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
-    "react-scripts": "1.1.4"
+    "react-router": "^4.2.0",
+    "react-scripts": "1.1.4",
+    "react-tap-event-plugin": "^3.0.2",
+    "validator": "^9.4.1"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "nodemon --use_strict index.js",
+    "bundle": "webpack",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
+  },
+  "description": "An App that assists breweries in inventory/ingredient management, recipe logging, and brew tracking. Brew better.",
+  "main": "server.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CamBurrows/ALEssistant.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CamBurrows/ALEssistant/issues"
+  },
+  "homepage": "https://github.com/CamBurrows/ALEssistant#readme",
+  "devDependencies": {
+    "babel-core": "^6.26.2",
+    "babel-loader": "^7.1.4",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "nodemon": "^1.17.3",
+    "webpack": "^4.6.0"
   }
 }
