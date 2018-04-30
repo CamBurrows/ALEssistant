@@ -3,5 +3,5 @@
 module.exports = {
   User: require("./User"),
   Recipe: require("./Recipe"),
-  Ingredients: require("./Ingredients")
+  IngredientsInventory: require("./IngredientsInventory")
 };

@@ -75,7 +75,8 @@ const RecipeSchema = new Schema({
     }],
     sessions: [{
         date: {
-            // To Do
+            type: Date,
+            default: Date.now 
         },
         notes: {
             Type: String,

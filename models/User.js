@@ -25,9 +25,9 @@ const UserSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: "Recipe"
   },
-  ingredients: {
+  ingredientsInventory: {
     type: Schema.Types.ObjectId,
-    ref: "Ingredients"
+    ref: "IngredientsInventory"
   }
 });
 

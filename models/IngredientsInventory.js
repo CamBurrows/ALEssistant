@@ -5,13 +5,13 @@ const Schema = mongoose.Schema;
 
 // Using the Schema constructor, create a new UserSchema object
 // This is similar to a Sequelize model
-const IngredientsSchema = new Schema({
+const IngredientsInventorySchema = new Schema({
     name: {
-        type: String,
+        type: String, //Pale Malt, Crystal, Roasted Barley, Cascade, US-05, etc
         trim: true,
         required: true
     },
-    type: {
+    type: { // grain, hops, or yeast
         type: String,
         trim: true,
         required: true
@@ -20,11 +20,11 @@ const IngredientsSchema = new Schema({
         type: String,
         trim: true
     },
-    quantity: {
+    quantity: { //not required in case we want to list something that we might not have in inventory yet
         type: Number,
         trim: true
     },
-    units: {
+    units: { //pounds, ounces, grams
         type: String,
         required: true
     },
@@ -32,13 +32,13 @@ const IngredientsSchema = new Schema({
         Type: Number,
         required: true
     },
-    notes: {
+    notes: { //anything unusual about the ingredient
         type: String,
         trim: true
     }
 });
 
 // This creates our model from the above schema, using mongoose's model method
-const Ingredients = mongoose.model("Ingredients", IngredientsSchema);
+const IngredientsInventory = mongoose.model("IngredientsInventory", IngredientsInventorySchema);
 
-// Export the Article model
+// Export the IngredientsInventory
