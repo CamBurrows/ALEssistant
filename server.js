@@ -13,6 +13,7 @@ mongoose.connect("mongodb://localhost/alessistantdb");
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 // Serve up static assets
+app.use(express.static("public"));
 
 mongoose.connect("mongodb://localhost/alessistantdb");
 
