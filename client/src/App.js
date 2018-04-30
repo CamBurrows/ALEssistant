@@ -11,10 +11,6 @@ import {
   Redirect
 } from "react-router-dom";
 
-// import LoginNav from "./components/LoginNav";
-// import Brewing from "./pages/Brewing";
-// import Home from "./pages/Home";
-// import Ingredients from "./pages/Ingredients";
 // import Footer from "./components/Footer";
 
 
@@ -24,6 +20,7 @@ class App extends Component {
       <Router>
         <Switch>
           <Route path="/" component={Home} />
+          <Route path="/home" component={Home} />
           <Route path="/brewing" component={Brewing} />
           <Route path="/inventory" component={Ingredients} />
           <Route path="/recipes" component={Recipes} />
