@@ -21,14 +21,18 @@ const UserSchema = new Schema({
     type: String,
     required: true
   },
-  recipes: [{
-    type: Schema.Types.ObjectId,
-    ref: "Recipe"
-  }],
-  ingredientsInventory: [{
-    type: Schema.Types.ObjectId,
-    ref: "IngredientsInventory"
-  }]
+  recipes: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Recipe"
+    }
+  ],
+  ingredientsInventory: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "IngredientsInventory"
+    }
+  ]
 });
 
 // This creates our model from the above schema, using mongoose's model method

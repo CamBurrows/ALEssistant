@@ -12,9 +12,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 // Serve up static assets
 
-mongoose.connect("mongodb://localhost/alessistant");
+mongoose.connect("mongodb://localhost/alessistantdb");
 
-db.User.create({ name: "Ernest" })
+//test case, feel free to delete the next 7 lines when you merge
+db.User.create({ userName: "Tim" , email: "tim@foo.com", password: "Tim"})
   .then(function(dbUser) {
     console.log(dbUser);
   })
