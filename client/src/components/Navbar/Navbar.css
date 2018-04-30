@@ -1,8 +1,25 @@
 .nav-icon {
     fill: black;
-    height: 50px
+    height: 40px
 }
 
-.nav-item {
-    margin: 40px;
+.item {
+    text-align: center;
+    margin: 20px 40px 0px 40px;
 }
+
+.icon {
+    margin: 0 auto;
+}
+
+a {
+    color: black;
+}
+
+/* .nav-item {
+    margin: 40px;
+} */
+
+/* .text {
+    margin: 0 auto;
+} */

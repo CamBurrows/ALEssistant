@@ -1,4 +1,7 @@
-.titlebar {
-    background-color: black;
-    width: 100%
+.col {
+    background-color: #282828;
+}
+
+h1 {
+    color: white;
 }
