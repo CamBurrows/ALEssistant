@@ -66,6 +66,3 @@ const LoginNav = props => (
 );
 
 export default LoginNav;
-
-
-

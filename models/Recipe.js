@@ -5,7 +5,7 @@ const Schema = mongoose.Schema;
 
 // Using the Schema constructor, create a new UserSchema object
 // This is similar to a Sequelize model
-const RecipeSchema = new Schema({
+var RecipeSchema = new Schema({
     name: {
         type: String,
         trim: true,
@@ -38,7 +38,7 @@ const RecipeSchema = new Schema({
             type: Number,
             trim: true
         },
-        required: true,
+//        required: true,
     }],
     hops: [{
         name: {
@@ -74,12 +74,20 @@ const RecipeSchema = new Schema({
         }
     }],
     sessions: [{
-        date: {
+        dateBrewed: {
             type: Date,
             default: Date.now 
         },
-        notes: {
-            Type: String,
+        fermentationComplete: {
+        type: Boolean,
+        default: false
+        },
+        packaged: {
+            type: Boolean,
+            default: false
+        },
+        notes: { //Anything odd that might have happened during the brew session/fermentation/packaging
+            type: String,
             trim: true
         }
     }]
@@ -87,3 +95,4 @@ const RecipeSchema = new Schema({
 
 // This creates our model from the above schema, using mongoose's model method
 const Recipe = mongoose.model("Recipe", RecipeSchema);
+module.exports = Recipe;
