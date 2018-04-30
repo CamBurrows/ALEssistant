@@ -1,15 +1,15 @@
 import React from 'react';
-import './PageTitle.css';
+import './RecipePageTitle.css';
 
-const PageTitle = (props) => (
+const RecipePageTitle = (props) => (
     <div className="row">
         <div className="col">
             <div className="container-fluid">
-                <h1>{props.children}</h1>
+                <h1>Recipes</h1>
             </div>
         </div>
     </div>
 )
 
 
-export default PageTitle;
+export default RecipePageTitle;
