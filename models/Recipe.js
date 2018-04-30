@@ -87,3 +87,4 @@ const RecipeSchema = new Schema({
 
 // This creates our model from the above schema, using mongoose's model method
 const Recipe = mongoose.model("Recipe", RecipeSchema);
+module.exports = Recipe;

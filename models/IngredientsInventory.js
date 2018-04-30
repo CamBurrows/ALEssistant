@@ -40,5 +40,5 @@ const IngredientsInventorySchema = new Schema({
 
 // This creates our model from the above schema, using mongoose's model method
 const IngredientsInventory = mongoose.model("IngredientsInventory", IngredientsInventorySchema);
-
+module.exports = IngredientsInventory;
 // Export the IngredientsInventory
