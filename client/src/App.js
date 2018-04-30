@@ -7,6 +7,11 @@ import {
   Switch,
   Redirect
 } from "react-router-dom";
+import LoginNav from "./components/LoginNav";
+import Brewing from "./pages/Brewing";
+import Home from "./pages/Home";
+import Ingredients from "./pages/Ingredients";
+import Footer from "./components/Footer";
 
 
 class App extends Component {

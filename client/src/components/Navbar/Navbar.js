@@ -12,10 +12,10 @@ const Navbar = (props) => (
       <h1>{props.username}</h1>
 
       <ul className="navbar-nav ml-auto">
-        <li><Logout /></li>
-        <li><Inventory /></li>
-        <li><Recipes /></li>
-        <li><Brewing /></li>
+        <li>Logout</li>
+        <li>Inventory</li>
+        <li>Recipes</li>
+        <li>Brewing</li>
       </ul>
       
   </nav>

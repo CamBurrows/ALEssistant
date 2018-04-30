@@ -1,8 +1,6 @@
 import React from 'react';
 import Express from 'express';
 import ReactDOM from 'react-dom';
-import Validator from 'validator';
-import MaterialUi from 'material-ui';
 import Webpack from 'webpack';
 import './index.css';
 import App from './App';
