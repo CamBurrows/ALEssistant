@@ -21,18 +21,18 @@ const UserSchema = new Schema({
     type: String,
     required: true
   },
-  recipe: {
+  recipes: [{
     type: Schema.Types.ObjectId,
     ref: "Recipe"
-  },
-  ingredientsInventory: {
+  }],
+  ingredientsInventory: [{
     type: Schema.Types.ObjectId,
     ref: "IngredientsInventory"
-  }
+  }]
 });
 
 // This creates our model from the above schema, using mongoose's model method
 const User = mongoose.model("User", UserSchema);
 
-// Export the Article model
+// Export the User model
 module.exports = User;
