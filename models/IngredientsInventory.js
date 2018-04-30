@@ -16,10 +16,6 @@ const IngredientsInventorySchema = new Schema({
         trim: true,
         required: true
     },
-    abbrev: {
-        type: String,
-        trim: true
-    },
     quantity: { //not required in case we want to list something that we might not have in inventory yet
         type: Number,
         trim: true
@@ -29,12 +25,7 @@ const IngredientsInventorySchema = new Schema({
         required: true
     },
     cost: {
-        Type: Number,
-        required: true
-    },
-    notes: { //anything unusual about the ingredient
-        type: String,
-        trim: true
+        Type: Number, //not required in case we are adding something we don't yet know the cost of
     }
 });
 
