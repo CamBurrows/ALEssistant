@@ -1,9 +1,7 @@
 import React from 'react';
 import './Navbar.css';
-import Logout from "../../images/logout-icon.svg";
-import Inventory from "../../images/inventory-icon.svg";
-import Recipes from "../../images/recipes-icon.svg";
-import Brewing from "../../images/brewing-icon.svg";
+
+
 
 const Navbar = (props) => (
 <div className="container">

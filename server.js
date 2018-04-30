@@ -8,6 +8,7 @@ const PORT = process.env.PORT || 3001;
 // Configure body parser for AJAX requests
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(express.static("public"));
 // Serve up static assets
 
 app.get('/test', function(req, res) {
