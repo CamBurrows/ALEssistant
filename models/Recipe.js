@@ -74,11 +74,19 @@ const RecipeSchema = new Schema({
         }
     }],
     sessions: [{
-        date: {
+        dateBrewed: {
             type: Date,
             default: Date.now 
         },
-        notes: {
+        fermentationComplete: {
+        type: Boolean,
+        default: false
+        },
+        packaged: {
+            type: Boolean,
+            default: false
+        },
+        notes: { //Anything odd that might have happened during the brew session/fermentation/packaging
             Type: String,
             trim: true
         }
