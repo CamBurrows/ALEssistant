@@ -1,9 +1,9 @@
-import React from 'React';
-import 'Navbar.css';
-import logout from "../../../public/images/logout-icon.svg";
-import inventory from "../../../public/images/inventory-icon.svg";
-import recipes from "../../../public/images/recipes-icon.svg";
-import brewing from "../../../public/images/brewing-icon.svg";
+import React from 'react';
+import './Navbar.css';
+import Logout from "../../images/logout-icon.svg";
+import Inventory from "../../images/inventory-icon.svg";
+import Recipes from "../../images/recipes-icon.svg";
+import Brewing from "../../images/brewing-icon.svg";
 
 const Navbar = (props) => (
 <div className="container">
@@ -11,11 +11,11 @@ const Navbar = (props) => (
       <h2>Welcome back,</h2>
       <h1>{props.username}</h1>
 
-      <ul className="ml-auto">
-        <li><img src={inventory} /></li>
-        <li><img src={recipes} /></li>
-        <li><img src={brewing} /></li>
-        <li><img src={logout} /></li>
+      <ul className="navbar-nav ml-auto">
+        <li><Logout /></li>
+        <li><Inventory /></li>
+        <li><Recipes /></li>
+        <li><Brewing /></li>
       </ul>
       
   </nav>
