@@ -22,6 +22,7 @@ router.post('/signin', function(req, res) {
   if(!req.body.userName){
     res.status(400).send('username required');
   }
+  
   if(!req.body.userName){
     res.status(400).send('username required');
   }
