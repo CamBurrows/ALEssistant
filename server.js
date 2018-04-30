@@ -14,6 +14,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 // Serve up static assets
 
+mongoose.connect("mongodb://localhost/alessistantdb");
 
 //Verify token on every request
 //app.use(expressJWT({secret:'my secret'}));
