@@ -1,5 +1,10 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import LoginNav from "./components/LoginNav";
+import Brewing from "./pages/Brewing";
+import Home from "./pages/Home";
+import Ingredients from "./pages/Ingredients";
+import Footer from "./components/Footer";
 import './App.css';
 
 class App extends Component {
@@ -7,7 +12,7 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
+         
           <h1 className="App-title">Welcome to React</h1>
         </header>
         <p className="App-intro">
