@@ -3,7 +3,7 @@ import "./Wrapper.css";
 
 const Wrapper = (props) => 
 
-<main className="wrapper">;
+<main className="wrapper">
     {props.children}
 </main>
 
