@@ -1,4 +1,8 @@
 .nav-icon {
     fill: black;
-    height: 80px
+    height: 50px
+}
+
+.nav-item {
+    margin: 40px;
 }

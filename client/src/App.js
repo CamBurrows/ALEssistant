@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
-import Navbar from './components/Navbar'
+import Brewing from './pages/Brewing.js';
+import Home from './pages/Home.js';
+import Ingredients from './pages/Ingredients';
+import Recipes from './pages/Recipes';
 import {
   BrowserRouter as Router,
   Route,
@@ -7,7 +10,8 @@ import {
   Switch,
   Redirect
 } from "react-router-dom";
-import LoginNav from "./components/LoginNav";
+
+// import LoginNav from "./components/LoginNav";
 // import Brewing from "./pages/Brewing";
 // import Home from "./pages/Home";
 // import Ingredients from "./pages/Ingredients";
@@ -18,7 +22,12 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <Route path="/" component={Navbar} />
+        <Switch>
+          <Route path="/" component={Home} />
+          <Route path="/brewing" component={Brewing} />
+          <Route path="/inventory" component={Ingredients} />
+          <Route path="/recipes" component={Recipes} />
+        </Switch>
       </Router>
     );
   }

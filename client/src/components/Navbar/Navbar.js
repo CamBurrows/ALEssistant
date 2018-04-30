@@ -1,25 +1,65 @@
 import React from 'react';
 import './Navbar.css';
-import Logout from "../../images/logout-icon.svg";
-import Inventory from "../../images/inventory-icon.svg";
-import Recipes from "../../images/recipes-icon.svg";
-import Brewing from "../../images/brewing-icon.svg";
 
 const Navbar = (props) => (
-<div className="container">
   <nav className="navbar navbar-light bg-light">
       <h2>Welcome back,</h2>
       <h1>{props.username}</h1>
 
-      <ul className="navbar-nav ml-auto">
-        <li>Logout</li>
-        <li>Inventory</li>
-        <li>Recipes</li>
-        <li>Brewing</li>
+      <ul className="nav justify-content-end">
+      <li className="nav-item">
+          <div>
+            <div className = "row icon">
+              <img className = "nav-icon" src="/images/home.png" alt=""/>
+            </div>
+            <div className = "row">
+              <p>Home</p>
+            </div>
+          </div>
+        </li>
+        <li className="nav-item">
+          <div>
+            <div className = "row icon">
+              <img className = "nav-icon" src="/images/inventory.png" alt=""/>
+            </div>
+            <div className = "row">
+              <p>Ingredients</p>
+            </div>
+          </div>
+        </li>
+        <li className="nav-item">
+          <div>
+            <div className = "row icon">
+              <img className = "nav-icon" src="/images/recipes.png" alt=""/>
+            </div>
+            <div className = "row">
+              <p>Recipes</p>
+            </div>
+          </div>
+        </li>
+        <li className="nav-item">
+          <div>
+            <div className = "row icon">
+              <img className = "nav-icon" src="/images/brewing.png" alt=""/>
+            </div>
+            <div className = "row">
+              <p>Brewing</p>
+            </div>
+          </div>
+        </li>
+        <li className="nav-item">
+          <div>
+            <div className = "row">
+              <img className = "nav-icon" src="/images/logout.png" alt=""/>
+            </div>
+            <div className = "row">
+              <p>Logout</p>
+            </div>
+          </div>
+        </li>
       </ul>
       
   </nav>
-</div>
 
 )
 
