@@ -1,3 +1,18 @@
+@font-face {
+    font-family: 'mermaid';
+    src: url('/fonts/mermaid.eot'); /* IE9 Compat Modes */
+    src: url('/fonts/mermaid.woff') format('woff'), /* Modern Browsers */
+         url('/fonts/Mermaid.ttf')  format('truetype'), /* Safari, Android, iOS */
+}
+
+  @font-face {
+    font-family: 'avenir';
+    src: url('/fonts/Avenir.eot'); /* IE9 Compat Modes */
+    src: url('/fonts/Avenir.woff') format('woff'), /* Modern Browsers */
+         url('/fonts/Avenir.ttf')  format('truetype'), /* Safari, Android, iOS */
+}
+
+
 .nav-icon {
     fill: black;
     height: 40px
@@ -14,6 +29,14 @@
 
 a {
     color: black;
+}
+
+p {
+    font-family: 'avenir';
+}
+
+h1, h2 {
+    font-family: 'mermaid'
 }
 
 /* .nav-item {
