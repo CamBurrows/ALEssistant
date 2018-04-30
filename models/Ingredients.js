@@ -42,3 +42,4 @@ const IngredientsSchema = new Schema({
 const Ingredients = mongoose.model("Ingredients", IngredientsSchema);
 
 // Export the Article model
+module.exports = Ingredients;
