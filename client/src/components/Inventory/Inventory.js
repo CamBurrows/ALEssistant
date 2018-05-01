@@ -12,7 +12,7 @@ const Inventory = props => (
       <div className="modal-dialog" role="document">
         <div className="modal-content">
           <div className="modal-header">
-            <h5 className="modal-title" id="exampleModalLabel">ALEssistant Login</h5>
+            <h5 className="modal-title" id="exampleModalLabel">Add Ingredients</h5>
             <button type="button" className="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -24,10 +24,10 @@ const Inventory = props => (
                   Category
                   </button>
                 <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                  <a className="dropdown-item" href="#">Barley</a>
-                  <a className="dropdown-item" href="#">Exotics</a>
-                  <a className="dropdown-item" href="#">Hops</a>
-                  <a className="dropdown-item" href="#">Yeast</a>
+                  <a className="dropdown-item" href="barley">Barley</a>
+                  <a className="dropdown-item" href="exotics">Exotics</a>
+                  <a className="dropdown-item" href="hops">Hops</a>
+                  <a className="dropdown-item" href="yeast">Yeast</a>
                 </div>
               </div>
               <select className="form-control">
@@ -35,14 +35,10 @@ const Inventory = props => (
                 <option>Default select</option>
                 <option>Default select</option>
               </select>
-              <div className="form-group">
-                <label for="exampleInputPassword1">Confirm Password</label>
-                <input type="password" className="form-control" id="exampleInputPassword1" placeholder="Password" />
-              </div>
             </form>
           </div>
           <div className="modal-footer">
-            <button type="button" className="btn btn-primary">Login</button>
+            <button type="button" className="btn btn-primary">Create</button>
           </div>
         </div>
       </div>

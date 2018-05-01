@@ -4,7 +4,7 @@ import LoginNav from "./components/LoginNav";
 import Inventory from "./components/Inventory";
 import Brewing from './pages/Brewing.js';
 import Home from './pages/Home.js';
-import Ingredients from './pages/Ingredients';
+// import Ingredients from './pages/Ingredients';
 import Recipes from './pages/Recipes';
 import {
   BrowserRouter as Router,
@@ -20,11 +20,10 @@ class App extends Component {
       <Router>
         <Switch>
         <Route path="/" component={LoginNav} />   
-        <Route exact path="/Inventory" component={Inventory} />
           <Route exact path="/" component={Home} />
           <Route path="/home" component={Home} />
           <Route path="/brewing" component={Brewing} />
-          <Route path="/inventory" component={Ingredients} />
+          <Route path="/inventory" component={Inventory} />
           <Route path="/recipes" component={Recipes} />
         </Switch>
       </Router>
