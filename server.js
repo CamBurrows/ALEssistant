@@ -23,10 +23,10 @@ mongoose.connect("mongodb://localhost/alessistantdb");
 
 //Routes
 app.use(require('./routes/authRoutes'));
+app.use('/api', require('./routes/api/ingredients'));
+app.use('/api', require('./routes/api/recipes'));
+app.use('/api', require('./routes/api/users'));
 
-app.get('/test', function(req, res) {
-  res.send('<h1>test</h1>');
-});
 
 // Start the API server
 app.listen(PORT, function() {
