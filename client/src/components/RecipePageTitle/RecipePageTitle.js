@@ -1,5 +1,6 @@
 import React from 'react';
 import './RecipePageTitle.css';
+import AddRecipeButton from '../AddRecipeButton';
 
 const RecipePageTitle = (props) => (
     <div className="row">
