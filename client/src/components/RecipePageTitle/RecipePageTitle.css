@@ -5,7 +5,7 @@
          url('/fonts/Mermaid.ttf')  format('truetype'), /* Safari, Android, iOS */
   }
 
-.col {
+.title-row {
     background-color: #282828;
 }
 
