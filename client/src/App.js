@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import Navbar from './components/Navbar';
 import LoginNav from "./components/LoginNav";
-import Inventory from "./components/Inventory";
+import InventoryModal from "./components/InventoryModal";
 import Brewing from './pages/Brewing.js';
 import Home from './pages/Home.js';
-import Ingredients from './pages/Ingredients.js';
+import Inventory from './pages/Inventory.js';
 import Recipes from './pages/Recipes.js';
 import Landing from './pages/Landing.js'
 

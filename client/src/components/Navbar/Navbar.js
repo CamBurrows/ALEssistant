@@ -31,7 +31,7 @@ const Navbar = (props) => (
                 <img className = "nav-icon" src="/images/inventory.png" alt=""/>
               </div>
               <div className = "text">
-                <p>Ingredients</p>
+                <p>Inventory</p>
               </div>
             </div>
           </li>
@@ -63,7 +63,7 @@ const Navbar = (props) => (
           </li>
         </Link>
 
-        {/* <Link to='/logout'> */}
+        <Link to='/'>
           <li className="nav-item">
             <div className="item">
               <div className = "row">
@@ -74,9 +74,8 @@ const Navbar = (props) => (
               </div>
             </div>
           </li>
-        </ul>
-      {/* </Link> */}
-      
+      </Link>
+      </ul>
   </nav>
 
 )
