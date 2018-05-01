@@ -26,6 +26,10 @@ const IngredientsInventorySchema = new Schema({
     },
     cost: {
         Type: Number, //not required in case we are adding something we don't yet know the cost of
+    },
+        _userId: {
+          type: Schema.Types.ObjectId,
+          ref: "User"
     }
 });
 

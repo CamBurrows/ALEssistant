@@ -1,7 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
-const expressJWT = require('express-JWT');
+const expressJWT = require('express-jwt');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
