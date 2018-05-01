@@ -3,7 +3,7 @@ import React from "react";
 const InventoryModal = props => (
 
   <div className="row">
-    <div className="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div className="modal fade" id="inventoryModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div className="modal-dialog" role="document">
         <div className="modal-content">
           <div className="modal-header">
@@ -13,28 +13,56 @@ const InventoryModal = props => (
             </button>
           </div>
           <div className="modal-body">
+
+
             <form>
-              <div className="dropdown">
-                <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Category
-                  </button>
-                <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                  <a className="dropdown-item">Grain</a>
-                  <a className="dropdown-item">Exotics</a>
-                  <a className="dropdown-item">Hops</a>
-                  <a className="dropdown-item">Yeast</a>
+              <div className="form-group">
+                <label htmlFor="ingredient-name">Add Ingredients</label>
+                <input type="name" className="form-control" id="ingredient-name" placeholder="Ingredient" />
+              </div>
+              <div className="row category-1">
+                <div className="col-sm-4">
+                  <div className="form-group">
+                    <label htmlFor="category-select">Category</label>
+                    <select className="form-control" id="category-select">
+                      <option>Grains</option>
+                      <option>Hops</option>
+                      <option>Yeast</option>
+                      <option>Exotics</option>
+                    </select>
+                  </div>
+                </div>
+                <div className="col-sm-4">
+                  <div className="form-group">
+                    <label htmlFor="ingredient-amount">Amount</label>
+                    <input type="number" className="form-control" id="ingredient-amount" />
+                  </div>
+                </div>
+                <div className="col-sm-4">
+                  <div className="form-group">
+                    <label htmlFor="unit-select">Unit</label>
+                    <select className="form-control" id="unit-select">
+                      <option>Lbs</option>
+                      <option>Oz.</option>
+                      <option>grams</option>
+                    </select>
+                  </div>
+                </div>
+                <div className="col-sm-12">
+                  <div className="form-group">
+                    <label htmlFor="unit-cost">Unit Cost</label>
+                    <input type="name" className="form-control" id="unit-cost" placeholder="Unit Cost" />
+                  </div>
+                </div>
+                <div className="modal-footer">
+                  <button type="button" className="btn btn-primary ingredient-submit">
+                    Create Ingredient
+                    </button>
                 </div>
               </div>
-              <select className="form-control">
-                <option>Default select</option>
-                <option>Default select</option>
-                <option>Default select</option>
-              </select>
-            
             </form>
-          </div>
-          <div className="modal-footer">
-            <button type="button" className="btn btn-primary">Create</button>
+
+
           </div>
         </div>
       </div>

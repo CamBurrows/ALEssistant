@@ -12,7 +12,7 @@ const RecipePageTitle = (props) => (
         <div className="col-sm-7">
         </div>
         <div className="col-sm-2">
-        <AddRecipeButton />
+            <AddRecipeButton />
         </div>
     </div>
 )
