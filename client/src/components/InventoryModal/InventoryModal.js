@@ -1,12 +1,8 @@
 import React from "react";
 
-const Inventory = props => (
+const InventoryModal = props => (
 
   <div className="row">
-    <button type="button" className="btn btn" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">
-      <img className="nav-icon" src="/images/keg.png" alt="" />
-      <h2>Login</h2>
-    </button>
     <div className="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div className="modal-dialog" role="document">
         <div className="modal-content">
@@ -34,10 +30,7 @@ const Inventory = props => (
                 <option>Default select</option>
                 <option>Default select</option>
               </select>
-              <div className="form-group">
-                <label>Confirm Password</label>
-                <input type="password" className="form-control" id="exampleInputPassword1" placeholder="Password" />
-              </div>
+            
             </form>
           </div>
           <div className="modal-footer">
@@ -50,4 +43,4 @@ const Inventory = props => (
 
 );
 
-export default Inventory;
+export default InventoryModal;
