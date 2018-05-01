@@ -2,9 +2,8 @@ import React from "react";
 
 const Inventory = props => (
 
-
   <div className="row">
-    <button type="button" class="btn btn" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">
+    <button type="button" className="btn btn" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">
       <img className="nav-icon" src="/images/keg.png" alt="" />
       <h2>Login</h2>
     </button>
@@ -24,10 +23,10 @@ const Inventory = props => (
                   Category
                   </button>
                 <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                  <a className="dropdown-item" href="#">Barley</a>
-                  <a className="dropdown-item" href="#">Exotics</a>
-                  <a className="dropdown-item" href="#">Hops</a>
-                  <a className="dropdown-item" href="#">Yeast</a>
+                  <a className="dropdown-item">Grain</a>
+                  <a className="dropdown-item">Exotics</a>
+                  <a className="dropdown-item">Hops</a>
+                  <a className="dropdown-item">Yeast</a>
                 </div>
               </div>
               <select className="form-control">
@@ -36,7 +35,7 @@ const Inventory = props => (
                 <option>Default select</option>
               </select>
               <div className="form-group">
-                <label for="exampleInputPassword1">Confirm Password</label>
+                <label>Confirm Password</label>
                 <input type="password" className="form-control" id="exampleInputPassword1" placeholder="Password" />
               </div>
             </form>

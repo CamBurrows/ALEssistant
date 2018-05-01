@@ -1,5 +1,9 @@
-.nav-icon {
-    height: 150px;
-    
+.nav-icon-login {
+    height: 75px;
+    margin: 20px;
 }
 
+.nav-btn {
+    background-color: rgba(0, 0, 0, 0.0);
+    text-align: center
+}

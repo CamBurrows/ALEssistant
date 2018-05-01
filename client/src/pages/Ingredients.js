@@ -1,6 +1,7 @@
 import React from "react";
 import Navbar from '../components/Navbar';
 import InvPageTitle from '../components/InvPageTitle';
+import Inventory from '../components/Inventory'
 import Wrapper from '../components/Wrapper';
 
 class Ingredients extends React.Component {
@@ -9,6 +10,7 @@ class Ingredients extends React.Component {
             <Wrapper>
                 <Navbar />
                 <InvPageTitle />
+                <Inventory />
             </Wrapper>
         )
     }

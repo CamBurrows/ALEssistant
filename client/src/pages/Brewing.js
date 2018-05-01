@@ -7,8 +7,8 @@ class Brewing extends React.Component {
     render(){
         return (
             <Wrapper>
-            <Navbar />
-            <BrewPageTitle />
+                <Navbar />
+                <BrewPageTitle />
             </Wrapper>
         )
     }
