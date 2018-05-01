@@ -11,7 +11,7 @@ const Inventory = props => (
       <div className="modal-dialog" role="document">
         <div className="modal-content">
           <div className="modal-header">
-            <h5 className="modal-title" id="exampleModalLabel">ALEssistant Login</h5>
+            <h5 className="modal-title" id="exampleModalLabel">Add Ingredients</h5>
             <button type="button" className="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -41,7 +41,7 @@ const Inventory = props => (
             </form>
           </div>
           <div className="modal-footer">
-            <button type="button" className="btn btn-primary">Login</button>
+            <button type="button" className="btn btn-primary">Create</button>
           </div>
         </div>
       </div>
