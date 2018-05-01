@@ -1,0 +1,16 @@
+body {
+    background-image: url("https://www.carlingpartnership.com/news/wp-content/uploads/2016/06/brewery.jpg");
+    background-size: auto
+}
+
+#info-box {
+    margin-top: 10%;
+    color: white;
+    font-size: 30px;
+    background-color: rgba(0, 0, 0, .75);
+    padding: 10px
+}
+
+.brew-btn {
+    margin-top: 20px;
+}

@@ -6,17 +6,26 @@ const LoginNav = props => (
   <nav className="navbar navbar-expand-lg navbar-light bg-light">
     <div className="container">
 
-      <h1 className="main-header">ALEssistant</h1>
+      <div className="main-header">
+        <img src="images/logo.png" />
+      </div>
 
       <ul className="nav justify-content-end">
-      
+
         <li className="nav-item">
           <div>
             <div className="row">
+
               <button type="button" class="btn login" data-toggle="modal" data-target="#loginModal" data-whatever="@mdo">
-                <img className="nav-icon" src="/images/keg.png" alt="" />
+                <img className="nav-icon-login" src="/images/keg3.png" alt="" />
                 <h2>Login</h2>
               </button>
+
+              <button type="button" className="btn nav-btn" data-toggle="modal" data-target="" data-whatever="@mdo">
+                <img className="nav-icon-login" src="/images/keg4.png" alt="" />
+                <p>Sign-Up</p>
+              </button>
+
               <div className="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div className="modal-dialog" role="document">
                   <div className="modal-content">
@@ -29,17 +38,17 @@ const LoginNav = props => (
                     <div className="modal-body">
                       <form>
                         <div className="form-group">
-                          <label for="exampleInputEmail1">Email address</label>
+                          <label htmlFor="exampleInputEmail1">Email address</label>
                           <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" />
                           <small id="emailHelp" className="form-text text-muted">Please input your full email to login.</small>
                         </div>
                         <div className="form-group">
-                          <label for="exampleInputPassword1">Password</label>
+                          <label htmlFor="exampleInputPassword1">Password</label>
                           <input type="password" className="form-control" id="exampleInputPassword1" placeholder="Password" />
                         </div>
                         <div className="form-group">
-                          <label for="exampleInputPassword1">Confirm Password</label>
-                          <input type="password" className="form-control" id="exampleInputPassword1" placeholder="Password" />
+                          <label htmlFor="exampleInputPassword1">Confirm Password</label>
+                          <input type="password" className="form-control" id="exampleInputPassword2" placeholder="Password" />
                         </div>
                       </form>
                     </div>
