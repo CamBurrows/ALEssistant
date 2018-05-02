@@ -4,6 +4,7 @@ import InvPageTitle from '../components/InvPageTitle';
 import InventoryModal from '../components/InventoryModal';
 import Wrapper from '../components/Wrapper';
 import IngredientLine from '../components/IngredientLine';
+import API from '../utils/API.js'
 
 class Inventory extends React.Component {
 
@@ -28,14 +29,16 @@ class Inventory extends React.Component {
 
     handleFormSubmit = event => {
         event.preventDefault();
-        if (this.statename && this.statetype && this.statequantity && this.stateunit && this.statecost) {
-        //   API.saveBook({
-        //     title: this.state.title,
-        //     author: this.state.author,
-        //     synopsis: this.state.synopsis
-        //   })
-        //     .then(res => this.loadBooks())
-        //     .catch(err => console.log(err));
+        if (this.state.name && this.state.type && this.state.quantity && this.state.unit && this.state.cost) {
+           API.addIngredient({
+             name: this.state.name,
+             type: this.state.type,
+             quantity: this.state.quantity,
+             units: this.state.unit,
+             cost: this.state.cost
+           })
+            //  .then(res => this.loadBooks())
+             .catch(err => console.log(err));
         }
     };
 
