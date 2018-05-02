@@ -18,13 +18,13 @@ const InventoryModal = props => (
             <form>
               <div className="form-group">
                 <label htmlFor="ingredient-name">Add Ingredients</label>
-                <input type="name" className="form-control" id="ingredient-name" placeholder="Ingredient" />
+                <input type="name" name="name" onChange={props.onChange} value={props.newNameValue} className="form-control" id="ingredient-name" placeholder="Ingredient" />
               </div>
               <div className="row category-1">
                 <div className="col-sm-4">
                   <div className="form-group">
                     <label htmlFor="category-select">Category</label>
-                    <select className="form-control" id="category-select">
+                    <select className="form-control" id="category-select" name="type" onChange={props.onChange} value={props.newTypeValue}>
                       <option>Grains</option>
                       <option>Hops</option>
                       <option>Yeast</option>
@@ -35,13 +35,13 @@ const InventoryModal = props => (
                 <div className="col-sm-4">
                   <div className="form-group">
                     <label htmlFor="ingredient-amount">Amount</label>
-                    <input type="number" className="form-control" id="ingredient-amount" />
+                    <input type="number" className="form-control" name="quantity" onChange={props.onChange} value={props.newQuantityValue} id="ingredient-amount" />
                   </div>
                 </div>
                 <div className="col-sm-4">
                   <div className="form-group">
                     <label htmlFor="unit-select">Unit</label>
-                    <select className="form-control" id="unit-select">
+                    <select className="form-control" name="type" onChange={props.onChange} value={props.newUnitValue} id="unit-select">
                       <option>Lbs</option>
                       <option>Oz.</option>
                       <option>grams</option>
@@ -51,11 +51,11 @@ const InventoryModal = props => (
                 <div className="col-sm-12">
                   <div className="form-group">
                     <label htmlFor="unit-cost">Unit Cost</label>
-                    <input type="name" className="form-control" id="unit-cost" placeholder="Unit Cost" />
+                    <input type="price" className="form-control" name="cost" onChange={props.onChange} value={props.newNameCost} id="unit-cost" placeholder="Unit Cost" />
                   </div>
                 </div>
                 <div className="modal-footer">
-                  <button type="button" className="btn btn-primary ingredient-submit">
+                  <button type="button" onClick={props.onClick} className="btn btn-primary ingredient-submit">
                     Create Ingredient
                     </button>
                 </div>

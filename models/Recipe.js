@@ -38,7 +38,7 @@ var RecipeSchema = new Schema({
             type: Number,
             trim: true
         },
-//        required: true,
+        //        required: true,
     }],
     hops: [{
         name: {
@@ -96,6 +96,11 @@ var RecipeSchema = new Schema({
             trim: true
         }
     }]
+    ,
+    _userId: {
+        type: Schema.Types.ObjectId,
+        ref: "User"
+    }
 });
 
 // This creates our model from the above schema, using mongoose's model method
