@@ -1,6 +1,5 @@
 import React from "react";
 import LoginNav from '../components/LoginNav';
-import LoginModal from '../components/LoginModal';
 import "./Landing.css"
 
 class Landing extends React.Component {
