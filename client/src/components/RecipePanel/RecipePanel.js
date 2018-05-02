@@ -80,14 +80,17 @@ const RecipePanel = (props) => (
                             <tr>
                               <td>Hops 1</td>
                               <td>10 lbs</td>
+                              <td>90 min</td>
                             </tr>
                             <tr>
                               <td>Hops 2</td>
                               <td>20 lbs</td>
+                              <td>120 min</td>
                             </tr>
                             <tr>
                               <td>Hops 3</td>
                               <td>30 lbs</td>
+                              <td>120 min</td>
                             </tr>
                           </tbody>
                         </table>
@@ -119,15 +122,15 @@ const RecipePanel = (props) => (
                         <table class="table table-hover table-sm">
                           <tbody>
                             <tr>
-                              <td>Hops 1</td>
+                              <td>Exotics 1</td>
                               <td>10 lbs</td>
                             </tr>
                             <tr>
-                              <td>Hops 2</td>
+                              <td>Exotics 2</td>
                               <td>20 lbs</td>
                             </tr>
                             <tr>
-                              <td>Hops 3</td>
+                              <td>Exotics 3</td>
                               <td>30 lbs</td>
                             </tr>
                           </tbody>
@@ -155,10 +158,8 @@ const RecipePanel = (props) => (
                               <td>350</td>
                               <td>90</td>
                               <td>90</td>
-                            </tr>
-                            <tr>
-                              <td>Hops 2</td>
-                              <td>20 lbs</td>
+                              <td>3 days</td>
+                              <td>20 gallons</td>
                             </tr>
                           </tbody>
                       </table>
@@ -169,7 +170,16 @@ const RecipePanel = (props) => (
             </div>
 
             <div className="col-sm-3 notes">
-              <p>Notes</p>
+              <div className="card">
+                <div className="card-body">
+                  <p>Notes</p>
+                    <div className="card">
+                      <div className="card-body">
+                      This is a note about this Recipe
+                      </div>
+                    </div>
+                </div>
+              </div>
             </div>
 
           </div>
