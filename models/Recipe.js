@@ -38,7 +38,7 @@ var RecipeSchema = new Schema({
             type: Number,
             trim: true
         },
-//        required: true,
+        //        required: true,
     }],
     hops: [{
         name: {
@@ -75,11 +75,11 @@ var RecipeSchema = new Schema({
     sessions: [{
         dateBrewed: {
             type: Date,
-            default: Date.now 
+            default: Date.now
         },
         fermentationComplete: {
-        type: Boolean,
-        default: false
+            type: Boolean,
+            default: false
         },
         packaged: {
             type: Boolean,
@@ -90,6 +90,11 @@ var RecipeSchema = new Schema({
             trim: true
         }
     }]
+    ,
+    _userId: {
+        type: Schema.Types.ObjectId,
+        ref: "User"
+    }
 });
 
 // This creates our model from the above schema, using mongoose's model method
