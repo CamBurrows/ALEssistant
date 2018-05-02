@@ -69,7 +69,6 @@ var RecipeSchema = new Schema({
         },
         units: {
             type: String,
-            required: true,
             trim: true
         }
     }],
