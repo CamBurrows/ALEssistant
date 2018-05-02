@@ -141,7 +141,7 @@ const AddRecipeModal = (props) => (
             <div className ="row hops-1">
                 <div className ="col-sm-4">
                     <div className="form-group">
-                        <label htmlFor="hops-select1">Select hops</label>
+                        <label htmlFor="hops-select1">Select Hops</label>
                         <select className="form-control" id="hops-select1">
                         <option>1</option>
                         <option>2</option>
@@ -151,13 +151,13 @@ const AddRecipeModal = (props) => (
                         </select>
                     </div>
                 </div>
-                <div className ="col-sm-4">
+                <div className ="col-sm-2">
                     <div className="form-group">
                         <label htmlFor="hops-amt1">Amount</label>
                         <input type="number" className="form-control" id="hops-amt1" />
                     </div>
                 </div>
-                <div className ="col-sm-4">
+                <div className ="col-sm-2">
                     <div className="form-group">
                         <label htmlFor="hops-unit1">Unit</label>
                         <select className="form-control" id="hops-unit1">
@@ -165,6 +165,12 @@ const AddRecipeModal = (props) => (
                         <option>oz</option>
                         <option>g</option>
                         </select>
+                    </div>
+                </div>
+                <div className ="col-sm-4">
+                    <div className="form-group">
+                        <label htmlFor="hops-time1">Time Added</label>
+                        <input type="number" className="form-control" id="hops-time1" />
                     </div>
                 </div>
             </div>
@@ -181,18 +187,23 @@ const AddRecipeModal = (props) => (
                         </select>
                     </div>
                 </div>
-                <div className ="col-sm-4">
+                <div className ="col-sm-2">
                     <div className="form-group">
                         <input type="number" className="form-control" id="hops-amt2" />
                     </div>
                 </div>
-                <div className ="col-sm-4">
+                <div className ="col-sm-2">
                     <div className="form-group">
                         <select className="form-control" id="hops-unit2">
                         <option>lbs</option>
                         <option>oz</option>
                         <option>g</option>
                         </select>
+                    </div>
+                </div>
+                <div className ="col-sm-4">
+                    <div className="form-group">
+                        <input type="number" className="form-control" id="hops-time2" />
                     </div>
                 </div>
             </div>
@@ -209,18 +220,23 @@ const AddRecipeModal = (props) => (
                         </select>
                     </div>
                 </div>
-                <div className ="col-sm-4">
+                <div className ="col-sm-2">
                     <div className="form-group">
                         <input type="number" className="form-control" id="hops-amt3" />
                     </div>
                 </div>
-                <div className ="col-sm-4">
+                <div className ="col-sm-2">
                     <div className="form-group">
                         <select className="form-control" id="hops-unit3">
                         <option>lbs</option>
                         <option>oz</option>
                         <option>g</option>
                         </select>
+                    </div>
+                </div>
+                <div className ="col-sm-4">
+                    <div className="form-group">
+                        <input type="number" className="form-control" id="hops-time3" />
                     </div>
                 </div>
             </div>
@@ -237,12 +253,12 @@ const AddRecipeModal = (props) => (
                         </select>
                     </div>
                 </div>
-                <div className ="col-sm-4">
+                <div className ="col-sm-2">
                     <div className="form-group">
                         <input type="number" className="form-control" id="hops-amt4" />
                     </div>
                 </div>
-                <div className ="col-sm-4">
+                <div className ="col-sm-2">
                     <div className="form-group">
                         <select className="form-control" id="hops-unit4">
                         <option>lbs</option>
@@ -251,13 +267,18 @@ const AddRecipeModal = (props) => (
                         </select>
                     </div>
                 </div>
+                <div className ="col-sm-4">
+                    <div className="form-group">
+                        <input type="number" className="form-control" id="hops-time4" />
+                    </div>
+                </div>
             </div>
 
             {/* Exotics */}
             <div className ="row exotics-1">
                 <div className ="col-sm-4">
                     <div className="form-group">
-                        <label htmlFor="exotics-select1">Select exotics</label>
+                        <label htmlFor="exotics-select1">Select Exotics</label>
                         <select className="form-control" id="exotics-select1">
                         <option>1</option>
                         <option>2</option>
@@ -373,7 +394,7 @@ const AddRecipeModal = (props) => (
             <div className ="row yeast-1">
                 <div className ="col-sm-4">
                     <div className="form-group">
-                        <label htmlFor="yeast-select1">Select yeast</label>
+                        <label htmlFor="yeast-select1">Select Yeast</label>
                         <select className="form-control" id="yeast-select1">
                         <option>1</option>
                         <option>2</option>
