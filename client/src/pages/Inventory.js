@@ -9,28 +9,26 @@ class Inventory extends React.Component {
 
     state = {
         allIngredients: [],
-        newIngredient: {
-            name: "",
-            type: "",
-            quantity: 0,
-            unit: "",
-            cost: 0,
-        }
+        name: "",
+        type: "",
+        quantity: 0,
+        unit: "",
+        cost: 0,
+        userId: "",
+        
     }
 
     handleInputChange = event => {
         const { name, value } = event.target;
         this.setState({
-          newIngredient:{
               [name]: value
-          }
         });
-        console.log(this.state.newIngredient)
+        console.log(this.state)
     };
 
     handleFormSubmit = event => {
         event.preventDefault();
-        if (this.state.newIngredient.name && this.state.newIngredient.type && this.state.newIngredient.quantity && this.state.newIngredient.unit && this.state.newIngredient.cost) {
+        if (this.statename && this.statetype && this.statequantity && this.stateunit && this.statecost) {
         //   API.saveBook({
         //     title: this.state.title,
         //     author: this.state.author,
@@ -50,11 +48,11 @@ class Inventory extends React.Component {
                 <InventoryModal 
                     onChange={this.handleInputChange}
                     onClick={this.handleFormSubmit}
-                    newNameValue={this.state.newIngredient.name}
-                    newTypeValue={this.state.newIngredient.type}
-                    newQuantityValue={this.state.newIngredient.quantity}
-                    newUnitValue={this.state.newIngredient.unit}
-                    newCostValue={this.state.newIngredient.cost}
+                    newNameValue={this.state.name}
+                    newTypeValue={this.state.type}
+                    newQuantityValue={this.state.quantity}
+                    newUnitValue={this.state.unit}
+                    newCostValue={this.state.cost}
                 />
 
                 <div className="container-fluid">
