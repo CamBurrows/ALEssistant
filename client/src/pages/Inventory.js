@@ -37,6 +37,7 @@ class Inventory extends React.Component {
              units: this.state.unit,
              cost: this.state.cost
            })
+            .then(console.log("sent recipe"))
             //  .then(res => this.loadBooks())
              .catch(err => console.log(err));
         }

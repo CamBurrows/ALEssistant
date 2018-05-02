@@ -25,6 +25,7 @@ const InventoryModal = props => (
                   <div className="form-group">
                     <label htmlFor="category-select">Category</label>
                     <select className="form-control" id="category-select" name="type" onChange={props.onChange} value={props.newTypeValue}>
+                      <option>Please Select</option>
                       <option>Grains</option>
                       <option>Hops</option>
                       <option>Yeast</option>
@@ -41,7 +42,8 @@ const InventoryModal = props => (
                 <div className="col-sm-4">
                   <div className="form-group">
                     <label htmlFor="unit-select">Unit</label>
-                    <select className="form-control" name="type" onChange={props.onChange} value={props.newUnitValue} id="unit-select">
+                    <select className="form-control" name="unit" onChange={props.onChange} value={props.newUnitValue} id="unit-select">
+                      <option>Please Select</option>
                       <option>Lbs</option>
                       <option>Oz.</option>
                       <option>grams</option>
