@@ -7,6 +7,8 @@ const IngredientLine = (props) => (
         <td>30</td>
         <td>lbs</td>
         <td>$25</td>
+        <td><button className="btn">Modify Field</button></td>
+        <td><button className="btn">Delete</button></td>
     </tr>
 
 )
