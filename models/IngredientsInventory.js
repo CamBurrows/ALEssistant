@@ -25,7 +25,8 @@ const IngredientsInventorySchema = new Schema({
         required: true
     },
     cost: {
-        Type: Number, //not required in case we are adding something we don't yet know the cost of
+        type: Number, //not required in case we are adding something we don't yet know the cost of
+        trim: true
     },
         _userId: {
           type: Schema.Types.ObjectId,
