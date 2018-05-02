@@ -51,7 +51,7 @@ const InventoryModal = props => (
                 <div className="col-sm-12">
                   <div className="form-group">
                     <label htmlFor="unit-cost">Unit Cost</label>
-                    <input type="name" className="form-control" name="cost" onChange={props.onChange} value={props.newNameCost} id="unit-cost" placeholder="Unit Cost" />
+                    <input type="price" className="form-control" name="cost" onChange={props.onChange} value={props.newNameCost} id="unit-cost" placeholder="Unit Cost" />
                   </div>
                 </div>
                 <div className="modal-footer">

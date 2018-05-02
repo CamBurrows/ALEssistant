@@ -21,8 +21,11 @@ class Inventory extends React.Component {
     handleInputChange = event => {
         const { name, value } = event.target;
         this.setState({
-        //   newIngredient.[name]: value
+          newIngredient:{
+              [name]: value
+          }
         });
+        console.log(this.state.newIngredient)
     };
 
     handleFormSubmit = event => {
