@@ -1,15 +1,18 @@
 import React from "react";
 import Navbar from '../components/Navbar';
 import InvPageTitle from '../components/InvPageTitle';
+import InventoryModal from '../components/InventoryModal';
 import Wrapper from '../components/Wrapper';
 import IngredientLine from '../components/IngredientLine';
 
 class Inventory extends React.Component {
-    render(){
+    render() {
         return (
             <Wrapper>
                 <Navbar />
                 <InvPageTitle />
+                <InventoryModal />
+
 
                 <div className="container-fluid">
                     <table class="table table-hover table-light ing-table">
@@ -28,7 +31,6 @@ class Inventory extends React.Component {
                     </tbody>
                     </table>
                 </div>
-             
             </Wrapper>
         )
     }
