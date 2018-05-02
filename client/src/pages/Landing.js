@@ -4,10 +4,63 @@ import LoginModal from '../components/LoginModal';
 import "./Landing.css"
 
 class Landing extends React.Component {
+
+    state = {
+                loginEmail: "",
+                loginPassword: "",
+                signUpUsername: "",
+                signUpEmail: "",
+                signUpPassword: "",
+                isAuth: false
+    };
+
+    handleInputChange = event => {
+        const { name, value } = event.target;
+        this.setState({
+          [name]: value
+        });
+    };
+    
+      handleFormSubmitLogin = event => {
+        event.preventDefault();
+        if (this.state.loginEmail && this.state.loginPassword) {
+        //   API.saveBook({
+        //     title: this.state.title,
+        //     author: this.state.author,
+        //     synopsis: this.state.synopsis
+        //   })
+        //     .then(res => this.loadBooks())
+        //     .catch(err => console.log(err));
+        }
+      };
+
+      handleFormSubmitSignUp = event => {
+        event.preventDefault();
+        if (this.state.signUpUsername && this.state.signUpEmail && this.state.signUpPassword) {
+            // API.signUp({
+                // title: this.state.title,
+                // author: this.state.author,
+                // synopsis: this.state.synopsis
+        //   }
+            // .then(res => this.loadBooks())
+            // .catch(err => console.log(err));
+        }
+      };
+
     render(){
         return (
             <div>
-            <LoginNav />
+            <LoginNav 
+            onChange={this.handleInputChange}
+            loginEmailValue={this.state.loginEmail} 
+            loginPasswordValue={this.state.loginPassword} 
+            signUpUsernameValue={this.state.signUpUsername}
+            signUpEmailValue={this.state.signUpEmail}
+            signUpPasswordValue={this.state.signUpPassword}
+            handleFormSubmitLogin={this.handleFormSubmitLogin}
+            handleFormSubmitSignUp={this.handleFormSubmitSignUp}
+
+            />
                 <div className="container">
                     <div className='row'>
                         <div id="info-box" className="col-sm-6">
@@ -26,11 +79,5 @@ class Landing extends React.Component {
         )
     }
 }
-
-// var bg = {
-//      backgroundImage: 'url("https://www.awesomemitten.com/wp-content/uploads/2016/11/brewing.jpg")',
-//      width: "100%",
-//      height: "400px"
-// }
 
 export default Landing;
