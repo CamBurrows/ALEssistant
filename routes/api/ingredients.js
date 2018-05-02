@@ -3,7 +3,8 @@ const db = require("../../models/");
 
 //This hard-coded route "works", but needs refinement
 router.post('/ingredients', function(req, res) {
-  db.IngredientsInventory.create({name: "Pale Malt", type: "grain", quantity: "20", units: "pounds", cost: "2", _userId: "5ae769f382a736321c3c00cc"})
+  console.log("req body = " + JSON.stringify(req.body))
+  db.IngredientsInventory.create(req.body)
   .then(function(dbIngredients){res.json(dbIngredients)})
 });
 
@@ -32,7 +33,7 @@ router.get('/ingredients/:id', function(req, res) {
 });
 
 
-//PostMan says it works
+
 router.delete('/ingredients/:id', function(req, res) {
   db.IngredientsInventory.remove({_id:req.params.id})
   .then(
