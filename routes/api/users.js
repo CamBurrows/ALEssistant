@@ -1,21 +1,11 @@
 const router = require('express').Router();
-const db = require("../../models/");
+const usersController = require("../../controllers/usersController.js");
 
 //PostMan says it works
-router.get('/users', function(req, res) {
-  db.User.find({})
-  .then(
-    dbUser => res.json(dbUser)
-  )
-});
+router.get('/users', usersController.findAll);
 
 //PostMan says it works
-router.get('/users/:id', function(req, res) {
-  db.User.find({_id:req.params.id})
-  .then(
-    dbUser => res.json(dbUser)
-  )
-});
+router.get('/users/:id', usersController.findOne);
 
 
 //Needs testing and validation
@@ -29,12 +19,7 @@ router.get('/users/:id', function(req, res) {
 // });
 
 //Seems to work, but please validate
-router.delete('/users/:id', function(req, res) {
-  db.User.remove({_id:req.params.id})
-  .then(
-    dbUser => res.json(dbUser)
-  )
-});
+router.delete('/users/:id', usersController.remove);
 
 
 module.exports = router;

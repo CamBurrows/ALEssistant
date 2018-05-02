@@ -38,21 +38,17 @@ const LoginNav = props => (
                       <form>
                         <div className="form-group">
                           <label htmlFor="exampleInputEmail1">Email address</label>
-                          <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" />
+                          <input type="email" className="form-control" name="loginEmail" onChange={props.onChange} value={props.loginEmailValue} id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" />
                           <small id="emailHelp" className="form-text text-muted">Please input your full email to login.</small>
                         </div>
                         <div className="form-group">
                           <label htmlFor="exampleInputPassword1">Password</label>
-                          <input type="password" className="form-control" id="exampleInputPassword1" placeholder="Password" />
-                        </div>
-                        <div className="form-group">
-                          <label htmlFor="exampleInputPassword1">Confirm Password</label>
-                          <input type="password" className="form-control" id="exampleInputPassword2" placeholder="Password" />
+                          <input type="password" className="form-control" name="loginPassword" onChange={props.onChange} value={props.loginPasswordValue} id="exampleInputPassword1" placeholder="Password" />
                         </div>
                       </form>
                     </div>
                     <div className="modal-footer">
-                      <button type="button" className="btn btn-primary">Login</button>
+                      <button type="button" onClick={props.handleFormSubmitLogin} className="btn btn-primary">Login</button>
                     </div>
                   </div>
                 </div>
@@ -76,22 +72,23 @@ const LoginNav = props => (
                     <div className="modal-body">
                       <form>
                         <div className="form-group">
-                          <label for="exampleInputEmail1">Email address</label>
-                          <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" />
+                          <label>Display name</label>
+                          <input type="email" className="form-control" name="signUpUsername" onChange={props.onChange} value={props.signUpUsernameValue} id="display-name" aria-describedby="emailHelp" placeholder="Display Name" />
+                          <small id="emailHelp" className="form-text text-muted">The name that will display when you log in.</small>
+                        </div>
+                        <div className="form-group">
+                          <label>Email address</label>
+                          <input type="email" className="form-control" name="signUpEmail" onChange={props.onChange} value={props.signUpEmailValue} id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Enter email" />
                           <small id="emailHelp" className="form-text text-muted">Please input your full email to sign up.</small>
                         </div>
                         <div className="form-group">
-                          <label for="exampleInputPassword1">Password</label>
-                          <input type="password" className="form-control" id="exampleInputPassword1" placeholder="Password" />
-                        </div>
-                        <div className="form-group">
-                          <label for="exampleInputPassword1">Confirm Password</label>
-                          <input type="password" className="form-control" id="exampleInputPassword1" placeholder="Password" />
+                          <label>Password</label>
+                          <input type="password" className="form-control" name="signUpPassword" onChange={props.onChange} value={props.signUpPasswordValue} id="exampleInputPassword" placeholder="Password" />
                         </div>
                       </form>
                     </div>
                     <div className="modal-footer">
-                      <button type="button" className="btn btn-primary">Sign Up</button>
+                      <button type="button" onClick={props.handleFormSubmitSignUp} className="btn btn-primary">Sign Up</button>
                     </div>
                   </div>
                 </div>
