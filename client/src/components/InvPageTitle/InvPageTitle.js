@@ -5,17 +5,17 @@ import AddIngredient from '../AddIngredient';
 const InvPageTitle = (props) => (
 
     <div className="container-fluid">
-        <div className="row">
-            <div className="col">
+        <div className="row title-row">
+            <div className="col-sm-3">
                 <div className="container-fluid">
-                    <h1>Inventory</h1>
+                    <h1>Recipes</h1>
                 </div>
             </div>
-        </div>
-        <div className="col-sm-7">
-        </div>
-        <div className="col-sm-2">
+            <div className="col-sm-7">
+            </div>
+            <div className="col-sm-2">
             <AddIngredient />
+            </div>
         </div>
     </div>
 
