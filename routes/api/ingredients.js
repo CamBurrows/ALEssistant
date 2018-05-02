@@ -1,12 +1,8 @@
 const router = require('express').Router();
-const db = require("../../models/");
+const ingredientsController = require("../../controllers/ingredientsController.js");
 
 //This hard-coded route "works", but needs refinement
-router.post('/ingredients', function(req, res) {
-  console.log("req body = " + JSON.stringify(req.body))
-  db.IngredientsInventory.create(req.body)
-  .then(function(dbIngredients){res.json(dbIngredients)})
-});
+router.post('/ingredients', ingredientsController.create);
 
 //possible refinement of the above
 router.post('/ingredients/:id', function(req, res) {
@@ -16,21 +12,11 @@ router.post('/ingredients/:id', function(req, res) {
 
 
 //PostMan says it works
-router.get('/ingredients', function(req, res) {
-  db.IngredientsInventory.find({})
-  .then(
-    dbIngredients => res.json(dbIngredients)
-  )
-});
+router.get('/ingredients', ingredientsController.findAll);
 
 
 //PostMan says it works
-router.get('/ingredients/:id', function(req, res) {
-  db.IngredientsInventory.find({_id:req.params.id})
-  .then(
-    dbIngredients => res.json(dbIngredients)
-  )
-});
+router.get('/ingredients/:id', ingredientsController.findOne);
 
 
 
