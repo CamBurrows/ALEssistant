@@ -42,16 +42,20 @@ module.exports = {
     }
     db.User.findOne({email: req.body.email})
       .then(function(user) {
-        //compare passwords
-        
-        var token = jwt.sign({userId: user._id, email: user.email}, 'my secret');
-        res.json({
-          user: user,
-          token: token
+        user.comparePassword(req.body.password, function(err, isMatch) {
+          if(isMatch) {
+            var token = jwt.sign({userId: user._id, email: user.email}, 'my secret');
+            res.status(200).json({
+              user: user,
+              token: token
+            });
+          } else {
+            res.status(400).json({message: 'Invalid Email/Password.'});
+          }
         });
       })
       .catch(function(err) {
-        res.json(err);
+        res.status(400).json(err);
       });
   }
 }

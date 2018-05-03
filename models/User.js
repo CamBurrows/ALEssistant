@@ -47,6 +47,13 @@ UserSchema.pre('save', function(next) {
   });
 });
 
+UserSchema.methods.comparePassword = function(plainTextPassword, next) {
+  bcrypt.compare(plainTextPassword, this.password, function(err, isMatch) {
+    if(err) return next(err);
+    next(null, isMatch);
+  });
+}
+
 // This creates our model from the above schema, using mongoose's model method
 const User = mongoose.model("User", UserSchema);
 
