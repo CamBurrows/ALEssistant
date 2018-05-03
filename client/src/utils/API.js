@@ -3,10 +3,10 @@ import axios from "axios";
 export default {
   // Gets all ingredients
   login: function() {
-    return axios.get("/login")
+    return axios.post("/login")
   },
   signUp: function() {
-    return axios.get("/signup")
+    return axios.post("/signup")
   },
   getIngredients: function() {
     return axios.get("/api/ingredients");
@@ -25,10 +25,10 @@ export default {
   },
   // Adds a recipe
   addRecipe: function(recipe) {
-    return axios.post("/api/books", recipe);
+    return axios.post("/api/recipes", recipe);
   },
   // Deletes a recipe
   removeRecipe: function(id) {
-    return axios.delete("/api/ingredients/" + id);
+    return axios.delete("/api/recipes/" + id);
   }
 };
