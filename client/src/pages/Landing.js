@@ -23,26 +23,25 @@ class Landing extends React.Component {
       handleFormSubmitLogin = event => {
         event.preventDefault();
         if (this.state.loginEmail && this.state.loginPassword) {
-        //   API.saveBook({
-        //     title: this.state.title,
-        //     author: this.state.author,
-        //     synopsis: this.state.synopsis
-        //   })
-        //     .then(res => this.loadBooks())
-        //     .catch(err => console.log(err));
+          API.login({
+            email: this.state.loginEmail,
+            password: this.state.loginPassword,
+          })
+            // .then(res => this.loadBooks())
+            .catch(err => console.log(err));
         }
       };
 
       handleFormSubmitSignUp = event => {
         event.preventDefault();
         if (this.state.signUpUsername && this.state.signUpEmail && this.state.signUpPassword) {
-            // API.signUp({
-                // title: this.state.title,
-                // author: this.state.author,
-                // synopsis: this.state.synopsis
-        //   }
+            API.signUp({
+                userName: this.state.signUpUsername,
+                email: this.state.signUpEmail,
+                password: this.state.signUpPassword
+          })
             // .then(res => this.loadBooks())
-            // .catch(err => console.log(err));
+            .catch(err => console.log(err));
         }
       };
 
