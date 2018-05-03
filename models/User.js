@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const bcrypt = require('bcryptjs');
 
 // Save a reference to the Schema constructor
 const Schema = mongoose.Schema;
@@ -9,8 +10,8 @@ const UserSchema = new Schema({
   email: {
     type: String,
     unique: true,
-    trim: true//,
-    //match: [/.+@.+\..+/, "Please enter a valid e-mail address"]
+    trim: true,
+    match: [/.+@.+\..+/, "Please enter a valid e-mail address"]
   },
   userName: {
     type: String,
@@ -35,6 +36,23 @@ const UserSchema = new Schema({
     }
   }]
 });
+
+UserSchema.pre('save', function(next) {
+  var user = this;
+  if(!user.isModified('password')) return next();
+  bcrypt.hash(user.password, 10, function(err, hashedPassword) {
+    if(err) return next(err);
+    user.password = hashedPassword;
+    next();
+  });
+});
+
+UserSchema.methods.comparePassword = function(plainTextPassword, next) {
+  bcrypt.compare(plainTextPassword, this.password, function(err, isMatch) {
+    if(err) return next(err);
+    next(null, isMatch);
+  });
+}
 
 // This creates our model from the above schema, using mongoose's model method
 const User = mongoose.model("User", UserSchema);
