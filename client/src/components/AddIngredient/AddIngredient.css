@@ -1,0 +1,9 @@
+.ingredient-btn {
+        margin-top: 7px;
+        background-color: rgba(203, 243, 150, 0.856);
+        /* opacity: .8; */
+        color: rgb(0, 0, 0);
+        position: relative;
+        text-align: center;
+    }
+    

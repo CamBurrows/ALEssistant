@@ -1,4 +1,5 @@
 import React from 'react'
+import './IngredientLine.css'
 
 const IngredientLine = (props) => (
     <tr>
@@ -7,8 +8,8 @@ const IngredientLine = (props) => (
         <td>30</td>
         <td>lbs</td>
         <td>$25</td>
-        <td><button className="btn">Modify Field</button></td>
-        <td><button className="btn">Delete</button></td>
+        <td><button className="btn editIng-btn">Edit</button></td>
+        <td><button className="btn deleteIng-btn">Delete</button></td>
     </tr>
 
 )

@@ -3,8 +3,8 @@ import './AddIngredient.css'
 
 const AddIngredient = props => (
 
-<button type="button" className="btn btn-light recipe-btn pull-right" data-toggle="modal" data-target="#inventoryModal">
-<p>Add Ingredient</p>
+<button type="button" className="btn ingredient-btn pull-right" data-toggle="modal" data-target="#inventoryModal">
+<h4>Add Ingredient</h4>
 </button>
 
 )

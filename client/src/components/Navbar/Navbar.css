@@ -33,20 +33,23 @@
 
 a {
     color: black;
+    font-size: 20px;
+    font-weight: 700;
 }
-
+/*
 p {
     font-family: 'avenir';
 }
+*/
 
-h1, h2 {
+h1, h2, h3, h4, h5, h6, p{
     font-family: 'mermaid';
-}
+} 
 
 /* .nav-item {
     margin: 40px;
 } */
 
-/* .text {
+.text {
     margin: 0 auto;
-} */
+}
