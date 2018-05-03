@@ -23,7 +23,7 @@ const AddRecipeModal = (props) => (
             </div>
 
             <div className ="row grains-1">
-                <div className ="col-sm-4">
+                <div className ="col-sm-6">
                     <div className="form-group">
                         <label htmlFor="grains-select1">Select Grains</label>
                         <select className="form-control" id="grains-select1">
@@ -35,26 +35,17 @@ const AddRecipeModal = (props) => (
                         </select>
                     </div>
                 </div>
-                <div className ="col-sm-4">
+                <div className ="col-sm-6">
                     <div className="form-group">
                         <label htmlFor="grains-amt1">Amount</label>
                         <input type="number" className="form-control" id="grains-amt1" />
                     </div>
                 </div>
-                <div className ="col-sm-4">
-                    <div className="form-group">
-                        <label htmlFor="grains-unit1">Unit</label>
-                        <select className="form-control" id="grains-unit1">
-                        <option>lbs</option>
-                        <option>oz</option>
-                        <option>g</option>
-                        </select>
-                    </div>
-                </div>
+                
             </div>
             
             <div className ="row grains-2">
-                <div className ="col-sm-4">
+                <div className ="col-sm-6">
                     <div className="form-group">
                         <select className="form-control" id="grains-select2">
                         <option>1</option>
@@ -65,24 +56,15 @@ const AddRecipeModal = (props) => (
                         </select>
                     </div>
                 </div>
-                <div className ="col-sm-4">
+                <div className ="col-sm-6">
                     <div className="form-group">
                         <input type="number" className="form-control" id="grains-amt2" />
-                    </div>
-                </div>
-                <div className ="col-sm-4">
-                    <div className="form-group">
-                        <select className="form-control" id="grains-unit2">
-                        <option>lbs</option>
-                        <option>oz</option>
-                        <option>g</option>
-                        </select>
                     </div>
                 </div>
             </div>
 
             <div className ="row grains-3">
-                <div className ="col-sm-4">
+                <div className ="col-sm-6">
                     <div className="form-group">
                         <select className="form-control" id="grains-select3">
                         <option>1</option>
@@ -93,24 +75,15 @@ const AddRecipeModal = (props) => (
                         </select>
                     </div>
                 </div>
-                <div className ="col-sm-4">
+                <div className ="col-sm-6">
                     <div className="form-group">
                         <input type="number" className="form-control" id="grains-amt3" />
-                    </div>
-                </div>
-                <div className ="col-sm-4">
-                    <div className="form-group">
-                        <select className="form-control" id="grains-unit3">
-                        <option>lbs</option>
-                        <option>oz</option>
-                        <option>g</option>
-                        </select>
                     </div>
                 </div>
             </div>
 
             <div className ="row grains-2">
-                <div className ="col-sm-4">
+                <div className ="col-sm-6">
                     <div className="form-group">
                         <select className="form-control" id="grains-select4">
                         <option>1</option>
@@ -121,25 +94,16 @@ const AddRecipeModal = (props) => (
                         </select>
                     </div>
                 </div>
-                <div className ="col-sm-4">
+                <div className ="col-sm-6">
                     <div className="form-group">
                         <input type="number" className="form-control" id="grains-amt4" />
-                    </div>
-                </div>
-                <div className ="col-sm-4">
-                    <div className="form-group">
-                        <select className="form-control" id="grains-unit4">
-                        <option>lbs</option>
-                        <option>oz</option>
-                        <option>g</option>
-                        </select>
                     </div>
                 </div>
             </div>
 
             {/* Hops */}
             <div className ="row hops-1">
-                <div className ="col-sm-4">
+                <div className ="col-sm-6">
                     <div className="form-group">
                         <label htmlFor="hops-select1">Select Hops</label>
                         <select className="form-control" id="hops-select1">
@@ -157,16 +121,6 @@ const AddRecipeModal = (props) => (
                         <input type="number" className="form-control" id="hops-amt1" />
                     </div>
                 </div>
-                <div className ="col-sm-2">
-                    <div className="form-group">
-                        <label htmlFor="hops-unit1">Unit</label>
-                        <select className="form-control" id="hops-unit1">
-                        <option>lbs</option>
-                        <option>oz</option>
-                        <option>g</option>
-                        </select>
-                    </div>
-                </div>
                 <div className ="col-sm-4">
                     <div className="form-group">
                         <label htmlFor="hops-time1">Time Added</label>
@@ -176,7 +130,7 @@ const AddRecipeModal = (props) => (
             </div>
             
             <div className ="row hops-2">
-                <div className ="col-sm-4">
+                <div className ="col-sm-6">
                     <div className="form-group">
                         <select className="form-control" id="hops-select2">
                         <option>1</option>
@@ -192,15 +146,6 @@ const AddRecipeModal = (props) => (
                         <input type="number" className="form-control" id="hops-amt2" />
                     </div>
                 </div>
-                <div className ="col-sm-2">
-                    <div className="form-group">
-                        <select className="form-control" id="hops-unit2">
-                        <option>lbs</option>
-                        <option>oz</option>
-                        <option>g</option>
-                        </select>
-                    </div>
-                </div>
                 <div className ="col-sm-4">
                     <div className="form-group">
                         <input type="number" className="form-control" id="hops-time2" />
@@ -209,7 +154,7 @@ const AddRecipeModal = (props) => (
             </div>
 
             <div className ="row hops-3">
-                <div className ="col-sm-4">
+                <div className ="col-sm-6">
                     <div className="form-group">
                         <select className="form-control" id="hops-select3">
                         <option>1</option>
@@ -225,15 +170,6 @@ const AddRecipeModal = (props) => (
                         <input type="number" className="form-control" id="hops-amt3" />
                     </div>
                 </div>
-                <div className ="col-sm-2">
-                    <div className="form-group">
-                        <select className="form-control" id="hops-unit3">
-                        <option>lbs</option>
-                        <option>oz</option>
-                        <option>g</option>
-                        </select>
-                    </div>
-                </div>
                 <div className ="col-sm-4">
                     <div className="form-group">
                         <input type="number" className="form-control" id="hops-time3" />
@@ -242,7 +178,7 @@ const AddRecipeModal = (props) => (
             </div>
 
             <div className ="row hops-2">
-                <div className ="col-sm-4">
+                <div className ="col-sm-6">
                     <div className="form-group">
                         <select className="form-control" id="hops-select4">
                         <option>1</option>
@@ -256,15 +192,6 @@ const AddRecipeModal = (props) => (
                 <div className ="col-sm-2">
                     <div className="form-group">
                         <input type="number" className="form-control" id="hops-amt4" />
-                    </div>
-                </div>
-                <div className ="col-sm-2">
-                    <div className="form-group">
-                        <select className="form-control" id="hops-unit4">
-                        <option>lbs</option>
-                        <option>oz</option>
-                        <option>g</option>
-                        </select>
                     </div>
                 </div>
                 <div className ="col-sm-4">

@@ -3,7 +3,7 @@ import React from "react";
 const InventoryModal = props => (
 
   <div className="row">
-    <div className="modal fade" id="inventoryModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div className="modal fade" id="inventoryModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div className="modal-dialog" role="document">
         <div className="modal-content">
           <div className="modal-header">
@@ -24,6 +24,7 @@ const InventoryModal = props => (
                   <div className="form-group">
                     <label htmlFor="category-select">Category</label>
                     <select className="form-control" id="category-select" name="type" onChange={props.onChange} value={props.newTypeValue}>
+                      <option>Please Select</option>
                       <option>Grains</option>
                       <option>Hops</option>
                       <option>Yeast</option>
@@ -40,9 +41,10 @@ const InventoryModal = props => (
                 <div className="col-sm-4">
                   <div className="form-group">
                     <label htmlFor="unit-select">Unit</label>
-                    <select className="form-control" name="type" onChange={props.onChange} value={props.newUnitValue} id="unit-select">
-                      <option>Lbs</option>
-                      <option>Oz.</option>
+                    <select className="form-control" name="unit" onChange={props.onChange} value={props.newUnitValue} id="unit-select">
+                      <option>Please Select</option>
+                      <option>lbs</option>
+                      <option>oz</option>
                       <option>grams</option>
                     </select>
                   </div>

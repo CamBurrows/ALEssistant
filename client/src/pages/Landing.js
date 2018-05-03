@@ -1,6 +1,7 @@
 import React from "react";
 import LoginNav from '../components/LoginNav';
 import "./Landing.css"
+import API from '../utils/API.js'
 
 class Landing extends React.Component {
 
@@ -23,26 +24,29 @@ class Landing extends React.Component {
     handleFormSubmitLogin = event => {
         event.preventDefault();
         if (this.state.loginEmail && this.state.loginPassword) {
-            //   API.saveBook({
-            //     title: this.state.title,
-            //     author: this.state.author,
-            //     synopsis: this.state.synopsis
-            //   })
-            //     .then(res => this.loadBooks())
-            //     .catch(err => console.log(err));
+
+          API.login({
+            email: this.state.loginEmail,
+            password: this.state.loginPassword,
+          })
+            // .then(res => this.loadBooks())
+            .catch(err => console.log(err));
+
         }
     };
 
     handleFormSubmitSignUp = event => {
         event.preventDefault();
         if (this.state.signUpUsername && this.state.signUpEmail && this.state.signUpPassword) {
-            // API.signUp({
-            // title: this.state.title,
-            // author: this.state.author,
-            // synopsis: this.state.synopsis
-            //   }
+
+            API.signUp({
+                userName: this.state.signUpUsername,
+                email: this.state.signUpEmail,
+                password: this.state.signUpPassword
+          })
+
             // .then(res => this.loadBooks())
-            // .catch(err => console.log(err));
+            .catch(err => console.log(err));
         }
     };
 
@@ -70,9 +74,11 @@ class Landing extends React.Component {
                     <br></br>
                     <br></br>
                     <div className="row">
+
                         <div className="col-sm-3">
                             <button class="btn btn-lg btn-block brew-btn" data-toggle="modal" data-target="#signUpModal" data-whatever="@mdo">
                                 BREW BETTER!
+
                         </button>
                         </div>
                     </div>

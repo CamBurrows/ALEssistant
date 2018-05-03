@@ -1,20 +1,34 @@
-// import axios from "axios";
+import axios from "axios";
 
-// export default {
-  // Gets all books
-//   getBooks: function() {
-//     return axios.get("/api/books");
-//   },
-//   // Gets the book with the given id
-//   getBook: function(id) {
-//     return axios.get("/api/books/" + id);
-//   },
-//   // Deletes the book with the given id
-//   deleteBook: function(id) {
-//     return axios.delete("/api/books/" + id);
-//   },
-//   // Saves a book to the database
-//   saveBook: function(bookData) {
-//     return axios.post("/api/books", bookData);
-//   }
-// };
+export default {
+  // Gets all ingredients
+  login: function() {
+    return axios.get("/login")
+  },
+  signUp: function() {
+    return axios.get("/signup")
+  },
+  getIngredients: function() {
+    return axios.get("/api/ingredients");
+  },
+  // Adds an ingredient
+  addIngredient: function(ingredient) {
+    return axios.post("/api/ingredients", ingredient);
+  },
+  // Gets the ingredient with the given id
+  removeIngredient: function(id) {
+    return axios.delete("/api/ingredients/" + id);
+  },
+  // Get all recipes
+  getRecipes: function() {
+    return axios.get("/api/recipes");
+  },
+  // Adds a recipe
+  addRecipe: function(recipe) {
+    return axios.post("/api/books", recipe);
+  },
+  // Deletes a recipe
+  removeRecipe: function(id) {
+    return axios.delete("/api/ingredients/" + id);
+  }
+};

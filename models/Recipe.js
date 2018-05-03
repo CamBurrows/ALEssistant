@@ -24,11 +24,20 @@ var RecipeSchema = new Schema({
         type: String,
         trim: true
     },
-    yeast: {
-        type: String,
-        required: true,
-        trim: true
-    },
+    yeast: [{
+        name: {
+            type: String,
+            required: true,
+            trim: true
+        },
+        amount: {
+            type: Number
+        },
+        units: {
+            type: String
+        }
+
+    }],
     grains: [{
         name: {
             type: String,
@@ -38,7 +47,7 @@ var RecipeSchema = new Schema({
             type: Number,
             trim: true
         },
-//        required: true,
+        //        required: true,
     }],
     hops: [{
         name: {
@@ -73,23 +82,37 @@ var RecipeSchema = new Schema({
         }
     }],
     sessions: [{
+        brewed: {
+            type: Boolean
+        },
         dateBrewed: {
             type: Date,
-            default: Date.now 
+            default: Date.now,
+            required: true
         },
         fermentationComplete: {
-        type: Boolean,
-        default: false
+            type: Boolean,
+            default: false,
+            required: true
         },
         packaged: {
             type: Boolean,
-            default: false
+            default: false,
+            required: true
         },
         notes: { //Anything odd that might have happened during the brew session/fermentation/packaging
             type: String,
             trim: true
         }
-    }]
+    }],
+    comments: {
+        type: String
+    }
+    ,
+    _userId: {
+        type: Schema.Types.ObjectId,
+        ref: "User"
+    }
 });
 
 // This creates our model from the above schema, using mongoose's model method
