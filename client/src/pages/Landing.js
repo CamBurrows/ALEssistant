@@ -1,6 +1,7 @@
 import React from "react";
 import LoginNav from '../components/LoginNav';
 import "./Landing.css"
+import API from '../utils/API.js'
 
 class Landing extends React.Component {
 

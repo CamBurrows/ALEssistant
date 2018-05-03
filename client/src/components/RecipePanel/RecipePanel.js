@@ -147,11 +147,13 @@ const RecipePanel = (props) => (
                         <p>Process</p>
                         <table class="table table-hover table-sm">
                           <thead>
+                            <tr>
                             <th>Mash Temp</th>
                             <th>Mash Time</th>
                             <th>Boil Time</th>
                             <th>Fermentation time</th>
                             <th>Output Volume</th>
+                            </tr>
                           </thead>
                           <tbody>
                             <tr>
