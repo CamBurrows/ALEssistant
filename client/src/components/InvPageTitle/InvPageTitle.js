@@ -8,7 +8,7 @@ const InvPageTitle = (props) => (
         <div className="row title-row">
             <div className="col-sm-3">
                 <div className="container-fluid">
-                    <h1>Recipes</h1>
+                    <h1>Inventory</h1>
                 </div>
             </div>
             <div className="col-sm-7">

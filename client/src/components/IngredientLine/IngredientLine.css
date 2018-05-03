@@ -1,0 +1,22 @@
+.editIng-btn {
+    margin-top: 4px;
+    background-color: black;
+    /* opacity: .8; */
+    color: white;
+    position: relative;
+    text-align: center;
+}
+
+.deleteIng-btn {
+    margin-top: 4px;
+    background-color: black;
+    /* opacity: .8; */
+    color: white;
+    position: relative;
+    text-align: center;
+}
+
+td {
+    font-weight: 600;
+    font-size: 20px
+}

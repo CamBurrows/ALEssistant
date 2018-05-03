@@ -1,0 +1,44 @@
+.shrink-btn {
+    margin-top: 7px;
+    background-color: black;
+    /* opacity: .8; */
+    color: white;
+    position: relative;
+    text-align: center;
+}
+
+.edit-btn {
+    margin-top: 7px;
+    background-color: black;
+    /* opacity: .8; */
+    color: white;
+    position: relative;
+    text-align: center;
+}
+
+.delete-btn {
+    margin-top: 7px;
+    background-color: black;
+    /* opacity: .8; */
+    color: white;
+    position: relative;
+    text-align: center;
+}
+
+.note-btn {
+    margin-top: 7px;
+    background-color: black;
+    /* opacity: .8; */
+    color: white;
+    position: relative;
+    text-align: center;
+}
+
+.newbatch-btn {
+    margin-top: 7px;
+    background-color: black;
+    /* opacity: .8; */
+    color: white;
+    position: relative;
+    text-align: center;
+}
