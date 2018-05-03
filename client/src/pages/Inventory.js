@@ -55,6 +55,14 @@ class Inventory extends React.Component {
         }
     };
 
+    // handleModifyClick = event => {
+
+    // }
+
+    // handleDeleteClick = event => {
+
+    // }
+
 
     render() {
         return (
@@ -83,8 +91,17 @@ class Inventory extends React.Component {
                         </tr>
                     </thead>
                     <tbody>
-                        <IngredientLine/>
-
+                    {this.state.allIngredients.map(ingredient => (
+                        <IngredientLine
+                            //handleModifyClick
+                            //handleDeleteClick
+                            name={ingredient.name}
+                            type={ingredient.type}
+                            quantity={ingredient.quantity}
+                            unit={ingredient.unit}
+                            cost={ingredient.cost}
+                        />
+                        ))}
                     </tbody>
                     </table>
                 </div>
