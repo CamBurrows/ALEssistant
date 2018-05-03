@@ -26,7 +26,7 @@ module.exports = {
         console.log(err);
         res.json({message: 'did not create'});
       });
-  },
+  }, 
   remove: function(req, res) {
     db.User.remove({_id:req.params.id})
     .then(
