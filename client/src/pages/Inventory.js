@@ -19,6 +19,18 @@ class Inventory extends React.Component {
         
     }
 
+    componentDidMount = () => {
+        this.loadInventory()
+    }
+
+    loadInventory = () => {
+    API.getIngredients()
+      .then(res =>
+        this.setState({ allIngredients: res.data, name: "", type: "", quantity:0 , unit: "", cost: 0 })
+      )
+      .catch(err => console.log(err));
+  };
+
     handleInputChange = event => {
         const { name, value } = event.target;
         this.setState({
@@ -29,7 +41,7 @@ class Inventory extends React.Component {
 
     handleFormSubmit = event => {
         event.preventDefault();
-        if (this.state.name && this.state.type && this.state.quantity && this.state.unit && this.state.cost) {
+        if (this.state.name && this.state.type && this.state.unit && this.state.cost) {
            API.addIngredient({
              name: this.state.name,
              type: this.state.type,
