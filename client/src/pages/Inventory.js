@@ -50,7 +50,7 @@ class Inventory extends React.Component {
              cost: this.state.cost
            })
             .then(console.log("sent recipe"))
-            //  .then(res => this.loadBooks())
+             .then(res => this.loadInventory())
              .catch(err => console.log(err));
         }
     };
@@ -72,14 +72,14 @@ class Inventory extends React.Component {
                 />
 
                 <div className="container-fluid">
-                    <table class="table table-hover table-light ing-table">
+                    <table className="table table-hover table-light ing-table">
                     <thead>
                         <tr>
-                        <th scope="col">Name</th>
-                        <th scope="col">Type</th>
-                        <th scope="col">Quantity</th>
-                        <th scope="col">Unit</th>
-                        <th scope="col">Cost/Unit</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Type</th>
+                            <th scope="col">Quantity</th>
+                            <th scope="col">Unit</th>
+                            <th scope="col">Cost/Unit</th>
                         </tr>
                     </thead>
                     <tbody>
