@@ -26,7 +26,7 @@ app.use(require('./routes/authRoutes'));
 app.use('/api', require('./routes/api/ingredients'));
 app.use('/api', require('./routes/api/recipes'));
 app.use('/api', require('./routes/api/users'));
-app.use('/api', require('routes/api/brewing'));
+
 
 // Start the API server
 app.listen(PORT, function() {
