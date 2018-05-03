@@ -68,7 +68,7 @@ class Landing extends React.Component {
                     </div>
                     <div className="row">
                     <div className="col-sm-3">
-                        <button class="btn btn-light btn-lg btn-block brew-btn" data-toggle="modal" data-target="#signUpModal" data-whatever="@mdo">
+                        <button className="btn btn-light btn-lg btn-block brew-btn" data-toggle="modal" data-target="#signUpModal" data-whatever="@mdo">
                             BREW BETTER!
                         </button>
                     </div>

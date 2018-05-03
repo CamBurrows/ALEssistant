@@ -44,8 +44,8 @@ const InventoryModal = props => (
                     <label htmlFor="unit-select">Unit</label>
                     <select className="form-control" name="unit" onChange={props.onChange} value={props.newUnitValue} id="unit-select">
                       <option>Please Select</option>
-                      <option>Lbs</option>
-                      <option>Oz.</option>
+                      <option>lbs</option>
+                      <option>oz</option>
                       <option>grams</option>
                     </select>
                   </div>

@@ -12,7 +12,7 @@ const LoginNav = props => (
 
       <ul className="nav justify-content-end">
 
-        <button type="button" class="btn login" data-toggle="modal" data-target="#loginModal" data-whatever="@mdo">
+        <button type="button" className="btn login" data-toggle="modal" data-target="#loginModal" data-whatever="@mdo">
           <img className="nav-icon-login" src="/images/keg3.png" alt="" />
           <h2>Login</h2>
         </button>
@@ -25,7 +25,7 @@ const LoginNav = props => (
         <li className="nav-item">
           <div>
             <div className="row">
-              <div className="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div className="modal fade" id="loginModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div className="modal-dialog" role="document">
                   <div className="modal-content">
                     <div className="modal-header">
@@ -60,7 +60,7 @@ const LoginNav = props => (
         <li className="nav-item">
           <div>
             <div className="row">
-              <div className="modal fade" id="signUpModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div className="modal fade" id="signUpModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div className="modal-dialog" role="document">
                   <div className="modal-content">
                     <div className="modal-header">
