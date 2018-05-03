@@ -18,7 +18,8 @@ const IngredientsInventorySchema = new Schema({
     },
     quantity: { //not required in case we want to list something that we might not have in inventory yet
         type: Number,
-        trim: true
+        trim: true,
+        default: 0
     },
     units: { //pounds, ounces, grams
         type: String,
@@ -28,9 +29,9 @@ const IngredientsInventorySchema = new Schema({
         type: Number, //not required in case we are adding something we don't yet know the cost of
         trim: true
     },
-        _userId: {
-          type: Schema.Types.ObjectId,
-          ref: "User"
+    _userId: {
+        type: Schema.Types.ObjectId,
+        ref: "User"
     }
 });
 
