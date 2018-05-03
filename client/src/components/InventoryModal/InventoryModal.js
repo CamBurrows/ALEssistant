@@ -14,7 +14,6 @@ const InventoryModal = props => (
           </div>
           <div className="modal-body">
 
-
             <form>
               <div className="form-group">
                 <label htmlFor="ingredient-name">Add Ingredients</label>

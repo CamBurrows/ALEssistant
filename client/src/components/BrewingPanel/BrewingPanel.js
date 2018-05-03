@@ -65,6 +65,19 @@ const BrewingPanel = (props) => (
                             </button>
                         </div>
                     </div>
+
+                    <div className="row">
+                        <div className="col-md-12">
+                            <div className="card">
+                                <div className="card-body">
+                                    <h4 className="notes-header">Notes</h4>
+                                    <p>
+
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

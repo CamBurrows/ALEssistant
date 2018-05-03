@@ -6,7 +6,7 @@ import {
 } from "react-router-dom";
 
 const Navbar = (props) => (
-  <nav className="navbar navbar-light bg-light">
+  <nav className="navbar">
       <h2>Welcome back,</h2>
       <h1>{props.username}</h1>
 
