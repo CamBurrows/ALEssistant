@@ -16,11 +16,13 @@ module.exports = {
     )
   },
   create: function(req, res) {
-    console.log(req.body);
     db.User.create(req.body)
       .then(function(user) {
-        console.log(user);
-        res.json(user);
+        var token = jwt.sign({userId: user._id, email: user.email}, 'my secret');
+        res.json({
+          user: user,
+          token: token
+        });
       })
       .catch(function(err) {
         console.log(err);
