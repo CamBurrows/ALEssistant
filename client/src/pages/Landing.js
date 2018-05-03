@@ -25,14 +25,17 @@ class Landing extends React.Component {
         event.preventDefault();
         if (this.state.loginEmail && this.state.loginPassword) {
 
-          API.login({
-            email: this.state.loginEmail,
-            password: this.state.loginPassword,
-          })
+            API.login({
+                email: this.state.loginEmail,
+                password: this.state.loginPassword,
+            })
+            .then(function(user) {
+                console.log(user.data)
+            })
             // .then(res => this.loadBooks())
             .catch(err => console.log(err));
 
-        }
+            }
     };
 
     handleFormSubmitSignUp = event => {
@@ -43,7 +46,10 @@ class Landing extends React.Component {
                 userName: this.state.signUpUsername,
                 email: this.state.signUpEmail,
                 password: this.state.signUpPassword
-          })
+            })
+            .then(function(user) {
+                console.log(user.data);
+            })
 
             // .then(res => this.loadBooks())
             .catch(err => console.log(err));
