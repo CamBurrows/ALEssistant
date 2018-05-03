@@ -2,11 +2,11 @@ import axios from "axios";
 
 export default {
   // Gets all ingredients
-  login: function() {
-    return axios.post("/login")
+  login: function(user) {
+    return axios.post("/signin", user)
   },
-  signUp: function() {
-    return axios.post("/signup")
+  signUp: function(user) {
+    return axios.post("/signup", user)
   },
   getIngredients: function() {
     return axios.get("/api/ingredients");

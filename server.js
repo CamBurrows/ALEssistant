@@ -19,7 +19,7 @@ app.use(express.static("public"));
 mongoose.connect("mongodb://localhost/alessistantdb");
 
 //Verify token on every request
-//app.use(expressJWT({secret:'my secret'}));
+app.use(expressJWT({secret:'my secret'}).unless({path: ['/signin', '/signup']}));
 
 //Routes
 app.use(require('./routes/authRoutes'));
