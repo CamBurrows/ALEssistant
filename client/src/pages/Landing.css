@@ -14,5 +14,9 @@ body {
 
 .brew-btn {
     margin-top: 20px;
+    background-color: black;
+    /* opacity: .8; */
+    color: white;
+    border: 4px solid yellow;
 }
 

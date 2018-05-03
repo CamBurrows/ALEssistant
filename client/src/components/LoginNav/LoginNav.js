@@ -3,7 +3,7 @@ import "./LoginNav.css";
 
 const LoginNav = props => (
 
-  <nav className="navbar navbar-expand-lg navbar-light bg-light">
+  <nav className="navbar navbar-expand-lg">
     <div className="container">
 
       <div className="main-header">
@@ -13,15 +13,15 @@ const LoginNav = props => (
       <ul className="nav justify-content-end">
 
         <button type="button" class="btn login" data-toggle="modal" data-target="#loginModal" data-whatever="@mdo">
-          <img className="nav-icon-login" src="/images/keg3.png" alt="" />
+          <img className="nav-icon-login" src="/images/keglogin.png" alt="" />
           <h2>Login</h2>
         </button>
 
         <button type="button" className="btn signup" data-toggle="modal" data-target="#signUpModal" data-whatever="@mdo">
-          <img className="nav-icon-login" src="/images/keg4.png" alt="" />
+          <img className="nav-icon-login" src="/images/document.png" alt="" />
           <h2>Sign Up</h2>
         </button>
-        
+
         <li className="nav-item">
           <div>
             <div className="row">
@@ -71,9 +71,10 @@ const LoginNav = props => (
                     </div>
                     <div className="modal-body">
                       <form>
+
                         <div className="form-group">
-                          <label>Display name</label>
-                          <input type="email" className="form-control" name="signUpUsername" onChange={props.onChange} value={props.signUpUsernameValue} id="display-name" aria-describedby="emailHelp" placeholder="Display Name" />
+                          <label>User Name</label>
+                          <input type="email" className="form-control" name="signUpUsername" onChange={props.onChange} value={props.signUpUsernameValue} id="user-name" aria-describedby="emailHelp" placeholder="User Name" />
                           <small id="emailHelp" className="form-text text-muted">The name that will display when you log in.</small>
                         </div>
                         <div className="form-group">
