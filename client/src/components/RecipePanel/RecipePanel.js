@@ -1,7 +1,7 @@
 import React from 'react';
 import './RecipePanel.css';
 
-const RecipePanel = (props) => (
+const RecipePanel = props => (
   <div className="container-fluid">
     <div className="row">
       <div className="col-sm-12">
@@ -10,8 +10,8 @@ const RecipePanel = (props) => (
             
             <div className="row top-row">
               <div className="col-sm-3">
-                  <h3 className="card-title">Recipe Name</h3>
-                  <h6>Beer Style</h6>
+                  <h3 className="card-title">{props.recipeName}</h3>
+                  <h6>{props.stylo}</h6>
               </div>
               <div className="col-sm-2">
               </div>
@@ -94,9 +94,9 @@ const RecipePanel = (props) => (
                         <table class="table table-hover table-sm">
                           <tbody>
                             <tr>
-                              <td>{props.yeast.name}</td>
-                              <td>{props.yeast.amount}</td>
-                              <td>{props.yeast.units}</td>
+                              <td>{props.yeast[0].name}</td>
+                              <td>{props.yeast[0].amount}</td>
+                              <td>{props.yeast[0].units}</td>
                             </tr>
                           </tbody>
                         </table>
