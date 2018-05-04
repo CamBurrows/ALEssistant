@@ -359,7 +359,7 @@ class Recipes extends React.Component {
                                 <RecipePanel 
                                     recipeName = {recipe.recipeName}
                                     outputVol = {recipe.batchSize}
-                                    style = {recipe.style}
+                                    beerStyle = {recipe.style}
                                     yeast = {recipe.yeast}
                                     grains = {recipe.grains}
                                     hops = {recipe.hops}
