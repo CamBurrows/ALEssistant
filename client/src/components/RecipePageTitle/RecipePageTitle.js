@@ -7,7 +7,7 @@ const RecipePageTitle = (props) => (
         <div className="row title-row">
             <div className="col-sm-3">
                 <div className="container-fluid">
-                    <h1>Recipes</h1>
+                    <h2 className="h2-recipe">Recipes</h2>
                 </div>
             </div>
             <div className="col-sm-7">

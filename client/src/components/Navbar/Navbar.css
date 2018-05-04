@@ -1,16 +1,4 @@
-@font-face {
-    font-family: 'mermaid';
-    src: url('/fonts/mermaid.eot'); /* IE9 Compat Modes */
-    src: url('/fonts/mermaid.woff') format('woff'), /* Modern Browsers */
-         url('/fonts/Mermaid.ttf')  format('truetype'), /* Safari, Android, iOS */
-}
 
-  @font-face {
-    font-family: 'avenir';
-    src: url('/fonts/Avenir.eot'); /* IE9 Compat Modes */
-    src: url('/fonts/Avenir.woff') format('woff'), /* Modern Browsers */
-         url('/fonts/Avenir.ttf')  format('truetype'), /* Safari, Android, iOS */
-}
 
 .navbar {
     background-color: rgb(243, 240, 178);
@@ -36,19 +24,7 @@ a {
     font-size: 20px;
     font-weight: 700;
 }
-/*
-p {
-    font-family: 'avenir';
-}
-*/
 
-h1, h2, h3, h4, h5, h6, p{
-    font-family: 'mermaid';
-} 
-
-/* .nav-item {
-    margin: 40px;
-} */
 
 .text {
     margin: 0 auto;

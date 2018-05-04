@@ -49,7 +49,7 @@ const LoginNav = props => (
                       </form>
                     </div>
                     <div className="modal-footer">
-                      <button type="button" onClick={props.handleFormSubmitLogin} className="btn btn-primary">Login</button>
+                      <button type="button" onClick={props.handleFormSubmitLogin} className="btn login-btn">Login</button>
                     </div>
                   </div>
                 </div>
@@ -90,7 +90,7 @@ const LoginNav = props => (
                       </form>
                     </div>
                     <div className="modal-footer">
-                      <button type="button" onClick={props.handleFormSubmitSignUp} className="btn btn-primary">Sign Up</button>
+                      <button type="button" onClick={props.handleFormSubmitSignUp} className="btn signup-btn">Sign Up</button>
                     </div>
                   </div>
                 </div>

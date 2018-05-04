@@ -1,8 +1,13 @@
 .recipe-btn {
-    margin-top: 7px;
+    margin: 8px;
     background-color: rgba(203, 243, 150, 0.856);
-    /* opacity: .8; */
-    color: rgb(0, 0, 0);
+    color: black;
     position: relative;
     text-align: center;
+}
+
+.h2-recipe {
+    Margin: 8px;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
