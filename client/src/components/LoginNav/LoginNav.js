@@ -7,7 +7,7 @@ const LoginNav = props => (
     <div className="container">
 
       <div className="main-header">
-        <img src="images/logo.png" />
+        <img src="images/logo.png" alt="logo"/>
       </div>
 
       <ul className="nav justify-content-end">
@@ -19,7 +19,7 @@ const LoginNav = props => (
         </button>
 
         <button type="button" className="btn signup" data-toggle="modal" data-target="#signUpModal" data-whatever="@mdo">
-          <img className="nav-icon-login" src="/images/document.png" alt="" />
+          <img className="nav-icon-login" src="/images/document.png" alt="doc" />
           <h2>Sign Up</h2>
         </button>
 

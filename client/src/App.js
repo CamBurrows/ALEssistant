@@ -26,13 +26,12 @@ class App extends Component {
     this.setState({user:data});
     console.log("App stored user data: " + this.state.user)
   }
-  
 
   render() {
     return (
       <Router>
         <Switch>
-        <Route exact path="/" render={(props) => (
+          <Route exact path="/" render={(props) => (
             this.state.user ? (
               <Redirect to="/home"/>
             ) : (

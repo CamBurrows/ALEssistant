@@ -6,7 +6,6 @@ import BrewingPanel from '../components/BrewingPanel';
 
 
 
-
 class Brewing extends React.Component {
 
 
@@ -15,7 +14,6 @@ class Brewing extends React.Component {
         brewNewBatch: ""
         
     }
-
 
     handleFormSubmitNewBatch = event => {
         event.preventDefault();
