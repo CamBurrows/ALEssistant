@@ -1,8 +1,8 @@
 import React from 'react';
 import './RecipePanel.css';
 
-const RecipePanel = (props) => (
 
+const RecipePanel = props => (
 
   <div className="container-fluid">
     <div className="row">
@@ -11,8 +11,10 @@ const RecipePanel = (props) => (
           <div className="card-body">
             <div className="row top-row">
               <div className="col-sm-3">
-                <h3 className="card-title">Recipe Name</h3>
-                <h6>Beer Style</h6>
+
+                  <h3 className="card-title">{props.recipeName}</h3>
+                  <h6>{props.style}</h6>
+
               </div>
               <div className="col-sm-2">
               </div>
@@ -91,23 +93,21 @@ const RecipePanel = (props) => (
                     </div>
 
 
+                <div className="row">
+                  <div className="col-sm-6">
+                    <div className="card">
+                      <div className="card-body">
+                        <p>Yeast</p>
+                        <table class="table table-hover table-sm">
+                          <tbody>
+                            <tr>
+                              <td>{props.yeast[0].name}</td>
+                              <td>{props.yeast[0].amount}</td>
+                              <td>{props.yeast[0].units}</td>
+                            </tr>
+                          </tbody>
+                        </table>
 
-                    <div className="row">
-                      <div className="col-sm-6">
-                        <div className="card">
-                          <div className="card-body">
-                            <p>Yeast</p>
-                            <table class="table table-hover table-sm">
-                              <tbody>
-                                <tr>
-                                  <td>{props.yeast.name}</td>
-                                  <td>{props.yeast.amount}</td>
-                                  <td>{props.yeast.units}</td>
-                                </tr>
-                              </tbody>
-                            </table>
-                          </div>
-                        </div>
                       </div>
                       <div className="col-sm-6">
                         <div className="card">
@@ -118,7 +118,7 @@ const RecipePanel = (props) => (
                                 {props.exotics.map(exotic => (
                                   <tr>
                                     <td>{exotic.name}</td>
-                                    <td>{exotic.amount} lbs</td>
+                                    <td>{exotic.amount}</td>
                                     <td>{exotic.units}</td>
                                   </tr>
                                 ))}

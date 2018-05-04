@@ -42,7 +42,7 @@ class App extends Component {
           <Route path="/home" render={(props)=> <Home user={this.state.user} />} />
           <Route path="/brewing" render={(props)=> <Brewing user={this.state.user} />} />
           <Route path="/inventory" render={(props)=> <Inventory user={this.state.user} />} />
-          {/* <Route path="/recipes" render={(props)=> <Recipes user={this.state.user} />} /> */}
+          <Route path="/recipes" render={(props)=> <Recipes user={this.state.user} />} />
 
         </Switch>
       </Router>

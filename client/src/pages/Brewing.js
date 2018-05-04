@@ -9,11 +9,12 @@ import BrewingPanel from '../components/BrewingPanel';
 
 class Brewing extends React.Component {
 
+    constructor(props) {
+        super(props);
 
-    state = {
-
-        brewNewBatch: ""
-        
+        this.state = {
+        user: props.user,
+        }
     }
 
 
