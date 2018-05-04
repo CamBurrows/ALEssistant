@@ -3,7 +3,25 @@
     margin: 20px;
 }
 
-.nav-btn {
+/* .nav-btn {
     background-color: rgba(0, 0, 0, 0.0);
     text-align: center
+} */
+
+.login {
+    background-color: rgb(243, 240, 178);
+}
+
+.signup {
+    background-color: rgb(243, 240, 178);
+}
+
+.signup-btn {
+    color: black;
+   background-color: rgba(203, 243, 150, 0.856);
+}
+
+.login-btn {
+    color: black;
+   background-color: rgba(203, 243, 150, 0.856);
 }

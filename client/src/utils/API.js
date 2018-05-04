@@ -2,11 +2,11 @@ import axios from "axios";
 
 export default {
   // Gets all ingredients
-  login: function() {
-    return axios.get("/login")
+  login: function(user) {
+    return axios.post("/signin", user)
   },
-  signUp: function() {
-    return axios.get("/signup")
+  signUp: function(user) {
+    return axios.post("/signup", user)
   },
   getIngredients: function() {
     return axios.get("/api/ingredients");
@@ -25,10 +25,10 @@ export default {
   },
   // Adds a recipe
   addRecipe: function(recipe) {
-    return axios.post("/api/books", recipe);
+    return axios.post("/api/recipes", recipe);
   },
   // Deletes a recipe
   removeRecipe: function(id) {
-    return axios.delete("/api/ingredients/" + id);
+    return axios.delete("/api/recipes/" + id);
   }
 };

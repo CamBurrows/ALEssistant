@@ -5,14 +5,11 @@
          url('/fonts/Mermaid.ttf')  format('truetype'), /* Safari, Android, iOS */
   }
 
-.col {
+.brew-cont {
+    color: white;
     background-color: #282828;
 }
 
-
-h1 {
-    color: white;
-    font-family: 'mermaid';
-    padding: 10px;
-    font-size: 30px;
+.h2-brew {
+    margin: 12px;
 }

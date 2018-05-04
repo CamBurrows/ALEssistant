@@ -378,8 +378,8 @@ const AddRecipeModal = (props) => (
       
 
       <div className="modal-footer">
-        <button type="button" onClick={props.onClick} data-dismiss="modal" className="btn btn-primary">Add Recipe</button>
-        <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" onClick={props.onClick} data-dismiss="modal" className="btn btn-primary addRecipe-btn">Add Recipe</button>
+        <button type="button" className="btn btn-secondary closeRecipe-btn" data-dismiss="modal">Close</button>
       </div>
       
 

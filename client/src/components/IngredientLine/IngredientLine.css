@@ -1,0 +1,23 @@
+.editIng-btn {
+    margin-top: 4px;
+    background-color: black;
+    color: white;
+    position: relative;
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.deleteIng-btn {
+    margin-top: 4px;
+    background-color: black;
+    color: white;
+    position: relative;
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+td {
+    font-weight: 600;
+    font-size: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}

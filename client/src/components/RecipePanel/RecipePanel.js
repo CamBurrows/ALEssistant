@@ -11,35 +11,35 @@ const RecipePanel = (props) => (
             <div className="row top-row">
               <div className="col-sm-3">
                   <h3 className="card-title">Recipe Name</h3>
-                  <h4>Beer Style</h4>
+                  <h6>Beer Style</h6>
               </div>
               <div className="col-sm-2">
               </div>
               <div className="col-sm-1">
-                <button className="btn btn-light">
-                  <p>Shrink</p>
+                <button className="btn shrink-btn">
+                  <h6>Shrink</h6>
                 </button>
               </div>
               <div className="col-sm-1">
-                <button className="btn btn-light">
-                  <p>Edit Recipe</p>
+                <button className="btn edit-btn">
+                  <h6>Edit Recipe</h6>
                 </button>
               </div>
               <div className="col-sm-1">
-                <button className="btn btn-light">
-                  <p>Delete</p>
+                <button className="btn delete-btn">
+                  <h6>Delete</h6>
                 </button>
               </div>
               <div className="col-sm-1">
-                <button className="btn btn-light">
-                  <p>Make Note</p>
+                <button className="btn note-btn">
+                  <h6>Make Note</h6>
                 </button>
               </div>
               <div className="col-sm-1">
               </div>
               <div className="col-sm-2">
-                <button className="btn btn-light">
-                  <p>Brew New Batch</p>
+                <button className="btn newbatch-btn">
+                  <h6>Brew New Batch</h6>
                 </button>
               </div>
             </div>

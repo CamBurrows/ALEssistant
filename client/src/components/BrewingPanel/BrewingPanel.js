@@ -10,7 +10,7 @@ const BrewingPanel = (props) => (
                     <div className="row">
                         <div className="col-sm-2">
                             <div className="recipeName">
-                                <h2 className="recipe-header">Recipe Header</h2>
+                                <h2 className="recipe-header">Recipe</h2>
                             </div>
                         </div>
                         <div className="col-sm-8">
@@ -46,12 +46,8 @@ const BrewingPanel = (props) => (
                                 </div>
                             </div>
                         </div>
-                        <div className="col-sm-1">
-                            <button type="button" className="btn left">
-                                <img className="nav-icon-back" src="/images/left-arrow.png" alt="" />
-                            </button>
-                        </div>
-                        <div className="col-sm-2">
+                       
+                        <div className="col-sm-3">
                             <div className="card">
                                 <div className="card-body">
                                     <h4 className="current-state">Current State</h4>
@@ -61,8 +57,21 @@ const BrewingPanel = (props) => (
                         </div>
                         <div className="col-sm-1">
                             <button type="button" className="btn right">
-                                <img className="nav-icon-back" src="/images/right-arrow.png" alt="" />
+                                <img className="nav-icon-right" src="/images/right-arrow.png" alt="" />
                             </button>
+                        </div>
+                    </div>
+                    <br></br>
+                    <div className="row">
+                        <div className="col-md-12">
+                            <div className="card">
+                                <div className="card-body">
+                                    <h4 className="notes-header">Notes</h4>
+                                    <p>
+
+                                    </p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

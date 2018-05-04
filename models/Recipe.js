@@ -25,11 +25,20 @@ var RecipeSchema = new Schema({
         type: String,
         trim: true
     },
-    yeast: {
-        type: String,
-        required: true,
-        trim: true
-    },
+    yeast: [{
+        name: {
+            type: String,
+            required: true,
+            trim: true
+        },
+        amount: {
+            type: Number
+        },
+        units: {
+            type: String
+        }
+
+    }],
     grains: [{
         name: {
             type: String,
@@ -79,13 +88,13 @@ var RecipeSchema = new Schema({
         },
         dateBrewed: {
             type: Date,
-            default: Date.now, 
+            default: Date.now,
             required: true
         },
         fermentationComplete: {
-        type: Boolean,
-        default: false,
-        required: true
+            type: Boolean,
+            default: false,
+            required: true
         },
         packaged: {
             type: Boolean,
@@ -96,7 +105,10 @@ var RecipeSchema = new Schema({
             type: String,
             trim: true
         }
-    }]
+    }],
+    comments: {
+        type: String
+    }
     ,
     _userId: {
         type: Schema.Types.ObjectId,

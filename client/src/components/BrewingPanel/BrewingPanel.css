@@ -1,11 +1,11 @@
-h1 {
-    color: rgb(3, 1, 1);
-    font-family: 'mermaid';
-    padding: 10px;
-    font-size: 30px;
+.right {
+    height: 105px;
+    width: 55px;
+    background-color: rgba(203, 243, 150, 0.856);
+    border: 2px solid black;
 }
 
-/* img {
-    height: 80%;
+.nav-icon-right {
+    height: 90px;
     width: 30px;
-} */
+}

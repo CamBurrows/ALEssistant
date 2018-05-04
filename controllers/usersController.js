@@ -16,17 +16,19 @@ module.exports = {
     )
   },
   create: function(req, res) {
-    console.log(req.body);
     db.User.create(req.body)
       .then(function(user) {
-        console.log(user);
-        res.json(user);
+        var token = jwt.sign({userId: user._id, email: user.email}, 'my secret');
+        res.json({
+          user: user,
+          token: token
+        });
       })
       .catch(function(err) {
         console.log(err);
         res.json({message: 'did not create'});
       });
-  },
+  }, 
   remove: function(req, res) {
     db.User.remove({_id:req.params.id})
     .then(
@@ -42,16 +44,20 @@ module.exports = {
     }
     db.User.findOne({email: req.body.email})
       .then(function(user) {
-        //compare passwords
-        
-        var token = jwt.sign({userId: user._id, email: user.email}, 'my secret');
-        res.json({
-          user: user,
-          token: token
+        user.comparePassword(req.body.password, function(err, isMatch) {
+          if(isMatch) {
+            var token = jwt.sign({userId: user._id, email: user.email}, 'my secret');
+            res.status(200).json({
+              user: user,
+              token: token
+            });
+          } else {
+            res.status(400).json({message: 'Invalid Email/Password.'});
+          }
         });
       })
       .catch(function(err) {
-        res.json(err);
+        res.status(400).json(err);
       });
   }
 }

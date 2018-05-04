@@ -1,0 +1,40 @@
+.shrink-btn {
+    margin: 7px;
+    background-color: black;
+    color: white;
+    position: relative;
+    text-align: center;
+    
+}
+
+.edit-btn {
+    margin: 7px;
+    background-color: black;
+    color: white;
+    position: relative;
+    text-align: center;
+}
+
+.delete-btn {
+    margin: 7px;
+    background-color: black;
+    color: white;
+    position: relative;
+    text-align: center;
+}
+
+.note-btn {
+    margin: 7px;
+    background-color: black;
+    color: white;
+    position: relative;
+    text-align: center;
+}
+
+.newbatch-btn {
+    margin: 7px;
+    background-color: black;
+    color: white;
+    position: relative;
+    text-align: center;
+}
