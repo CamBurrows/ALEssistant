@@ -26,7 +26,7 @@ class Inventory extends React.Component {
     loadInventory = () => {
     API.getIngredients()
       .then(res =>
-        this.setState({ allIngredients: res.data, name: "", type: "", quantity:0 , unit: "", cost: 0 })
+        this.setState({ allIngredients: res, name: "", type: "", quantity:0 , unit: "", cost: 0 })
       )
       .catch(err => console.log(err));
   };
@@ -47,13 +47,22 @@ class Inventory extends React.Component {
              type: this.state.type,
              quantity: this.state.quantity,
              units: this.state.unit,
-             cost: this.state.cost
+             cost: this.state.cost,
+             _userId: this.state.userId
            })
             .then(console.log("sent recipe"))
              .then(res => this.loadInventory())
              .catch(err => console.log(err));
         }
     };
+
+    // handleModifyClick = event => {
+
+    // }
+
+    // handleDeleteClick = event => {
+
+    // }
 
 
     render() {
@@ -83,8 +92,17 @@ class Inventory extends React.Component {
                         </tr>
                     </thead>
                     <tbody>
-                        <IngredientLine/>
-
+                    {this.state.allIngredients.map(ingredient => (
+                        <IngredientLine
+                            //handleModifyClick
+                            //handleDeleteClick
+                            name={ingredient.name}
+                            type={ingredient.type}
+                            quantity={ingredient.quantity}
+                            unit={ingredient.unit}
+                            cost={ingredient.cost}
+                        />
+                        ))}
                     </tbody>
                     </table>
                 </div>

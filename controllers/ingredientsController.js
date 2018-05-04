@@ -4,7 +4,12 @@ module.exports = {
   create: function(req, res) {
     console.log("req body = " + JSON.stringify(req.body))
     db.IngredientsInventory.create(req.body)
-    .then(function(dbIngredients){res.json(dbIngredients)})
+    .then(function(dbIngredients){
+      return db.User.find({email: email}, {$push: {ingredients: dbIngredients._id } }, { new: true })
+    })
+    .then(function(dbIngredients){
+      res.json(dbIngredients)
+    })
     .catch(function(err) {
       console.log(err);
     });
