@@ -1,0 +1,13 @@
+.modal-content {
+color: white;
+opacity: .8;
+background-color: black;
+}
+
+.addRecipe-btn {
+background-color: rgba(203, 243, 150, 0.856);
+}
+
+.closeRecipe-btn {
+background-color: rgba(203, 243, 150, 0.856);
+}
