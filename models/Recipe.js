@@ -25,7 +25,7 @@ var RecipeSchema = new Schema({
         type: String,
         trim: true
     },
-    yeast: [{
+    yeast: {
         name: {
             type: String,
             required: true,
@@ -38,7 +38,7 @@ var RecipeSchema = new Schema({
             type: String
         }
 
-    }],
+    },
     grains: [{
         name: {
             type: String,
@@ -108,8 +108,7 @@ var RecipeSchema = new Schema({
     }],
     comments: {
         type: String
-    }
-    ,
+    },
     _userId: {
         type: Schema.Types.ObjectId,
         ref: "User"

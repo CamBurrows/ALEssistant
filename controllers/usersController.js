@@ -11,6 +11,8 @@ module.exports = {
   },
   findOne: function(req, res) {
     db.User.find({_id:req.params.id})
+    .populate("recipes")
+    .populate("ingredientsInventory")
     .then(
       dbUser => res.json(dbUser)
     )

@@ -47,7 +47,8 @@ class Inventory extends React.Component {
              type: this.state.type,
              quantity: this.state.quantity,
              units: this.state.unit,
-             cost: this.state.cost
+             cost: this.state.cost,
+             _userId: this.state.userId
            })
             .then(console.log("sent recipe"))
              .then(res => this.loadInventory())
