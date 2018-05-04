@@ -23,6 +23,7 @@ class Landing extends React.Component {
 
     handleFormSubmitLogin = event => {
         event.preventDefault();
+        const {storeAuth} = this.props;
         if (this.state.loginEmail && this.state.loginPassword) {
 
             API.login({
@@ -30,6 +31,7 @@ class Landing extends React.Component {
                 password: this.state.loginPassword,
             })
             .then(function(user) {
+                storeAuth(user.data)
                 console.log(user.data)
             })
             // .then(res => this.loadBooks())

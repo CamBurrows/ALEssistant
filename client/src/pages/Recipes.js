@@ -79,10 +79,10 @@ class Recipes extends React.Component {
         
     }
 
-    componentDidMount = () => {
-        this.loadRecipes()
-        this.getIngredients()
-    }
+    // componentDidMount = () => {
+    //     this.loadRecipes()
+    //     this.getIngredients()
+    // }
 
     loadRecipes = () => {
     API.getRecipes()
