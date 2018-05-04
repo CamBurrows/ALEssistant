@@ -31,8 +31,8 @@ class Landing extends React.Component {
                 password: this.state.loginPassword,
             })
             .then(function(user) {
-                storeAuth(user.data)
-                console.log(user.data)
+                storeAuth(user.data);
+                console.log(user.data);
             })
             // .then(res => this.loadBooks())
             .catch(err => console.log(err));
@@ -42,6 +42,7 @@ class Landing extends React.Component {
 
     handleFormSubmitSignUp = event => {
         event.preventDefault();
+        const {storeAuth} = this.props;
         if (this.state.signUpUsername && this.state.signUpEmail && this.state.signUpPassword) {
 
             API.signUp({
@@ -50,6 +51,7 @@ class Landing extends React.Component {
                 password: this.state.signUpPassword
             })
             .then(function(user) {
+                storeAuth(user.data);
                 console.log(user.data);
             })
 
