@@ -10,10 +10,12 @@
 
 .login {
     background-color: rgb(243, 240, 178);
+    font-family: 'Cinzel Decorative', cursive;
 }
 
 .signup {
     background-color: rgb(243, 240, 178);
+    font-family: 'Cinzel Decorative', cursive;
 }
 
 .signup-btn {

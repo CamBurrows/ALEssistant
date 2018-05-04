@@ -22,19 +22,18 @@ const UserSchema = new Schema({
     type: String,
     required: true
   },
-  recipes: [{
-    _recipeId: {
+  recipes: [
+    {
       type: Schema.Types.ObjectId,
       ref: "Recipe"
     }
-  }],
-  ingredientsInventory: [{
-    _inventoryId:
+  ],
+  ingredientsInventory: [
     {
       type: Schema.Types.ObjectId,
       ref: "IngredientsInventory"
     }
-  }]
+  ]
 });
 
 UserSchema.pre('save', function(next) {

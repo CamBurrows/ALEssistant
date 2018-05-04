@@ -9,15 +9,26 @@ import API from '../utils/API.js'
 class Inventory extends React.Component {
 
     state = {
-        allIngredients: [],
-        name: "",
-        type: "",
-        quantity: 0,
-        unit: "",
-        cost: 0,
-        userId: "",
+        
         
     }
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            user: props.user,
+            allIngredients: [],
+            name: "",
+            type: "",
+            quantity: 0,
+            unit: "",
+            cost: 0,
+        }
+    }
+    
+    static getDerivedStateFromProps(nextProps, prevState) {
+        return {user: nextProps.user};
+    }  
 
     componentDidMount = () => {
         this.loadInventory()
@@ -47,9 +58,10 @@ class Inventory extends React.Component {
              type: this.state.type,
              quantity: this.state.quantity,
              units: this.state.unit,
-             cost: this.state.cost
+             cost: this.state.cost,
+             _userId: this.state.user.user._id
            })
-            .then(console.log("sent recipe"))
+            .then(console.log("sent recipe" + this.state))
              .then(res => this.loadInventory())
              .catch(err => console.log(err));
         }
@@ -103,6 +115,7 @@ class Inventory extends React.Component {
                     />
                     
                     {this.state.allIngredients.map(ingredient => (
+
                         <IngredientLine
                             //handleModifyClick
                             //handleDeleteClick
