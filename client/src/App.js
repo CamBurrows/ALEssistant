@@ -17,15 +17,33 @@ import {
 } from "react-router-dom";
 
 class App extends Component {
+  
+  state = {
+    user:null
+  }
+  
+  storeAuth = (data) => {
+    this.setState({user:data});
+    console.log("App stored user data: " + this.state.user)
+  }
+  
+
   render() {
     return (
       <Router>
         <Switch>
-          <Route exact path="/" component={Landing} />   
-          <Route path="/home" component={Home} />
-          <Route path="/brewing" component={Brewing} />
-          <Route path="/inventory" component={Inventory} />
-          <Route path="/recipes" component={Recipes} />
+        <Route exact path="/" render={(props) => (
+            this.state.user ? (
+              <Redirect to="/home"/>
+            ) : (
+              <Landing storeAuth={this.storeAuth}/>
+            )
+          )}/>
+          <Route path="/home" render={(props)=> <Home user={this.state.user} />} />
+          <Route path="/brewing" render={(props)=> <Brewing user={this.state.user} />} />
+          <Route path="/inventory" render={(props)=> <Inventory user={this.state.user} />} />
+          {/* <Route path="/recipes" render={(props)=> <Recipes user={this.state.user} />} /> */}
+
         </Switch>
       </Router>
     );
