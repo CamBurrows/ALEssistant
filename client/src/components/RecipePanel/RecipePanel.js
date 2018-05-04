@@ -12,8 +12,8 @@ const RecipePanel = props => (
             <div className="row top-row">
               <div className="col-sm-3">
 
-                  <h3 className="card-title">{props.recipeName}</h3>
-                  <h6>{props.style}</h6>
+                <h3 className="card-title">{props.recipeName}</h3>
+                <h6>{props.beerStyle}</h6>
 
               </div>
               <div className="col-sm-2">
@@ -93,78 +93,80 @@ const RecipePanel = props => (
                     </div>
 
 
-                <div className="row">
-                  <div className="col-sm-6">
-                    <div className="card">
-                      <div className="card-body">
-                        <p>Yeast</p>
-                        <table class="table table-hover table-sm">
-                          <tbody>
-                            <tr>
-                              <td>{props.yeast[0].name}</td>
-                              <td>{props.yeast[0].amount}</td>
-                              <td>{props.yeast[0].units}</td>
-                            </tr>
-                          </tbody>
-                        </table>
-
-                      </div>
+                    <div className="row">
                       <div className="col-sm-6">
                         <div className="card">
                           <div className="card-body">
-                            <p>Exotics</p>
+                            <p>Yeast</p>
                             <table class="table table-hover table-sm">
                               <tbody>
-                                {props.exotics.map(exotic => (
-                                  <tr>
-                                    <td>{exotic.name}</td>
-                                    <td>{exotic.amount}</td>
-                                    <td>{exotic.units}</td>
-                                  </tr>
-                                ))}
+                                <tr>
+                                  <td>{props.yeast[0].name}</td>
+                                  <td>{props.yeast[0].amount}</td>
+                                  <td>{props.yeast[0].units}</td>
+                                </tr>
                               </tbody>
                             </table>
+
                           </div>
-                        </div>
-                      </div>
-
-
-                      <div className="row">
-                        <div className="col-sm-12">
-                          <div className="card">
-                            <div className="card-body">
-                              <p>Process</p>
-                              <table class="table table-hover table-sm">
-                                <thead>
-                                  <tr>
-                                    <th>Mash Temp</th>
-                                    <th>Mash Time</th>
-                                    <th>Boil Time</th>
-                                    <th>Fermentation time</th>
-                                    <th>Output Volume</th>
-                                  </tr>
-                                </thead>
-                                <tbody>
-                                  <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td>{props.outputVol}</td>
-                                  </tr>
-                                </tbody>
-                              </table>
+                          <div className="col-sm-6">
+                            <div className="card">
+                              <div className="card-body">
+                                <p>Exotics</p>
+                                <table class="table table-hover table-sm">
+                                  <tbody>
+                                    {props.exotics.map(exotic => (
+                                      <tr>
+                                        <td>{exotic.name}</td>
+                                        <td>{exotic.amount}</td>
+                                        <td>{exotic.units}</td>
+                                      </tr>
+                                    ))}
+                                  </tbody>
+                                </table>
+                              </div>
                             </div>
                           </div>
-                        </div>
-                        <div className="col-sm-3 notes">
-                          <div className="card">
-                            <div className="card-body">
-                              <p>Notes</p>
+
+
+                          <div className="row">
+                            <div className="col-sm-12">
                               <div className="card">
                                 <div className="card-body">
-                                  This is a note about this Recipe
+                                  <p>Process</p>
+                                  <table class="table table-hover table-sm">
+                                    <thead>
+                                      <tr>
+                                        <th>Mash Temp</th>
+                                        <th>Mash Time</th>
+                                        <th>Boil Time</th>
+                                        <th>Fermentation time</th>
+                                        <th>Output Volume</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                      <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>{props.outputVol}</td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                                </div>
+                              </div>
+                            </div>
+                            <div className="col-sm-3 notes">
+                              <div className="card">
+                                <div className="card-body">
+                                  <p>Notes</p>
+                                  <div className="card">
+                                    <div className="card-body">
+                                      This is a note about this Recipe
                       </div>
+                                  </div>
+                                </div>
                               </div>
                             </div>
                           </div>
