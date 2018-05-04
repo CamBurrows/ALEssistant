@@ -57,9 +57,10 @@ const InventoryModal = props => (
                   </div>
                 </div>
                 <div className="modal-footer">
-                  <button type="button" onClick={props.onClick} className="btn btn-primary ingredient-submit">
+                  <button type="button" onClick={props.onClick} data-dismiss="modal" className="btn btn-primary ingredient-submit">
                     Create Ingredient
                     </button>
+                    <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
                 </div>
               </div>
             </form>
