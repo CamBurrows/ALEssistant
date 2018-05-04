@@ -67,7 +67,7 @@ const Navbar = (props) => (
           <li className="nav-item">
             <div className="item">
               <div className = "row">
-                <img className = "nav-icon" src="/images/logout.png" alt=""/>
+                <img className = "nav-icon logout" src="/images/logout.png" alt=""/>
               </div>
               <div className = "row text">
                 <p>Logout</p>

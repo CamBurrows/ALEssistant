@@ -2,23 +2,26 @@ import React from 'react';
 import './RecipePanel.css';
 
 const RecipePanel = (props) => (
+
+
   <div className="container-fluid">
     <div className="row">
       <div className="col-sm-12">
         <div className="card">
           <div className="card-body">
-            
             <div className="row top-row">
               <div className="col-sm-3">
-                  <h3 className="card-title">Recipe Name</h3>
-                  <h6>Beer Style</h6>
+                <h3 className="card-title">Recipe Name</h3>
+                <h6>Beer Style</h6>
               </div>
               <div className="col-sm-2">
               </div>
               <div className="col-sm-1">
-                <button className="btn shrink-btn">
-                  <h6>Shrink</h6>
-                </button>
+                <p>
+                  <button className="btn shrink-btn" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                    <h6>Shrink</h6>
+                  </button>
+                </p>
               </div>
               <div className="col-sm-1">
                 <button className="btn edit-btn">
@@ -43,7 +46,8 @@ const RecipePanel = (props) => (
                 </button>
               </div>
             </div>
-            
+
+            <div className="collapse" id="collapseExample">
             <div className="row content">
               
               <div className="col-sm-9 ingredients">
@@ -52,7 +56,7 @@ const RecipePanel = (props) => (
                     <div className= "card">
                       <div className ="card-body">
                         <p>Grains</p>
-                        <table class="table table-hover table-sm">
+                        <table className="table table-hover table-sm">
                           <tbody>
                           {props.grains.map(grain => (
                               <tr>
@@ -81,11 +85,13 @@ const RecipePanel = (props) => (
                             ))}
                           </tbody>
                         </table>
+
                       </div>
                     </div>
                   </div>
-                </div>
 
+
+                 
                 <div className="row">
                   <div className="col-sm-6">
                     <div className="card">
@@ -121,7 +127,7 @@ const RecipePanel = (props) => (
                       </div>
                     </div>
                   </div>
-                </div>
+
 
                 <div className="row">
                   <div className="col-sm-12">
@@ -151,22 +157,20 @@ const RecipePanel = (props) => (
                     </div>
                   </div>
                 </div>
-              </div>
-            </div>
-
-            <div className="col-sm-3 notes">
-              <div className="card">
-                <div className="card-body">
-                  <p>Notes</p>
-                    <div className="card">
-                      <div className="card-body">
-                      This is a note about this Recipe
+                <div className="col-sm-3 notes">
+                  <div className="card">
+                    <div className="card-body">
+                      <p>Notes</p>
+                      <div className="card">
+                        <div className="card-body">
+                          This is a note about this Recipe
+                      </div>
                       </div>
                     </div>
+                  </div>
                 </div>
               </div>
             </div>
-
           </div>
         </div>
       </div>
