@@ -47,7 +47,7 @@ var RecipeSchema = new Schema({
         amount: {
             type: Number,
             trim: true
-        },
+        }
         //        required: true,
     }],
     hops: [{

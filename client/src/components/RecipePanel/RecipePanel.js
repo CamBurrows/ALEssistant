@@ -20,7 +20,7 @@ const RecipePanel = props => (
               </div>
               <div className="col-sm-2">
                 <p>
-                  <button className="btn shrink-btn" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                  <button className="btn shrink-btn" type="button" data-toggle="collapse" data-target={"#" + props.recipeName} aria-expanded="false" aria-controls="collapseExample">
                     <h6>Expand/Collapse</h6>
                   </button>
                 </p>
@@ -49,7 +49,7 @@ const RecipePanel = props => (
               </div>
             </div>
 
-            <div className="collapse" id="collapseExample">
+            <div className="collapse" id={props.recipeName}>
               <div className="row content">
 
                 <div className="col-sm-9 ingredients">
@@ -103,9 +103,9 @@ const RecipePanel = props => (
                           <table className="table table-hover table-sm">
                             <tbody>
                               <tr>
-                                <td>{props.yeast[0].name}</td>
-                                <td>{props.yeast[0].amount}</td>
-                                <td>{props.yeast[0].units}</td>
+                                <td>{props.yeast.name}</td>
+                                <td>{props.yeast.amount}</td>
+                                <td>{props.yeast.units}</td>
                               </tr>
                             </tbody>
                           </table>

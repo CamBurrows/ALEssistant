@@ -359,7 +359,7 @@ class Recipes extends React.Component {
                         {this.state.allRecipes.map(recipe => (
 
                                 <RecipePanel 
-                                    recipeName = {recipe.recipeName}
+                                    recipeName = {recipe.name}
                                     outputVol = {recipe.batchSize}
                                     beerStyle = {recipe.style}
                                     yeast = {recipe.yeast}
