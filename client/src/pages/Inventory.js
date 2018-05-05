@@ -112,6 +112,7 @@ class Inventory extends React.Component {
                         quantity="quantity"
                         unit="unit"
                         cost="cost"
+                        key="key"
                     />
                     
                     {this.state.allIngredients.map(ingredient => (
@@ -122,8 +123,9 @@ class Inventory extends React.Component {
                             name={ingredient.name}
                             type={ingredient.type}
                             quantity={ingredient.quantity}
-                            unit={ingredient.unit}
+                            unit={ingredient.units}
                             cost={ingredient.cost}
+                            key={ingredient.name}
                         />
                         ))}
                     </tbody>

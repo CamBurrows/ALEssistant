@@ -2,7 +2,7 @@ import React from 'react'
 import './IngredientLine.css'
 
 const IngredientLine = (props) => (
-    <tr>
+    <tr key={props.key}>
         <td>{props.name}</td>
         <td>{props.type}</td>
         <td>{props.quantity}</td>

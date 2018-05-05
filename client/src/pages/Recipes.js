@@ -104,10 +104,10 @@ class Recipes extends React.Component {
     getIngredients = () => {
         API.getIngredients()
       .then(res => {
-        const grains = res.filter(ingredient=>ingredient.type === "Grains")
-        const hops = res.filter(ingredient=>ingredient.type === "Hops")
-        const exotics = res.filter(ingredient=>ingredient.type === "Exotics")
-        const yeast = res.filter(ingredient=>ingredient.type === "Yeast")
+        const grains = res.data.filter(ingredient=>ingredient.type === "Grains")
+        const hops = res.data.filter(ingredient=>ingredient.type === "Hops")
+        const exotics = res.data.filter(ingredient=>ingredient.type === "Exotics")
+        const yeast = res.data.filter(ingredient=>ingredient.type === "Yeast")
 
         this.setState({ 
             grains: grains,
@@ -115,6 +115,7 @@ class Recipes extends React.Component {
             exotics: exotics,
             yeast: yeast
         })
+        console.log(this.state)
       })
       .catch(err => console.log(err));
     }
@@ -248,7 +249,7 @@ class Recipes extends React.Component {
              newRecipe
            })
             .then(console.log("sent recipe: " + newRecipe))
-            //  .then(res => this.loadBooks())
+             .then(res => this.loadRecipes())
              .catch(err => console.log(err));
         
     };
@@ -263,7 +264,7 @@ class Recipes extends React.Component {
                 grains = {this.state.grains}
                 hops = {this.state.hops}
                 yeast = {this.state.yeast}
-                exotics = {this.state.yeast}
+                exotics = {this.state.exotics}
                 
                 onChange = {this.handleInputChange}
                 onClick = {this.handleFormSubmit}
@@ -364,6 +365,7 @@ class Recipes extends React.Component {
                                     grains = {recipe.grains}
                                     hops = {recipe.hops}
                                     exotics = {recipe.exotics}
+                                    key = {recipe.recipeName}
                                 />
                             
                         ))}
