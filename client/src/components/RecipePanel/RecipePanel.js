@@ -4,7 +4,7 @@ import './RecipePanel.css';
 
 const RecipePanel = props => (
 
-  <div className="container-fluid" key={props.key}>
+  <div className="container-fluid" key={props.name}>
     <div className="row">
       <div className="col-sm-12">
         <div className="card">

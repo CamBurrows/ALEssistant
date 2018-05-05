@@ -137,8 +137,8 @@ const AddRecipeModal = (props) => (
             <div className ="row hops-2">
                 <div className ="col-sm-6">
                     <div className="form-group">
-                        <option></option>
                         <select className="form-control" name="hopsName2" value={props.hopsName2} onChange={props.onChange}  id="hops-select2">
+                        <option></option>
                         {props.hops.map(hop => (
                                 <option key={hop.name}>{hop.name}</option>
                         ))}
@@ -160,8 +160,8 @@ const AddRecipeModal = (props) => (
             <div className ="row hops-3">
                 <div className ="col-sm-6">
                     <div className="form-group">
-                        <option></option>
                         <select className="form-control" name="hopsName3" value={props.hopsName3} onChange={props.onChange} id="hops-select3">
+                        <option></option>
                         {props.hops.map(hop => (
                                 <option key={hop.name}>{hop.name}</option>
                         ))}
@@ -282,6 +282,7 @@ const AddRecipeModal = (props) => (
                 <div className ="col-sm-4">
                     <div className="form-group">
                         <select className="form-control" name="exoticsUnit3" value={props.exoticsUnit3} onChange={props.onChange}  id="exotics-unit3">
+                        <option></option>
                         <option>lbs</option>
                         <option>oz</option>
                         <option>g</option>

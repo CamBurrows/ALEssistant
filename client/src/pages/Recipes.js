@@ -137,7 +137,8 @@ class Recipes extends React.Component {
             style: this.state.style,
             yeast: {name: this.state.yeastName,
                     amount: this.state.yeastAmount,
-                    units: this.state.yeastUnit}
+                    units: this.state.yeastUnit},
+            _userId: this.state.user.user._id
         }
 
         let grain1 = {};
@@ -365,7 +366,6 @@ class Recipes extends React.Component {
                                     grains = {recipe.grains}
                                     hops = {recipe.hops}
                                     exotics = {recipe.exotics}
-                                    key = {recipe.recipeName}
                                 />
                             
                         ))}
