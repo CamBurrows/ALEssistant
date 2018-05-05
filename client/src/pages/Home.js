@@ -8,7 +8,8 @@ class Home extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            user: props.user
+            user: props.user,
+            logout: props.logout
         }
     }
     
@@ -17,10 +18,10 @@ class Home extends React.Component {
     }  
     
     render(){
-        console.log(this.state.user);
+        console.log(this.state.logout);
         return (
             <Wrapper>
-                <Navbar />
+                <Navbar logout={this.state.logout}/>
             </Wrapper>
         )
     }

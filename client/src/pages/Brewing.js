@@ -37,7 +37,7 @@ class Brewing extends React.Component {
     render(){
         return (
             <Wrapper>
-                <Navbar />
+                <Navbar logout={this.props.logout}/>
                 <BrewPageTitle />
                 <BrewingPanel/>
             
