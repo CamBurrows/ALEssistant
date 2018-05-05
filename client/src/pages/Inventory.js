@@ -8,11 +8,6 @@ import API from '../utils/API.js'
 
 class Inventory extends React.Component {
 
-    state = {
-        
-        
-    }
-
     constructor(props) {
         super(props);
         this.state = {
@@ -38,7 +33,7 @@ class Inventory extends React.Component {
     loadInventory = () => {
     API.getIngredients()
       .then(res =>
-        this.setState({ allIngredients: res, name: "", type: "", quantity:0 , unit: "", cost: 0 })
+        this.setState({ allIngredients: res.data, name: "", type: "", quantity:0 , unit: "", cost: 0 })
       )
       .catch(err => console.log(err));
   };
@@ -105,17 +100,29 @@ class Inventory extends React.Component {
                         </tr>
                     </thead>
                     <tbody>
-                    {/* {this.state.allIngredients.map(ingredient => (
+                    
+                    <IngredientLine
+                        //handleModifyClick
+                        //handleDeleteClick
+                        name="ingredient"
+                        type="type"
+                        quantity="quantity"
+                        unit="unit"
+                        cost="cost"
+                    />
+                    
+                    {this.state.allIngredients.map(ingredient => (
+
                         <IngredientLine
                             //handleModifyClick
                             //handleDeleteClick
                             name={ingredient.name}
                             type={ingredient.type}
                             quantity={ingredient.quantity}
-                            unit={ingredient.unit}
+                            unit={ingredient.units}
                             cost={ingredient.cost}
                         />
-                        ))} */}
+                        ))}
                     </tbody>
                     </table>
                 </div>

@@ -8,7 +8,13 @@ import API from '../utils/API.js'
 
 class Recipes extends React.Component {
     
-    state = {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+        
+        user: props.user,
+        
         allRecipes: [],
         grains: [],
         hops: [],
@@ -74,20 +80,23 @@ class Recipes extends React.Component {
         boilTime: 0,
         fermTime: 0,
         outputVol: 0,
-
-        userId: "",
         
     }
+}
 
-    // componentDidMount = () => {
-    //     this.loadRecipes()
-    //     this.getIngredients()
-    // }
+    componentDidMount = () => {
+        this.loadRecipes()
+        this.getIngredients()
+    }
+
+    static getDerivedStateFromProps(nextProps, prevState) {
+        return {user: nextProps.user};
+    } 
 
     loadRecipes = () => {
     API.getRecipes()
       .then(res =>
-        this.setState({ allRecipes: res })
+        this.setState({ allRecipes: res.data })
       )
       .catch(err => console.log(err));
   };
@@ -95,10 +104,10 @@ class Recipes extends React.Component {
     getIngredients = () => {
         API.getIngredients()
       .then(res => {
-        const grains = res.filter(ingredient=>ingredient.type === "Grains")
-        const hops = res.filter(ingredient=>ingredient.type === "Hops")
-        const exotics = res.filter(ingredient=>ingredient.type === "Exotics")
-        const yeast = res.filter(ingredient=>ingredient.type === "Yeast")
+        const grains = res.data.filter(ingredient=>ingredient.type === "Grains")
+        const hops = res.data.filter(ingredient=>ingredient.type === "Hops")
+        const exotics = res.data.filter(ingredient=>ingredient.type === "Exotics")
+        const yeast = res.data.filter(ingredient=>ingredient.type === "Yeast")
 
         this.setState({ 
             grains: grains,
@@ -106,6 +115,7 @@ class Recipes extends React.Component {
             exotics: exotics,
             yeast: yeast
         })
+        console.log(this.state)
       })
       .catch(err => console.log(err));
     }
@@ -127,7 +137,8 @@ class Recipes extends React.Component {
             style: this.state.style,
             yeast: {name: this.state.yeastName,
                     amount: this.state.yeastAmount,
-                    units: this.state.yeastUnit}
+                    units: this.state.yeastUnit},
+            _userId: this.state.user.user._id
         }
 
         let grain1 = {};
@@ -239,7 +250,7 @@ class Recipes extends React.Component {
              newRecipe
            })
             .then(console.log("sent recipe: " + newRecipe))
-            //  .then(res => this.loadBooks())
+             .then(res => this.loadRecipes())
              .catch(err => console.log(err));
         
     };
@@ -254,7 +265,7 @@ class Recipes extends React.Component {
                 grains = {this.state.grains}
                 hops = {this.state.hops}
                 yeast = {this.state.yeast}
-                exotics = {this.state.yeast}
+                exotics = {this.state.exotics}
                 
                 onChange = {this.handleInputChange}
                 onClick = {this.handleFormSubmit}
@@ -321,34 +332,45 @@ class Recipes extends React.Component {
                 />
                 
                 <div className="container-fluid">
-                
-                    <ul className="nav nav-tabs" id="myTab" role="tablist">
-                    {this.state.allRecipes.map(recipe => (
-                        <li className="nav-item">
-                            <a className="nav-link" data-toggle="tab" href="#{recipe.name}" role="tab">{recipe.name}</a>
-                        </li>
-                    ))}
-                    </ul>
-
-                    <div className="tab-content" id="myTabContent">
+                            <RecipePanel 
+                                recipeName = "recipe"
+                                outputVol = "vol"
+                                beerStyle = "style"
+                                yeast = {[{
+                                    name: "yeast",
+                                    amount: 20,
+                                    unit: "lbs"
+                                }]}
+                                grains = {[{
+                                    name:"grain",
+                                    amount: 20
+                                }]}
+                                hops = {[{
+                                    name: "hoptest",
+                                    amount: 20,
+                                    timeAdded: 90
+                                }]}
+                                exotics = {[{
+                                    name: "exotic",
+                                    amount: 10,
+                                    unit: "grams"
+                                }]}
+                            />
                         {this.state.allRecipes.map(recipe => (
-                            <div className="tab-pane fade" id="{recipe.name}" role="tabpanel">
+
                                 <RecipePanel 
-                                    recipeName = {recipe.recipeName}
+                                    recipeName = {recipe.name}
                                     outputVol = {recipe.batchSize}
-                                    style = {recipe.style}
+                                    beerStyle = {recipe.style}
                                     yeast = {recipe.yeast}
                                     grains = {recipe.grains}
                                     hops = {recipe.hops}
                                     exotics = {recipe.exotics}
-
                                 />
-                            </div>
+                            
                         ))}
-                    </div>
+                    
                 </div>
-                
-                <RecipePanel />
             </Wrapper>
         )
     }

@@ -28,7 +28,7 @@ var RecipeSchema = new Schema({
     yeast: {
         name: {
             type: String,
-            required: true,
+            // required: true,
             trim: true
         },
         amount: {
@@ -37,7 +37,6 @@ var RecipeSchema = new Schema({
         units: {
             type: String
         }
-
     },
     grains: [{
         name: {
@@ -47,7 +46,7 @@ var RecipeSchema = new Schema({
         amount: {
             type: Number,
             trim: true
-        },
+        }
         //        required: true,
     }],
     hops: [{
@@ -106,6 +105,22 @@ var RecipeSchema = new Schema({
             trim: true
         }
     }],
+    mashTemp: {
+        type: Number,
+        trim: true
+    },
+    mashTime: {
+        type: Number,
+        trim: true
+    },
+    boilTime: {
+        type: Number,
+        trim: true
+    },
+    fermentationTime: {
+        type: Number,
+        trim: true
+    },
     comments: {
         type: String
     },
