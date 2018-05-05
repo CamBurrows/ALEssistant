@@ -8,11 +8,6 @@ import API from '../utils/API.js'
 
 class Inventory extends React.Component {
 
-    state = {
-        
-        
-    }
-
     constructor(props) {
         super(props);
         this.state = {
@@ -122,7 +117,7 @@ class Inventory extends React.Component {
                             name={ingredient.name}
                             type={ingredient.type}
                             quantity={ingredient.quantity}
-                            unit={ingredient.unit}
+                            unit={ingredient.units}
                             cost={ingredient.cost}
                         />
                         ))}

@@ -28,7 +28,7 @@ var RecipeSchema = new Schema({
     yeast: {
         name: {
             type: String,
-            required: true,
+            // required: true,
             trim: true
         },
         amount: {
