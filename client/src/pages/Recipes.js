@@ -248,7 +248,7 @@ class Recipes extends React.Component {
     render(){
         return (
             <Wrapper>
-                <Navbar />
+                <Navbar logout={this.props.logout}/>
                 <RecipePageTitle />
                 <AddRecipeModal
                 grains = {this.state.grains}

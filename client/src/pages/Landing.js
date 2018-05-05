@@ -23,7 +23,7 @@ class Landing extends React.Component {
 
     handleFormSubmitLogin = event => {
         event.preventDefault();
-        const {storeAuth} = this.props;
+        const {login} = this.props;
         if (this.state.loginEmail && this.state.loginPassword) {
 
             API.login({
@@ -31,7 +31,7 @@ class Landing extends React.Component {
                 password: this.state.loginPassword,
             })
             .then(function(user) {
-                storeAuth(user.data);
+                login(user.data);
                 console.log(user.data);
             })
             // .then(res => this.loadBooks())
@@ -42,7 +42,7 @@ class Landing extends React.Component {
 
     handleFormSubmitSignUp = event => {
         event.preventDefault();
-        const {storeAuth} = this.props;
+        const {login} = this.props;
         if (this.state.signUpUsername && this.state.signUpEmail && this.state.signUpPassword) {
 
             API.signUp({
@@ -51,7 +51,7 @@ class Landing extends React.Component {
                 password: this.state.signUpPassword
             })
             .then(function(user) {
-                storeAuth(user.data);
+                login(user.data);
                 console.log(user.data);
             })
 
@@ -61,6 +61,7 @@ class Landing extends React.Component {
     };
 
     render() {
+        console.log(this.props);
         return (
             <div>
                 <LoginNav

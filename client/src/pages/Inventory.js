@@ -16,7 +16,7 @@ class Inventory extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            user: props.user,
+            user: null,
             allIngredients: [],
             name: "",
             type: "",
@@ -32,6 +32,7 @@ class Inventory extends React.Component {
 
     componentDidMount = () => {
         this.loadInventory()
+        this.setState({user: JSON.parse(localStorage.getItem('user'))});
     }
 
     loadInventory = () => {
@@ -77,9 +78,10 @@ class Inventory extends React.Component {
 
 
     render() {
+        console.log(this.props)
         return (
             <Wrapper>
-                <Navbar />
+                <Navbar logout={this.props.logout}/>
                 <InvPageTitle />
                 <InventoryModal 
                     onChange={this.handleInputChange}
