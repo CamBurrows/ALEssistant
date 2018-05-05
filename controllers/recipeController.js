@@ -35,5 +35,14 @@ module.exports = {
     .catch(function(err) {
       console.log(err);
     });
+  },
+  update: function(req, res) {
+    db.Recipe.findOneAndUpdate({_id:req.body._id}, {$push: {recipe: dbRecipes._id }})
+    .then(function(dbRecipes){
+      res.json(dbRecipes)
+    })
+      .catch(function(err) {
+        console.log(err);
+      });
   }
 };
