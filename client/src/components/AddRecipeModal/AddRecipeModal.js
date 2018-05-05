@@ -31,7 +31,7 @@ const AddRecipeModal = (props) => (
                 <div className ="col-sm-6">
                     <div className="form-group">
                         <label htmlFor="grains-select1">Select Grains</label>
-                        <select className="form-control" value={props.grainsName1} name="grainsName1" onChange={props.onChange} id="grains-select1">
+                        <select className="form-control" value={props.grainName1} name="grainsName1" onChange={props.onChange} id="grains-select1">
                             <option></option>
                             {/* Takes the grain array which should contain the list of grains contained in inventory and creates an option for each */}
                             {props.grains.map(grain => (
@@ -43,7 +43,7 @@ const AddRecipeModal = (props) => (
                 <div className ="col-sm-6">
                     <div className="form-group">
                         <label htmlFor="grains-amt1">Amount</label>
-                        <input type="number" name="grainsAmt1" value={props.grainsAmt1} onChange={props.onChange} className="form-control" id="grains-amt1" />
+                        <input type="number" name="grainsAmt1" value={props.grainAmt1} onChange={props.onChange} className="form-control" id="-amt1" />
                     </div>
                 </div>
                 
@@ -52,7 +52,7 @@ const AddRecipeModal = (props) => (
             <div className ="row grains-2">
                 <div className ="col-sm-6">
                     <div className="form-group">
-                        <select className="form-control" name="grainsName2" value={props.grainsName2} onChange={props.onChange} id="grains-select2">
+                        <select className="form-control" name="grainsName2" value={props.grainName2} onChange={props.onChange} id="grains-select2">
                         <option></option>
                         {/* Takes the grain array which should contain the list of grains contained in inventory and creates an option for each */}
                         {props.grains.map(grain => (
@@ -63,7 +63,7 @@ const AddRecipeModal = (props) => (
                 </div>
                 <div className ="col-sm-6">
                     <div className="form-group">
-                        <input type="number" name="grainsAmt2" value={props.grainsAmt2} onChange={props.onChange} className="form-control" id="grains-amt2" />
+                        <input type="number" name="grainsAmt2" value={props.grainAmt2} onChange={props.onChange} className="form-control" id="grains-amt2" />
                     </div>
                 </div>
             </div>
@@ -71,7 +71,7 @@ const AddRecipeModal = (props) => (
             <div className ="row grains-3">
                 <div className ="col-sm-6">
                     <div className="form-group">
-                        <select className="form-control" value={props.grainsName3} name="grainsName3" onChange={props.onChange} id="grains-select3">
+                        <select className="form-control" value={props.grainName3} name="grainsName3" onChange={props.onChange} id="grains-select3">
                         <option></option>
                        {/* Takes the grain array which should contain the list of grains contained in inventory and creates an option for each */}
                         {props.grains.map(grain => (
@@ -82,7 +82,7 @@ const AddRecipeModal = (props) => (
                 </div>
                 <div className ="col-sm-6">
                     <div className="form-group">
-                        <input type="number" name="grainsAmt3" value={props.grainsAmt3} onChange={props.onChange} className="form-control" id="grains-amt3" />
+                        <input type="number" name="grainsAmt3" value={props.grainAmt3} onChange={props.onChange} className="form-control" id="grains-amt3" />
                     </div>
                 </div>
             </div>
@@ -90,7 +90,7 @@ const AddRecipeModal = (props) => (
             <div className ="row grains-2">
                 <div className ="col-sm-6">
                     <div className="form-group">
-                        <select className="form-control" name="grainsName4" value={props.grainsName4} onChange={props.onChange} id="grains-select4">
+                        <select className="form-control" name="grainsName4" value={props.grainName4} onChange={props.onChange} id="grains-select4">
                         <option></option>
                         {/* Takes the grain array which should contain the list of grains contained in inventory and creates an option for each */}
                         {props.grains.map(grain => (
@@ -101,7 +101,7 @@ const AddRecipeModal = (props) => (
                 </div>
                 <div className ="col-sm-6">
                     <div className="form-group">
-                        <input type="number" name="grainsAmt4" value={props.grainsAmt4} onChange={props.onChange} className="form-control" id="grains-amt4" />
+                        <input type="number" name="grainsAmt4" value={props.grainAmt4} onChange={props.onChange} className="form-control" id="grains-amt4" />
                     </div>
                 </div>
             </div>

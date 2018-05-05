@@ -3,10 +3,10 @@ const db = require('../models');
 module.exports = {
   create: function(req, res) {
     console.log("req body = " + JSON.stringify(req.body))
-    db.Recipe.create(req.body)
+    db.Recipe.create(req.body.newRecipe)
     .then(function(dbRecipes){
       console.log(dbRecipes)
-      return db.User.findOneAndUpdate({_id: dbRecipes._userId}, {$push: {recipe: dbRecipe._id } }, { new: true }) // The Money Shot
+      return db.User.findOneAndUpdate({_id: dbRecipes._userId}, {$push: {recipe: dbRecipes._id } }, { new: true }) // The Money Shot
     })
   },
   findAll: function(req, res) {
