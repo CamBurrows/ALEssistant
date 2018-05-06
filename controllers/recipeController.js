@@ -12,12 +12,15 @@ module.exports = {
       console.log("dbRecipes = " + dbRecipes)
       res.json(dbRecipes)
     })
+    .catch(function(err) {
+      console.log(err);
+    });
   },
   findAll: function(req, res) {
-    console.log("req.params = " + JSON.stringify(req.params) + "\nreq.body = " + JSON.stringify(req.body))
-    db.Recipe.find({})
-    .then(function(dbRecipe) {
-      res.json(dbRecipe);
+    //console.log("req.params = " + JSON.stringify(req.params))
+    db.Recipe.find({_userId: req.params.id})
+    .then(function(dbRecipes) {
+      res.json(dbRecipes);
     })
     .catch(function(err) {
       console.log(err);
@@ -41,13 +44,13 @@ module.exports = {
       console.log(err);
     });
   },
-  update: function(req, res) {
-    db.Recipe.findOneAndUpdate({_id:req.body._id}, req.body)
-    .then(function(dbRecipes){
-      res.json(dbRecipes)
-    })
-      .catch(function(err) {
-        console.log(err);
-      });
-  }
+  // update: function(req, res) {
+  //   db.Recipe.findOneAndUpdate({_id:req.body._id}, req.body)
+  //   .then(function(dbRecipes){
+  //     res.json(dbRecipes)
+  //   })
+  //     .catch(function(err) {
+  //       console.log(err);
+  //     });
+  // }
 };

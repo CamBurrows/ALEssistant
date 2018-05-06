@@ -1,8 +1,8 @@
 const db = require('../models');
 
+
 module.exports = {
   create: function(req, res) {
-    //console.log("req body = " + JSON.stringify(req.body))
     db.IngredientsInventory.create(req.body)
     .then(function(dbIngredients){
       console.log(dbIngredients)
@@ -17,8 +17,8 @@ module.exports = {
     });
   },
   findAll: function(req, res) {
-    console.log("req.params = " + JSON.stringify(req.params) + "\nreq.body = " + JSON.stringify(req.body))
-    db.IngredientsInventory.find({_id:req.params.id})
+    //console.log("req.params = " + JSON.stringify(req.params))
+    db.IngredientsInventory.find({_userId: req.params.id})
     .then(function(dbIngredients) {
       res.json(dbIngredients);
     })
