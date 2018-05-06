@@ -21,7 +21,7 @@ class Home extends React.Component {
     }
     
     render(){
-        console.log(this.state.logout);
+        // console.log(this.state.logout);
         return (
             <Wrapper>
                 <Navbar logout={this.props.logout}/>

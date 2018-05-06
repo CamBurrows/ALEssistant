@@ -148,6 +148,11 @@ class Recipes extends React.Component {
             name: this.state.recipeName,
             batchSize: this.state.outputVol,
             style: this.state.style,
+            mashTemp: this.state.mashTemp,
+            mashTime: this.state.mashTime,
+            boilTime: this.state.boilTime,
+            fermentationTime: this.state.fermTime,
+
             yeast: {name: this.state.yeastName,
                     amount: this.state.yeastAmount,
                     units: this.state.yeastUnit},
@@ -263,8 +268,8 @@ class Recipes extends React.Component {
              newRecipe
            })
             .then(console.log("sent recipe: " + newRecipe))
-             .then(res => this.loadRecipes())
-             .catch(err => console.log(err));
+            .then(res => this.loadRecipes())
+            .catch(err => console.log(err));
         
     };
     

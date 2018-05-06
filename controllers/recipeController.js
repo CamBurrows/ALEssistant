@@ -8,6 +8,10 @@ module.exports = {
       console.log(dbRecipes)
       return db.User.findOneAndUpdate({_id: dbRecipes._userId}, {$push: {recipe: dbRecipes._id } }, { new: true }) // The Money Shot
     })
+    .then(function(dbRecipes){
+      console.log("dbRecipes = " + dbRecipes)
+      res.json(dbRecipes)
+    })
   },
   findAll: function(req, res) {
     db.Recipe.find({})
