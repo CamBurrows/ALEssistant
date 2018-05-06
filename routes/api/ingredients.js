@@ -20,11 +20,13 @@ router.get('/ingredients/:id', ingredientsController.findOne);
 
 
 
-router.delete('/ingredients/:id', function(req, res) {
-  db.IngredientsInventory.remove({_id:req.params.id})
-  .then(
-    dbIngredientsInventory => res.json(dbIngredientsInventory)
-  )
-});
+// router.delete('/ingredients/:id', function(req, res) {
+//   db.IngredientsInventory.remove({_id:req.params.id})
+//   .then(
+//     dbIngredientsInventory => res.json(dbIngredientsInventory)
+//   )
+// });
+
+router.delete('/ingredients/:id', ingredientsController.remove);
 
 module.exports = router;

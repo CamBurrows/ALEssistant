@@ -3,8 +3,7 @@ import Navbar from '../components/Navbar';
 import Wrapper from '../components/Wrapper';
 import BrewPageTitle from '../components/BrewPageTitle';
 import BrewingPanel from '../components/BrewingPanel';
-
-
+import API from '../utils/API.js'
 
 
 class Brewing extends React.Component {
@@ -14,24 +13,25 @@ class Brewing extends React.Component {
 
         this.state = {
         user: props.user,
+        allRecipes: []
         }
     }
 
+    loadRecipes = () => {
+        API.getRecipes()
+          .then(res =>
+            this.setState({ allRecipes: res.data })
+          )
+          .catch(err => console.log(err));
+    };
 
-    handleFormSubmitNewBatch = event => {
-        event.preventDefault();
-        if (this.state.brewNewBatch) {
-        //   API.saveBook({
-        //     title: this.state.title,
-        //     author: this.state.author,
-        //     synopsis: this.state.synopsis
-        //   })
-        //     .then(res => this.loadBooks())
-        //     .catch(err => console.log(err));
-        }
-      };
+    // handleBatchProgress = id => {
+    //     event.preventDefault();
+        
+    //     if (this.state.brewNewBatch) {
 
-
+    //     }
+    // };
 
 
     render(){

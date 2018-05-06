@@ -32,7 +32,7 @@ class Inventory extends React.Component {
     loadInventory = () => {
     API.getIngredients()
       .then(res =>
-        this.setState({ allIngredients: res.data, name: "", type: "", quantity:0 , unit: "", cost: 0 })
+        this.setState({ allIngredients: res.data, name: "", type: "", quantity: 0 , unit: "", cost: 0})
       )
       .catch(err => console.log(err));
   };
@@ -66,9 +66,11 @@ class Inventory extends React.Component {
 
     // }
 
-    // handleDeleteClick = event => {
-
-    // }
+    removeIngredient = id => {
+        API.removeIngredient(id)
+        .then(res => this.loadInventory())
+        .catch(err => console.log(err));
+    }
 
 
     render() {
@@ -99,28 +101,24 @@ class Inventory extends React.Component {
                     </thead>
                     <tbody>
                     
-                    <IngredientLine
-                        //handleModifyClick
-                        //handleDeleteClick
-                        name="ingredient"
-                        type="type"
-                        quantity="quantity"
-                        unit="unit"
-                        cost="cost"
-                    />
-                    
-                    {this.state.allIngredients.map(ingredient => (
+                    {this.state.allIngredients.length ? (
+                    this.state.allIngredients.map(ingredient => (
 
                         <IngredientLine
                             //handleModifyClick
-                            //handleDeleteClick
+                            deleteOnClick = {() => this.removeIngredient(ingredient._id)}
                             name={ingredient.name}
                             type={ingredient.type}
                             quantity={ingredient.quantity}
                             unit={ingredient.units}
                             cost={ingredient.cost}
                         />
-                        ))}
+                        ))
+                    ) : (
+                        <tr>
+                        <h4>No ingredients yet. Add some to get started!</h4>
+                        </tr>
+                    )}
                     </tbody>
                     </table>
                 </div>

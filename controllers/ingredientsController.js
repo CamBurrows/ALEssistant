@@ -33,5 +33,14 @@ module.exports = {
     .catch(function(err) {
       console.log(err);
     });
+  },
+  remove: function(req, res) {
+    db.IngredientsInventory.remove({_id:req.params.id})
+    .then(function(dbIngredients) {
+      res.json(dbIngredients)
+    })
+    .catch(function(err) {
+      console.log(err);
+    });
   }
 };

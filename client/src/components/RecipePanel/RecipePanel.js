@@ -31,7 +31,7 @@ const RecipePanel = props => (
                 </button>
               </div>
               <div className="col-sm-1">
-                <button className="btn delete-btn">
+                <button className="btn delete-btn" onClick={props.deleteOnClick}>
                   <h6>Delete</h6>
                 </button>
               </div>
@@ -151,10 +151,10 @@ const RecipePanel = props => (
                             </thead>
                             <tbody>
                               <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                                <td>{props.mashTemp}</td>
+                                <td>{props.mashTime}</td>
+                                <td>{props.boilTime}</td>
+                                <td>{props.fermTime}</td>
                                 <td>{props.outputVol}</td>
                               </tr>
                             </tbody>
@@ -174,7 +174,7 @@ const RecipePanel = props => (
                       <div className="card">
                         <div className="card-body">
                           This is a note about this Recipe
-                                    </div>
+                          </div>
                       </div>
                     </div>
                   </div>
