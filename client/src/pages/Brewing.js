@@ -12,11 +12,16 @@ class Brewing extends React.Component {
         super(props);
 
         this.state = {
-        user: props.user,
+        user: null,
         allRecipes: []
         }
     }
 
+    
+    componentDidMount(){
+        this.setState({user: JSON.parse(localStorage.getItem('user'))});
+    }
+    
     loadRecipes = () => {
         API.getRecipes()
           .then(res =>

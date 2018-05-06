@@ -118,7 +118,9 @@ class Inventory extends React.Component {
                         ))
                     ) : (
                         <tr>
-                        <h4>No ingredients yet. Add some to get started!</h4>
+                            <td>
+                                <h4>No ingredients yet. Add some to get started!</h4>
+                            </td>
                         </tr>
                     )}
                     </tbody>

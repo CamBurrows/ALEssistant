@@ -13,7 +13,7 @@ class Recipes extends React.Component {
 
         this.state = {
         
-        user: props.user,
+        user: null,
         
         allRecipes: [],
         grains: [],
@@ -25,16 +25,16 @@ class Recipes extends React.Component {
         style: "",
         //fields for grain inputs
         grainName1: "",
-        grainAmt1: "",
+        grainAmt1: 0,
         grainUnit1: "",
         grainName2: "",
-        grainAmt2: "",
+        grainAmt2: 0,
         grainUnit2: "",
         grainName3: "",
-        grainAmt3: "",
+        grainAmt3: 0,
         grainUnit3: "",
         grainName4: "",
-        grainAmt4: "",
+        grainAmt4: 0,
         grainUnit4: "",
 
         //fields for hops inputs
@@ -87,6 +87,7 @@ class Recipes extends React.Component {
     componentDidMount = () => {
         this.loadRecipes()
         this.getIngredients()
+        this.setState({user: JSON.parse(localStorage.getItem('user'))});
     }
 
     static getDerivedStateFromProps(nextProps, prevState) {
@@ -147,6 +148,11 @@ class Recipes extends React.Component {
             name: this.state.recipeName,
             batchSize: this.state.outputVol,
             style: this.state.style,
+            mashTemp: this.state.mashTemp,
+            mashTime: this.state.mashTime,
+            boilTime: this.state.boilTime,
+            fermentationTime: this.state.fermTime,
+
             yeast: {name: this.state.yeastName,
                     amount: this.state.yeastAmount,
                     units: this.state.yeastUnit},
@@ -262,8 +268,8 @@ class Recipes extends React.Component {
              newRecipe
            })
             .then(console.log("sent recipe: " + newRecipe))
-             .then(res => this.loadRecipes())
-             .catch(err => console.log(err));
+            .then(res => this.loadRecipes())
+            .catch(err => console.log(err));
         
     };
     
