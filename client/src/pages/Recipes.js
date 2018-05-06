@@ -84,15 +84,23 @@ class Recipes extends React.Component {
     }
 }
 
-    componentDidMount = () => {
-        this.setState({user: JSON.parse(localStorage.getItem('user'))});
-        this.loadRecipes(this.state.user.user._id)
-        this.getIngredients(this.state.user.user._id)
-    }
+        componentWillMount = () => {
+            this.setState({user: JSON.parse(localStorage.getItem('user'))})
+        }
 
-    static getDerivedStateFromProps(nextProps, prevState) {
-        return {user: nextProps.user};
-    } 
+        componentDidMount = () => {
+            // this.setState({user: JSON.parse(localStorage.getItem('user'))})
+            console.log(this.state.user.user._id)
+            this.loadRecipes(this.state.user.user._id)
+            this.getIngredients(this.state.user.user._id)
+
+        }
+
+
+
+    // static getDerivedStateFromProps(nextProps, prevState) {
+    //     return {user: nextProps.user};
+    // } 
 
     loadRecipes = (userId) => {
     API.getRecipes(userId)
