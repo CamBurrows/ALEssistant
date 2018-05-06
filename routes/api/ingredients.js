@@ -16,7 +16,9 @@ router.get('/ingredients/:id', ingredientsController.findAll);
 
 
 //PostMan says it works
-// router.get('/ingredients/:id', ingredientsController.findOne);
+
+//router.get('/ingredients/:id', ingredientsController.findOne);
+
 
 
 

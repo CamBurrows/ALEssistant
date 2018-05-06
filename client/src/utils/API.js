@@ -21,7 +21,7 @@ export default {
   },
   // Get all recipes
   getRecipes: function(id) {
-    return axios.get("/api/recipes/", id);
+    return axios.get("/api/recipes/" + id);
   },
   // Adds a recipe
   addRecipe: function(recipe) {
