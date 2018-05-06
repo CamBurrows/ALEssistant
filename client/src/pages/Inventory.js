@@ -26,12 +26,12 @@ class Inventory extends React.Component {
     }  
 
     componentDidMount = () => {
-        this.loadInventory()
         this.setState({user: JSON.parse(localStorage.getItem('user'))});
+        this.loadInventory(this.state.user.user._id)
     }
 
-    loadInventory = () => {
-    API.getIngredients()
+    loadInventory = (userId) => {
+    API.getIngredients(userId)
       .then(res =>
         this.setState({ allIngredients: res.data, name: "", type: "", quantity: 0 , unit: "", cost: 0})
       )

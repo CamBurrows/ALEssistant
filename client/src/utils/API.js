@@ -8,8 +8,8 @@ export default {
   signUp: function(user) {
     return axios.post("/signup", user)
   },
-  getIngredients: function() {
-    return axios.get("/api/ingredients");
+  getIngredients: function(id) {
+    return axios.get("/api/ingredients/" + id);
   },
   // Adds an ingredient
   addIngredient: function(ingredient) {
@@ -20,8 +20,8 @@ export default {
     return axios.delete("/api/ingredients/" + id);
   },
   // Get all recipes
-  getRecipes: function() {
-    return axios.get("/api/recipes");
+  getRecipes: function(id) {
+    return axios.get("/api/recipes/", id);
   },
   // Adds a recipe
   addRecipe: function(recipe) {
