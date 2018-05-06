@@ -17,7 +17,8 @@ module.exports = {
     });
   },
   findAll: function(req, res) {
-    db.IngredientsInventory.find({})
+    console.log("req.params = " + JSON.stringify(req.params) + "\nreq.body = " + JSON.stringify(req.body))
+    db.IngredientsInventory.find({_id:req.params.id})
     .then(function(dbIngredients) {
       res.json(dbIngredients);
     })
