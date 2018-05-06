@@ -147,6 +147,7 @@ class Recipes extends React.Component {
 
     editOnClick = id => {
         API.findRecipe(id)
+        .then(res =>console.log(res.data))
         .then(res => this.setState({
             
         recipeName: res.data.name,
@@ -273,6 +274,7 @@ class Recipes extends React.Component {
                 this.setState({exoticsUnit4: res.data.exotics[3].units})
             }
         })
+        // console.log(this.state)
         .catch(err => console.log(err))
     };
 

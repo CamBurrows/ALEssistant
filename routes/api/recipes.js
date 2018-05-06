@@ -6,8 +6,7 @@ router.get('/recipes/:id', recipeController.findAll);
 
 //Postman approved
 
-//router.get('/recipes/:id', recipeController.findOne);
-
+router.get('/recipes/:id', recipeController.findOne);
 
 router.delete('/recipes/:id', recipeController.remove);
 
