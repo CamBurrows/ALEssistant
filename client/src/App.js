@@ -1,7 +1,4 @@
 import React, { Component } from 'react';
-import Navbar from './components/Navbar';
-import LoginNav from "./components/LoginNav";
-import InventoryModal from "./components/InventoryModal";
 import Brewing from './pages/Brewing.js';
 import Home from './pages/Home.js';
 import Inventory from './pages/Inventory.js';

@@ -25,16 +25,16 @@ class Recipes extends React.Component {
         style: "",
         //fields for grain inputs
         grainName1: "",
-        grainAmt1: 0,
+        grainAmt1: "",
         grainUnit1: "",
         grainName2: "",
-        grainAmt2: 0,
+        grainAmt2: "",
         grainUnit2: "",
         grainName3: "",
-        grainAmt3: 0,
+        grainAmt3: "",
         grainUnit3: "",
         grainName4: "",
-        grainAmt4: 0,
+        grainAmt4: "",
         grainUnit4: "",
 
         //fields for hops inputs
@@ -126,6 +126,18 @@ class Recipes extends React.Component {
               [name]: value
         });
     };
+
+    removeRecipe = id => {
+        API.removeRecipe(id)
+        .then(res => this.loadRecipes())
+        .catch(err => console.log(err));
+    }
+    
+    // handleNewBrew = id => {
+    //     API.updateRecipe(id)
+    //     .then(res => this.loadRecipes())
+    //     .catch(err => console.log(err));
+    // }
 
     handleFormSubmit = event => {
         event.preventDefault();
@@ -322,7 +334,6 @@ class Recipes extends React.Component {
                 exoticsAmt4 = {this.state.exoticsAmt4}
                 exoticsUnit4 = {this.state.exoticsUnit4}
 
-
                 //fields for process input
                 mashTemp = {this.state.mashTemp}
                 mashTime = {this.state.mashTime}
@@ -332,43 +343,29 @@ class Recipes extends React.Component {
                 />
                 
                 <div className="container-fluid">
-                            <RecipePanel 
-                                recipeName = "recipe"
-                                outputVol = "vol"
-                                beerStyle = "style"
-                                yeast = {[{
-                                    name: "yeast",
-                                    amount: 20,
-                                    unit: "lbs"
-                                }]}
-                                grains = {[{
-                                    name:"grain",
-                                    amount: 20
-                                }]}
-                                hops = {[{
-                                    name: "hoptest",
-                                    amount: 20,
-                                    timeAdded: 90
-                                }]}
-                                exotics = {[{
-                                    name: "exotic",
-                                    amount: 10,
-                                    unit: "grams"
-                                }]}
-                            />
-                        {this.state.allRecipes.map(recipe => (
-
+                    {this.state.allRecipes.length ? (    
+                        this.state.allRecipes.map(recipe => (
+                            
                                 <RecipePanel 
+                                    deleteOnClick = {() => this.removeRecipe(recipe._id)}
                                     recipeName = {recipe.name}
-                                    outputVol = {recipe.batchSize}
                                     beerStyle = {recipe.style}
                                     yeast = {recipe.yeast}
                                     grains = {recipe.grains}
                                     hops = {recipe.hops}
                                     exotics = {recipe.exotics}
+
+                                    mashTemp = {recipe.mashTemp}
+                                    mashTime = {recipe.mashTime}
+                                    boilTime = {recipe.boilTime}
+                                    fermTime = {recipe.fermentationTime}
+                                    outputVol = {recipe.batchSize}
                                 />
                             
-                        ))}
+                        ))
+                    ) : (
+                        <h4> No Recipes Yet </h4>
+                    )}
                     
                 </div>
             </Wrapper>
