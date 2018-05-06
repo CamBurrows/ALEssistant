@@ -2,6 +2,7 @@ import React from "react";
 import Navbar from '../components/Navbar';
 import RecipePageTitle from '../components/RecipePageTitle';
 import AddRecipeModal from '../components/AddRecipeModal';
+import EditRecipeModal from '../components/EditRecipeModal';
 import Wrapper from '../components/Wrapper';
 import RecipePanel from '../components/RecipePanel';
 import API from '../utils/API.js'
@@ -79,22 +80,24 @@ class Recipes extends React.Component {
         mashTime: 0,
         boilTime: 0,
         fermTime: 0,
-        outputVol: 0
+        outputVol: 0,
+
+        currentRecipeId: ""
         
     }
 }
 
-        componentWillMount = () => {
-            this.setState({user: JSON.parse(localStorage.getItem('user'))})
-        }
+    componentWillMount = () => {
+        this.setState({user: JSON.parse(localStorage.getItem('user'))})
+    }
 
-        componentDidMount = () => {
-            // this.setState({user: JSON.parse(localStorage.getItem('user'))})
-            console.log(this.state.user.user._id)
-            this.loadRecipes(this.state.user.user._id)
-            this.getIngredients(this.state.user.user._id)
+    componentDidMount = () => {
+        // this.setState({user: JSON.parse(localStorage.getItem('user'))})
+        console.log(this.state.user.user._id)
+        this.loadRecipes(this.state.user.user._id)
+        this.getIngredients(this.state.user.user._id)
 
-        }
+    }
 
 
 
@@ -127,7 +130,7 @@ class Recipes extends React.Component {
         console.log(this.state)
       })
       .catch(err => console.log(err));
-    }
+    };
 
     handleInputChange = event => {
         const { name, value } = event.target;
@@ -138,132 +141,143 @@ class Recipes extends React.Component {
 
     removeRecipe = id => {
         API.removeRecipe(id)
-        .then(res => this.loadRecipes())
+        .then(res => this.loadRecipes(this.state.user.user._id))
         .catch(err => console.log(err));
-    }
+    };
 
-    // editOnClick = id => {
-    //     API.findRecipe(id)
-    //     .then(res => this.setState({
+    editOnClick = id => {
+        API.findRecipe(id)
+        .then(res => this.setState({
             
-    //     recipeName: res.data.name,
-    //     style: res.data.style,
-    //     mashTemp: res.data.mashTemp,
-    //     mashTime: res.data.mashTime,
-    //     boilTime: res.data.boilTime,
-    //     fermTime: res.data.fermTime,
-    //     outputVol: res.data.outputVol,
-    //     yeastName: res.data.yeast.name,
-    //     yeastAmount: res.data.yeast.amount,
-    //     yeastUnit: res.data.yeast.units
-    //     //fields for grain inputs
-    //     })
-    //     .then(res => {
-    //         if(res.data.grains[0].grainName1){
-    //             this.setState({grainName1: res.data.grains[0].name})
-    //         }
-    //         if(res.data.grains[0].grainAmt1){
-    //             this.setState({grainAmt1: res.data.grains[0].amount})
-    //         }
-    //         if(res.data.grains[1].grainName1){
-    //             this.setState({grainName2: res.data.grains[1].name})
-    //         }
-    //         if(res.data.grains[1].grainAmt1){
-    //             this.setState({grainAmt2: res.data.grains[1].amount})
-    //         }
-    //         if(res.data.grains[2].grainName1){
-    //             this.setState({grainName2: res.data.grains[2].name})
-    //         }
-    //         if(res.data.grains[2].grainAmt1){
-    //             this.setState({grainAmt3: res.data.grains[2].amount})
-    //         }
-    //         if(res.data.grains[3].grainName1){
-    //             this.setState({grainName3: res.data.grains[3].name})
-    //         }
-    //         if(res.data.grains[3].grainAmt4){
-    //             this.setState({grainAmt4: res.data.grains[3].amount})
-    //         }
-    //     })
-    //     .then(res => {
-    //         if(res.data.hops[0].hopsName1){
-    //             this.setState({hopsName1: res.data.hops[0].name})
-    //         }
-    //         if(res.data.hops[0].hopsAmt1){
-    //             this.setState({hopsAmt1: res.data.hops[0].amount})
-    //         }
-    //         if(res.data.hops[0].hopsTime1){
-    //             this.setState({hopsTime1: res.data.hops[0].timeAdded})
-    //         }
+        recipeName: res.data.name,
+        style: res.data.style,
+        mashTemp: res.data.mashTemp,
+        mashTime: res.data.mashTime,
+        boilTime: res.data.boilTime,
+        fermTime: res.data.fermTime,
+        outputVol: res.data.outputVol,
+        yeastName: res.data.yeast.name,
+        yeastAmount: res.data.yeast.amount,
+        yeastUnit: res.data.yeast.units,
+        currentRecipeId: res.data._id
+        //fields for grain inputs
+        }))
+        //conditionals to check which grains fields exist in current recipe
+        .then(res => {
+            if(res.data.grains[0].name){
+                this.setState({grainName1: res.data.grains[0].name})
+            }
+            if(res.data.grains[0].amount){
+                this.setState({grainAmt1: res.data.grains[0].amount})
+            }
+            if(res.data.grains[1].name){
+                this.setState({grainName2: res.data.grains[1].name})
+            }
+            if(res.data.grains[1].amount){
+                this.setState({grainAmt2: res.data.grains[1].amount})
+            }
+            if(res.data.grains[2].name){
+                this.setState({grainName3: res.data.grains[2].name})
+            }
+            if(res.data.grains[2].amount){
+                this.setState({grainAmt3: res.data.grains[2].amount})
+            }
+            if(res.data.grains[3].name){
+                this.setState({grainName4: res.data.grains[3].name})
+            }
+            if(res.data.grains[3].amount){
+                this.setState({grainAmt4: res.data.grains[3].amount})
+            }
+        })
+        //conditionals to check what hops fields exist in current recipe
+        .then(res => {
+            if(res.data.hops[0].name){
+                this.setState({hopsName1: res.data.hops[0].name})
+            }
+            if(res.data.hops[0].amount){
+                this.setState({hopsAmt1: res.data.hops[0].amount})
+            }
+            if(res.data.hops[0].timeAdded){
+                this.setState({hopsTime1: res.data.hops[0].timeAdded})
+            }
 
-    //         if(res.data.hops[1].hopsName2){
-    //             this.setState({hopsName2: res.data.hops[1].name})
-    //         }
-    //         if(res.data.hops[1].hopsAmt2){
-    //             this.setState({hopsAmt2: res.data.hops[1].amount})
-    //         }
-    //         if(res.data.hops[1].hopsTime2){
-    //             this.setState({hopsTime2: res.data.hops[1].timeAdded})
-    //         }
+            if(res.data.hops[1].name){
+                this.setState({hopsName2: res.data.hops[1].name})
+            }
+            if(res.data.hops[1].amount){
+                this.setState({hopsAmt2: res.data.hops[1].amount})
+            }
+            if(res.data.hops[1].timeAdded){
+                this.setState({hopsTime2: res.data.hops[1].timeAdded})
+            }
 
-    //         if(res.data.hops[2].hopsName3){
-    //             this.setState({hopsName3: res.data.hops[2].name})
-    //         }
-    //         if(res.data.hops[2].hopsName3){
-    //             this.setState({hopsName3: res.data.hops[2].name})
-    //         }
-    //         if(res.data.hops[2].hopsName3){
-    //             this.setState({hopsName3: res.data.hops[2].name})
-    //         }
+            if(res.data.hops[2].name){
+                this.setState({hopsName3: res.data.hops[2].name})
+            }
+            if(res.data.hops[2].amount){
+                this.setState({hopsAmt3: res.data.hops[2].amount})
+            }
+            if(res.data.hops[2].timeAdded){
+                this.setState({hopsTime3: res.data.hops[2].timeAdded})
+            }
 
-    //         if(res.data.hops[3].hopsName3){
-    //             this.setState({hopsName3: res.data.hops[3].name})
-    //         }
-    //         if(res.data.hops[3].hopsAmt3){
-    //             this.setState({hopsAmt4: res.data.hops[3].amount})
-    //         }
-    //         if(res.data.hops[3].hopsTime3){
-    //             this.setState({hopsTime4: res.data.hops[3].timeAdded})
-    //         }
-    //     })
-        
+            if(res.data.hops[3].name){
+                this.setState({hopsName4: res.data.hops[3].name})
+            }
+            if(res.data.hops[3].amount){
+                this.setState({hopsAmt4: res.data.hops[3].amount})
+            }
+            if(res.data.hops[3].timeAdded){
+                this.setState({hopsTime4: res.data.hops[3].timeAdded})
+            }
+        })
+        //conditionals to check which exotics fields exist in current recipe
+        .then(res => {
+            if(res.data.exotics[0].name){
+                this.setState({exoticsName1: res.data.exotics[0].name})
+            }
+            if(res.data.exotics[0].amount){
+                this.setState({exoticsAmt1: res.data.exotics[0].amount})
+            }
+            if(res.data.exotics[0].units){
+                this.setState({exoticsUnit1: res.data.exotics[0].units})
+            }
 
-    //     //fields for hops inputs
-    //     hopsName1: "",
-    //     hopsAmt1: 0,
-    //     hopsUnit1: "",
-    //     hopsTime1: 0,
-    //     hopsName2: "",
-    //     hopsAmt2: 0,
-    //     hopsUnit2: "",
-    //     hopsTime2: 0,
-    //     hopsName3: "",
-    //     hopsAmt3: 0,
-    //     hopsUnit3: "",
-    //     hopsTime3: 0,
-    //     hopsName4: "",
-    //     hopsAmt4: 0,
-    //     hopsUnit4: "",
-    //     hopsTime4: 0,
+            if(res.data.exotics[1].name){
+                this.setState({exoticsName2: res.data.exotics[1].name})
+            }
+            if(res.data.exotics[1].amount){
+                this.setState({exoticsAmt2: res.data.exotics[1].amount})
+            }
+            if(res.data.exotics[1].units){
+                this.setState({exoticsUnit2: res.data.exotics[1].units})
+            }
 
-    //     //fields for exotics input
-    //     exoticsName1: "",
-    //     exoticsAmt1: 0,
-    //     exoticsUnit1: "",
-    //     exoticsName2: "",
-    //     exoticsAmt2: 0,
-    //     exoticsUnit2: "",
-    //     exoticsName3: "",
-    //     exoticsAmt3: 0,
-    //     exoticsUnit3: "",
-    //     exoticsName4: "",
-    //     exoticsAmt4: 0,
-    //     exoticsUnit4: ""
+            if(res.data.exotics[2].name){
+                this.setState({exoticsName3: res.data.exotics[2].name})
+            }
+            if(res.data.exotics[2].amount){
+                this.setState({exoticsAmt3: res.data.exotics[2].amount})
+            }
+            if(res.data.exotics[2].units){
+                this.setState({exoticsUnit3: res.data.exotics[2].units})
+            }
+
+            if(res.data.exotics[3].name){
+                this.setState({exoticsName4: res.data.exotics[3].name})
+            }
+            if(res.data.exotics[3].amount){
+                this.setState({exoticsAmt4: res.data.exotics[3].amount})
+            }
+            if(res.data.exotics[3].units){
+                this.setState({exoticsUnit4: res.data.exotics[3].units})
+            }
+        })
+        .catch(err => console.log(err))
+    };
 
 
-    //     //fields for process i
-            
-    //     }))
-    //}
+
     
     // handleNewBrew = id => {
     //     API.updateRecipe(id)
@@ -399,10 +413,141 @@ class Recipes extends React.Component {
              newRecipe
            })
             .then(console.log("sent recipe: " + newRecipe))
-            .then(res => this.loadRecipes())
+            .then(res => this.loadRecipes(this.state.user.user._id))
             .catch(err => console.log(err));
         
     };
+
+    //incomplete
+    handleEditSubmit = id => {
+
+            const updateRecipe = {
+                name: this.state.recipeName,
+                batchSize: this.state.outputVol,
+                style: this.state.style,
+                mashTemp: this.state.mashTemp,
+                mashTime: this.state.mashTime,
+                boilTime: this.state.boilTime,
+                fermentationTime: this.state.fermTime,
+    
+                yeast: {name: this.state.yeastName,
+                        amount: this.state.yeastAmount,
+                        units: this.state.yeastUnit},
+                _userId: this.state.user.user._id
+            }
+    
+            let grain1 = {};
+            let grain2 = {};
+            let grain3 = {};
+            let grain4 = {};
+    
+            let hops1 = {};
+            let hops2 = {};
+            let hops3 = {};
+            let hops4 = {};
+    
+            let exotics1 = {};
+            let exotics2 = {};
+            let exotics3 = {};
+            let exotics4 = {};
+    
+            let grainsArray = [];
+            let hopsArray = [];
+            let exoticsArray =[];
+    
+            if (this.state.grainName1){
+                grain1.name = this.state.grainName1
+                grain1.amount = this.state.grainAmt1
+                grainsArray.push(grain1)
+            }
+    
+            if (this.state.grainName2){
+                grain2.name = this.state.grainName2
+                grain2.amount = this.state.grainAmt2
+                grainsArray.push(grain2)
+            }
+    
+            if (this.state.grainName3){
+                grain3.name = this.state.grainName3
+                grain3.amount = this.state.grainAmt3
+                grainsArray.push(grain3)
+            }
+    
+            if (this.state.hopsName4){
+                hops4.name = this.state.grainName4
+                grain4.amount = this.state.grainAmt4
+                grainsArray.push(grain4)
+            }
+    
+            
+            if (this.state.hopsName1){
+                hops1.name = this.state.hopsName1
+                hops1.amount = this.state.hopsAmt1
+                hops1.timeAdded = this.state.hopsTime1
+                hopsArray.push(hops1)
+            }
+    
+            if (this.state.hopsName2){
+                hops2.name = this.state.hopsName2
+                hops2.amount = this.state.hopsAmt2
+                hops2.timeAdded = this.state.hopsTime2
+                hopsArray.push(hops2)
+            }
+    
+            if (this.state.hopsName3){
+                hops3.name = this.state.hopsName3
+                hops3.amount = this.state.hopsAmt3
+                hops3.timeAdded = this.state.hopsTime3
+                hopsArray.push(hops3)
+            }
+    
+            if (this.state.hopsName4){
+                hops4.name = this.state.hopsName4
+                hops4.amount = this.state.hopsAmt4
+                hops4.units = this.state.hopsTime4
+                hopsArray.push(hops4)
+            }
+    
+    
+            if (this.state.exoticsName1){
+                exotics1.name = this.state.exoticsName1
+                exotics1.amount = this.state.exoticsAmt1
+                exotics1.units = this.state.exoticsUnit1
+                exoticsArray.push(exotics1)
+            }
+    
+            if (this.state.exoticsName2){
+                exotics2.name = this.state.exoticsName2
+                exotics2.amount = this.state.exoticsAmt2
+                exotics2.units = this.state.exoticsUnit2
+                exoticsArray.push(exotics2)
+            }
+    
+            if (this.state.exoticsName3){
+                exotics3.name = this.state.exoticsName3
+                exotics3.amount = this.state.exoticsAmt3
+                exotics3.units = this.state.exoticsUnit3
+                exoticsArray.push(exotics3)
+            }
+    
+            if (this.state.exoticsName4){
+                exotics4.name = this.state.exoticsName4
+                exotics4.amount = this.state.exoticsAmt4
+                exotics4.units = this.state.exoticsUnit4
+                exoticsArray.push(exotics4)
+            }
+    
+            updateRecipe.grains = grainsArray;
+            updateRecipe.hops = hopsArray;
+            updateRecipe.exotics = exoticsArray;
+            
+            // API.updateRecipe(id,{updateRecipe})
+
+            // .then(console.log("sent recipe: " + updateRecipe))
+            // .then(res => this.loadRecipes())
+            // .catch(err => console.log(err));
+            
+        };
     
     
     render(){
@@ -479,11 +624,83 @@ class Recipes extends React.Component {
                 outputVol = {this.state.outputVol}
                 />
                 
+                <EditRecipeModal
+                
+                grains = {this.state.grains}
+                hops = {this.state.hops}
+                yeast = {this.state.yeast}
+                exotics = {this.state.exotics}
+                
+                onChange = {this.handleInputChange}
+                onClick = {() => this.handleEditSubmit(this.state.currentRecipeId)}
+                recipeName = {this.state.recipeName}
+                style = {this.state.style}
+                
+                //fields for grain inputs
+                grainName1 = {this.state.grainName1}
+                grainAmt1 = {this.state.grainAmt1}
+                grainUnit1 = {this.state.grainUnit1}
+                grainName2 = {this.state.grainName2}
+                grainAmt2 = {this.state.grainAmt2}
+                grainUnit2 = {this.state.grainUnit2}
+                grainName3 = {this.state.grainName3}
+                grainAmt3 = {this.state.grainAmt3}
+                grainUnit3 = {this.state.grainUnit3}
+                grainName4 = {this.state.grainName4}
+                grainAmt4 = {this.state.grainAmt4}
+                grainUnit4 = {this.state.grainUnit4}
+
+                //fields for hops inputs
+                hopsName1 = {this.state.hopsName1}
+                hopsAmt1 = {this.state.hopsAmt1}
+                hopsUnit1 = {this.state.hopsUnit1}
+                hopsTime1 = {this.state.hopsTime1}
+                hopsName2 = {this.state.hopsName2}
+                hopsAmt2 = {this.state.hopsAmt2}
+                hopsUnit2 = {this.state.hopsUnit2}
+                hopsTime2 = {this.state.hopsTime2}
+                hopsName3 = {this.state.hopsName3}
+                hopsAmt3 = {this.state.hopsAmt3}
+                hopsUnit3 = {this.state.hopsUnit3}
+                hopsTime3 = {this.state.hopsTime3}
+                hopsName4 = {this.state.hopsName4}
+                hopsAmt4 = {this.state.hopsAmt4}
+                hopsUnit4 = {this.state.hopsUnit4}
+                hopsTime4 = {this.state.hopsTime4}
+
+                yeastName = {this.state.yeastName}
+                yeastAmount = {this.state.yeastAmount}
+                yeastUnit = {this.state.yeastUnit}
+
+                //fields for exotics input
+                exoticsName1 = {this.state.exoticsName1}
+                exoticsAmt1 = {this.state.exoticsAmt1}
+                exoticsUnit1 = {this.state.exoticsUnit1}
+                exoticsName2 = {this.state.exoticsName2}
+                exoticsAmt2 = {this.state.exoticsAmt2}
+                exoticsUnit2 = {this.state.exoticsUnit2}
+                exoticsName3 = {this.state.exoticsName3}
+                exoticsAmt3 = {this.state.exoticsAmt3}
+                exoticsUnit3 = {this.state.exoticsUnit3}
+                exoticsName4 = {this.state.exoticsName4}
+                exoticsAmt4 = {this.state.exoticsAmt4}
+                exoticsUnit4 = {this.state.exoticsUnit4}
+
+                //fields for process input
+                mashTemp = {this.state.mashTemp}
+                mashTime = {this.state.mashTime}
+                boilTime = {this.state.boilTime}
+                fermTime = {this.state.fermTime}
+                outputVol = {this.state.outputVol}
+                />
+                
+                
                 <div className="container-fluid">
                     {this.state.allRecipes.length ? (    
                         this.state.allRecipes.map(recipe => (
                             
-                                <RecipePanel 
+                                <RecipePanel
+                                    editOnClick = {() => this.editOnClick(recipe._id)}
                                     deleteOnClick = {() => this.removeRecipe(recipe._id)}
                                     recipeName = {recipe.name}
                                     beerStyle = {recipe.style}

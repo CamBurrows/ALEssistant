@@ -5,6 +5,7 @@ const recipeController = require("../../controllers/recipeController.js");
 router.get('/recipes/:id', recipeController.findAll);
 
 //Postman approved
+
 //router.get('/recipes/:id', recipeController.findOne);
 
 
