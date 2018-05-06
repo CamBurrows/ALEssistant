@@ -85,25 +85,25 @@ class Recipes extends React.Component {
 }
 
     componentDidMount = () => {
-        this.loadRecipes()
-        this.getIngredients()
         this.setState({user: JSON.parse(localStorage.getItem('user'))});
+        this.loadRecipes(this.state.user.user._id)
+        this.getIngredients(this.state.user.user._id)
     }
 
     static getDerivedStateFromProps(nextProps, prevState) {
         return {user: nextProps.user};
     } 
 
-    loadRecipes = () => {
-    API.getRecipes()
+    loadRecipes = (userId) => {
+    API.getRecipes(userId)
       .then(res =>
         this.setState({ allRecipes: res.data })
       )
       .catch(err => console.log(err));
   };
 
-    getIngredients = () => {
-        API.getIngredients()
+    getIngredients = (userId) => {
+        API.getIngredients(userId)
       .then(res => {
         const grains = res.data.filter(ingredient=>ingredient.type === "Grains")
         const hops = res.data.filter(ingredient=>ingredient.type === "Hops")
@@ -134,73 +134,128 @@ class Recipes extends React.Component {
         .catch(err => console.log(err));
     }
 
-    editOnClick = id => {
-        API.findRecipe(id)
-        .then(res => this.setState({
+    // editOnClick = id => {
+    //     API.findRecipe(id)
+    //     .then(res => this.setState({
             
-        recipeName: res.data.name,
-        style: res.data.style,
-        //fields for grain inputs
+    //     recipeName: res.data.name,
+    //     style: res.data.style,
+    //     mashTemp: res.data.mashTemp,
+    //     mashTime: res.data.mashTime,
+    //     boilTime: res.data.boilTime,
+    //     fermTime: res.data.fermTime,
+    //     outputVol: res.data.outputVol,
+    //     yeastName: res.data.yeast.name,
+    //     yeastAmount: res.data.yeast.amount,
+    //     yeastUnit: res.data.yeast.units
+    //     //fields for grain inputs
+    //     })
+    //     .then(res => {
+    //         if(res.data.grains[0].grainName1){
+    //             this.setState({grainName1: res.data.grains[0].name})
+    //         }
+    //         if(res.data.grains[0].grainAmt1){
+    //             this.setState({grainAmt1: res.data.grains[0].amount})
+    //         }
+    //         if(res.data.grains[1].grainName1){
+    //             this.setState({grainName2: res.data.grains[1].name})
+    //         }
+    //         if(res.data.grains[1].grainAmt1){
+    //             this.setState({grainAmt2: res.data.grains[1].amount})
+    //         }
+    //         if(res.data.grains[2].grainName1){
+    //             this.setState({grainName2: res.data.grains[2].name})
+    //         }
+    //         if(res.data.grains[2].grainAmt1){
+    //             this.setState({grainAmt3: res.data.grains[2].amount})
+    //         }
+    //         if(res.data.grains[3].grainName1){
+    //             this.setState({grainName3: res.data.grains[3].name})
+    //         }
+    //         if(res.data.grains[3].grainAmt4){
+    //             this.setState({grainAmt4: res.data.grains[3].amount})
+    //         }
+    //     })
+    //     .then(res => {
+    //         if(res.data.hops[0].hopsName1){
+    //             this.setState({hopsName1: res.data.hops[0].name})
+    //         }
+    //         if(res.data.hops[0].hopsAmt1){
+    //             this.setState({hopsAmt1: res.data.hops[0].amount})
+    //         }
+    //         if(res.data.hops[0].hopsTime1){
+    //             this.setState({hopsTime1: res.data.hops[0].timeAdded})
+    //         }
+
+    //         if(res.data.hops[1].hopsName2){
+    //             this.setState({hopsName2: res.data.hops[1].name})
+    //         }
+    //         if(res.data.hops[1].hopsAmt2){
+    //             this.setState({hopsAmt2: res.data.hops[1].amount})
+    //         }
+    //         if(res.data.hops[1].hopsTime2){
+    //             this.setState({hopsTime2: res.data.hops[1].timeAdded})
+    //         }
+
+    //         if(res.data.hops[2].hopsName3){
+    //             this.setState({hopsName3: res.data.hops[2].name})
+    //         }
+    //         if(res.data.hops[2].hopsName3){
+    //             this.setState({hopsName3: res.data.hops[2].name})
+    //         }
+    //         if(res.data.hops[2].hopsName3){
+    //             this.setState({hopsName3: res.data.hops[2].name})
+    //         }
+
+    //         if(res.data.hops[3].hopsName3){
+    //             this.setState({hopsName3: res.data.hops[3].name})
+    //         }
+    //         if(res.data.hops[3].hopsAmt3){
+    //             this.setState({hopsAmt4: res.data.hops[3].amount})
+    //         }
+    //         if(res.data.hops[3].hopsTime3){
+    //             this.setState({hopsTime4: res.data.hops[3].timeAdded})
+    //         }
+    //     })
         
-        grainName1: "",
-        grainAmt1: 0,
-        grainUnit1: "",
-        grainName2: "",
-        grainAmt2: 0,
-        grainUnit2: "",
-        grainName3: "",
-        grainAmt3: 0,
-        grainUnit3: "",
-        grainName4: "",
-        grainAmt4: 0,
-        grainUnit4: "",
 
-        //fields for hops inputs
-        hopsName1: "",
-        hopsAmt1: 0,
-        hopsUnit1: "",
-        hopsTime1: 0,
-        hopsName2: "",
-        hopsAmt2: 0,
-        hopsUnit2: "",
-        hopsTime2: 0,
-        hopsName3: "",
-        hopsAmt3: 0,
-        hopsUnit3: "",
-        hopsTime3: 0,
-        hopsName4: "",
-        hopsAmt4: 0,
-        hopsUnit4: "",
-        hopsTime4: 0,
+    //     //fields for hops inputs
+    //     hopsName1: "",
+    //     hopsAmt1: 0,
+    //     hopsUnit1: "",
+    //     hopsTime1: 0,
+    //     hopsName2: "",
+    //     hopsAmt2: 0,
+    //     hopsUnit2: "",
+    //     hopsTime2: 0,
+    //     hopsName3: "",
+    //     hopsAmt3: 0,
+    //     hopsUnit3: "",
+    //     hopsTime3: 0,
+    //     hopsName4: "",
+    //     hopsAmt4: 0,
+    //     hopsUnit4: "",
+    //     hopsTime4: 0,
 
-        yeastName: res.data.yeast.name,
-        yeastAmount: res.data.yeast.amount,
-        yeastUnit: res.data.yeast.units,
-
-        //fields for exotics input
-        exoticsName1: "",
-        exoticsAmt1: 0,
-        exoticsUnit1: "",
-        exoticsName2: "",
-        exoticsAmt2: 0,
-        exoticsUnit2: "",
-        exoticsName3: "",
-        exoticsAmt3: 0,
-        exoticsUnit3: "",
-        exoticsName4: "",
-        exoticsAmt4: 0,
-        exoticsUnit4: "",
+    //     //fields for exotics input
+    //     exoticsName1: "",
+    //     exoticsAmt1: 0,
+    //     exoticsUnit1: "",
+    //     exoticsName2: "",
+    //     exoticsAmt2: 0,
+    //     exoticsUnit2: "",
+    //     exoticsName3: "",
+    //     exoticsAmt3: 0,
+    //     exoticsUnit3: "",
+    //     exoticsName4: "",
+    //     exoticsAmt4: 0,
+    //     exoticsUnit4: ""
 
 
-        //fields for process input
-        mashTemp: res.data.mashTemp,
-        mashTime: res.data.mashTime,
-        boilTime: res.data.boilTime,
-        fermTime: res.data.fermTime,
-        outputVol: res.data.outputVol,
+    //     //fields for process i
             
-        }))
-    }
+    //     }))
+    //}
     
     // handleNewBrew = id => {
     //     API.updateRecipe(id)
