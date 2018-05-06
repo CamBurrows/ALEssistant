@@ -12,11 +12,11 @@ router.post('/ingredients/:id', function(req, res) {
 
 
 //PostMan says it works
-router.get('/ingredients', ingredientsController.findAll);
+router.get('/ingredients/:id', ingredientsController.findAll);
 
 
 //PostMan says it works
-router.get('/ingredients/:id', ingredientsController.findOne);
+// router.get('/ingredients/:id', ingredientsController.findOne);
 
 
 

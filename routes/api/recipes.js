@@ -2,10 +2,10 @@ const router = require('express').Router();
 const recipeController = require("../../controllers/recipeController.js");
 
 //PostMan says it works
-router.get('/recipes', recipeController.findAll);
+router.get('/recipes/:id', recipeController.findAll);
 
 //Postman approved
-router.get('/recipes/:id', recipeController.findOne);
+// router.get('/recipes/:id', recipeController.findOne);
 
 
 router.delete('/recipes/:id', recipeController.remove);

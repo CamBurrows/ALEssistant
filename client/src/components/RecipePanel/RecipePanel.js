@@ -26,7 +26,7 @@ const RecipePanel = props => (
                 </p>
               </div>
               <div className="col-sm-1">
-                <button className="btn edit-btn">
+                <button className="btn edit-btn" onClick={props.editOnClick} data-toggle="modal" data-target="#editRecipeModal">
                   <h6>Edit Recipe</h6>
                 </button>
               </div>
