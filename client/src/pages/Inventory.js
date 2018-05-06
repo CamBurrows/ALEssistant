@@ -64,7 +64,7 @@ class Inventory extends React.Component {
              _userId: this.state.user.user._id
            })
             .then(console.log("sent recipe" + this.state))
-             .then(res => this.loadInventory())
+             .then(res => this.loadInventory(this.state.user.user._id))
              .catch(err => console.log(err));
         }
     };
@@ -75,7 +75,7 @@ class Inventory extends React.Component {
 
     removeIngredient = id => {
         API.removeIngredient(id)
-        .then(res => this.loadInventory())
+        .then(res => this.loadInventory(this.state.user.user._id))
         .catch(err => console.log(err));
     }
 

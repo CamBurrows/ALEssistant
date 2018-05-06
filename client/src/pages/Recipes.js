@@ -141,7 +141,7 @@ class Recipes extends React.Component {
 
     removeRecipe = id => {
         API.removeRecipe(id)
-        .then(res => this.loadRecipes())
+        .then(res => this.loadRecipes(this.state.user.user._id))
         .catch(err => console.log(err));
     };
 
@@ -413,14 +413,14 @@ class Recipes extends React.Component {
              newRecipe
            })
             .then(console.log("sent recipe: " + newRecipe))
-            .then(res => this.loadRecipes())
+            .then(res => this.loadRecipes(this.state.user.user._id))
             .catch(err => console.log(err));
         
     };
 
     //incomplete
     handleEditSubmit = id => {
-                 
+
             const updateRecipe = {
                 name: this.state.recipeName,
                 batchSize: this.state.outputVol,
