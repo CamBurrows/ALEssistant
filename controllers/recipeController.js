@@ -14,6 +14,7 @@ module.exports = {
     })
   },
   findAll: function(req, res) {
+    console.log("req.params = " + JSON.stringify(req.params) + "\nreq.body = " + JSON.stringify(req.body))
     db.Recipe.find({})
     .then(function(dbRecipe) {
       res.json(dbRecipe);
@@ -41,7 +42,7 @@ module.exports = {
     });
   },
   update: function(req, res) {
-    db.Recipe.findOneAndUpdate({_id:req.body._id}, {$push: {recipe: dbRecipes._id }})
+    db.Recipe.findOneAndUpdate({_id:req.body._id}, req.body)
     .then(function(dbRecipes){
       res.json(dbRecipes)
     })
