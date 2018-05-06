@@ -62,7 +62,7 @@ class App extends Component {
             !this.storage.getItem('user') ? (
               <Redirect to="/"/>
             ) : (
-              <Brewing user={this.storage.getItem('user') } logout={this.logout}/>
+              <Brewing logout={this.logout}/>
             )
           )}/>
 
@@ -78,7 +78,7 @@ class App extends Component {
             !this.storage.getItem('user') ? (
               <Redirect to="/"/>
             ) : (
-              <Recipes user={this.storage.getItem('user') } logout={this.logout}/>
+              <Recipes logout={this.logout}/>
             )
           )}/>
           

@@ -8,20 +8,23 @@ class Home extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            user: props.user,
-            logout: props.logout
+            user: null
         }
     }
     
-    static getDerivedStateFromProps(nextProps, prevState) {
-        return {user: nextProps.user};
-    }  
+    // static getDerivedStateFromProps(nextProps, prevState) {
+    //     return {user: nextProps.user};
+    // }
+
+    componentDidMount(){
+        this.setState({user: JSON.parse(localStorage.getItem('user'))});
+    }
     
     render(){
         console.log(this.state.logout);
         return (
             <Wrapper>
-                <Navbar logout={this.state.logout}/>
+                <Navbar logout={this.props.logout}/>
             </Wrapper>
         )
     }
