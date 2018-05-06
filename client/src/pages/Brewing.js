@@ -13,11 +13,11 @@ class Brewing extends React.Component {
 
         this.state = {
         user: null,
-        allRecipes: []
+        allRecipes: [],
+        
         }
     }
 
-    
     componentDidMount(){
         this.setState({user: JSON.parse(localStorage.getItem('user'))});
     }

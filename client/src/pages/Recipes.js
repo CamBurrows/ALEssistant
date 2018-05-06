@@ -79,7 +79,7 @@ class Recipes extends React.Component {
         mashTime: 0,
         boilTime: 0,
         fermTime: 0,
-        outputVol: 0,
+        outputVol: 0
         
     }
 }
@@ -132,6 +132,74 @@ class Recipes extends React.Component {
         API.removeRecipe(id)
         .then(res => this.loadRecipes())
         .catch(err => console.log(err));
+    }
+
+    editOnClick = id => {
+        API.findRecipe(id)
+        .then(res => this.setState({
+            
+        recipeName: res.data.name,
+        style: res.data.style,
+        //fields for grain inputs
+        
+        grainName1: "",
+        grainAmt1: 0,
+        grainUnit1: "",
+        grainName2: "",
+        grainAmt2: 0,
+        grainUnit2: "",
+        grainName3: "",
+        grainAmt3: 0,
+        grainUnit3: "",
+        grainName4: "",
+        grainAmt4: 0,
+        grainUnit4: "",
+
+        //fields for hops inputs
+        hopsName1: "",
+        hopsAmt1: 0,
+        hopsUnit1: "",
+        hopsTime1: 0,
+        hopsName2: "",
+        hopsAmt2: 0,
+        hopsUnit2: "",
+        hopsTime2: 0,
+        hopsName3: "",
+        hopsAmt3: 0,
+        hopsUnit3: "",
+        hopsTime3: 0,
+        hopsName4: "",
+        hopsAmt4: 0,
+        hopsUnit4: "",
+        hopsTime4: 0,
+
+        yeastName: res.data.yeast.name,
+        yeastAmount: res.data.yeast.amount,
+        yeastUnit: res.data.yeast.units,
+
+        //fields for exotics input
+        exoticsName1: "",
+        exoticsAmt1: 0,
+        exoticsUnit1: "",
+        exoticsName2: "",
+        exoticsAmt2: 0,
+        exoticsUnit2: "",
+        exoticsName3: "",
+        exoticsAmt3: 0,
+        exoticsUnit3: "",
+        exoticsName4: "",
+        exoticsAmt4: 0,
+        exoticsUnit4: "",
+
+
+        //fields for process input
+        mashTemp: res.data.mashTemp,
+        mashTime: res.data.mashTime,
+        boilTime: res.data.boilTime,
+        fermTime: res.data.fermTime,
+        outputVol: res.data.outputVol,
+            
+        }))
     }
     
     // handleNewBrew = id => {
