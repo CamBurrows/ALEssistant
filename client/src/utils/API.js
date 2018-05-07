@@ -18,7 +18,6 @@ export default {
   },
   // Adds an ingredient
   addIngredient: function(ingredient, headers) {
-    //return axios.post("/api/ingredients", ingredient);
     return axios({
       method: 'post',
       url: "/api/ingredients",
@@ -26,15 +25,29 @@ export default {
       headers: headers
     });
   },
-  findIngredient: function (id) {
-    return axios.get("/api/ingredients/edit/" + id)
+  findIngredient: function (id, headers) {
+    return axios({
+      method: 'get',
+      url: "/api/ingredients/edit/" + id,
+      headers: headers
+    });
   },
-  updateIngredient: function (id, ingredient){
-    return axios.put("/api/ingredients/" + id, ingredient)
+  updateIngredient: function (id, ingredient, headers){
+    return axios({
+      method: 'put',
+      url: "/api/ingredients/" + id,
+      data: ingredient,
+      headers: headers
+    });
   },
   // Gets the ingredient with the given id
-  removeIngredient: function(id) {
-    return axios.delete("/api/ingredients/" + id);
+  removeIngredient: function(id, headers) {
+    console.log(headers);
+    return axios({
+      method: 'delete',
+      url: "/api/ingredients/" + id,
+      headers: headers
+    });
   },
 
   // Get all recipes
@@ -55,7 +68,6 @@ export default {
     });
   },
   updateRecipe: function(id, recipe, headers){
-    //return axios.put("/api/recipes/"+ id, recipe)
     return axios({
       method: 'put',
       url: "/api/recipes/" + id,
@@ -64,7 +76,6 @@ export default {
     });
   },
   findRecipe: function(id, headers) {
-    //return axios.get("/api/recipes/edit/" + id)
     return axios({
       method: 'get',
       url: "/api/recipes/edit/" + id,

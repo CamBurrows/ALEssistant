@@ -78,7 +78,8 @@ class Inventory extends React.Component {
     };
 
     editUpdateForm = id => {
-        API.findIngredient(id)
+        console.log(this.headers);
+        API.findIngredient(id, this.headers)
         .then(res => {
             console.log(JSON.stringify(res.data[0]))
             this.setState({
@@ -101,7 +102,7 @@ class Inventory extends React.Component {
             cost: this.state.cost,
             _userId: this.state.user.user._id
         }
-        API.updateIngredient(id, updatedIngredient)
+        API.updateIngredient(id, updatedIngredient, this.headers)
         .then(
             res => {
                 this.loadInventory(this.state.user.user._id)
@@ -120,7 +121,7 @@ class Inventory extends React.Component {
     }
 
     removeIngredient = id => {
-        API.removeIngredient(id)
+        API.removeIngredient(id, this.headers)
         .then(res => this.loadInventory(this.state.user.user._id))
         .catch(err => console.log(err));
     }
