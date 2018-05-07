@@ -57,7 +57,8 @@ class Inventory extends React.Component {
     handleFormSubmit = event => {
         event.preventDefault();
         if (this.state.name && this.state.type && this.state.unit && this.state.cost) {
-           API.addIngredient({
+            console.log(JSON.stringify(this.state.user.user._id))
+             API.addIngredient({
              name: this.state.name,
              type: this.state.type,
              quantity: this.state.quantity,
@@ -128,7 +129,7 @@ class Inventory extends React.Component {
                 <InvPageTitle />
                 <InventoryModal 
                     onChange={this.handleInputChange}
-                    onClick={this.handleEditSubmit}
+                    onClick={this.handleFormSubmit}
                     newNameValue={this.state.name}
                     newTypeValue={this.state.type}
                     newQuantityValue={this.state.quantity}
