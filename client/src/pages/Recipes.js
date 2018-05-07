@@ -274,7 +274,7 @@ class Recipes extends React.Component {
             brewed:true
         }
         
-        API.newBrew(id, newBrew)
+        API.newBrew(id, newBrew, this.headers)
         .catch(err => console.log(err));
     }
 
@@ -545,12 +545,12 @@ class Recipes extends React.Component {
     
         
         handleNoteSubmit = id => {
-            API.findRecipe(id)
+            API.findRecipe(id, this.headers)
             .then(res => {
                 const updateNote = res.data[0]
                 updateNote.comments.push({comment: this.state.commentBody})
     
-                API.updateRecipe(id, updateNote)
+                API.updateRecipe(id, updateNote, this.headers)
                 .then(res => 
                     this.loadRecipes(this.state.user.user._id,
                     this.setState({commentBody:""})
@@ -560,7 +560,7 @@ class Recipes extends React.Component {
         }
 
         noteOnClick = id => {
-            API.findRecipe(id)
+            API.findRecipe(id, this.headers)
             .then(res => {
                 this.setState({
                     currentRecipeId: res.data[0]._id

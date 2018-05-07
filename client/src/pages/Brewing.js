@@ -28,8 +28,11 @@ class Brewing extends React.Component {
 
     }
 
+    token = (JSON.parse(localStorage.getItem('user'))).token;
+    headers = {Authorization: 'Bearer ' + this.token};
+
     loadRecipes = (userId) => {
-        API.getRecipes(userId)
+        API.getRecipes(userId, this.headers)
             .then(res =>
                 this.setState({ allRecipes: res.data })
             )
@@ -37,7 +40,7 @@ class Brewing extends React.Component {
     };
 
     handleBatchProgress = (id, index) => {
-        API.findRecipe(id)
+        API.findRecipe(id, this.headers)
             .then(res => {
 
                 if (!res.data[0].sessions[index].fermentationComplete) {
@@ -45,7 +48,7 @@ class Brewing extends React.Component {
                     const updatedSession = res.data[0]
                     updatedSession.sessions[index].fermentationComplete = true
 
-                    API.updateRecipe(id, updatedSession)
+                    API.updateRecipe(id, updatedSession, this.headers)
                         .then(res => this.loadRecipes(this.state.user.user._id))
 
                 }
@@ -54,7 +57,7 @@ class Brewing extends React.Component {
                     const updatedSession2 = res.data[0]
                     updatedSession2.sessions[index].packaged = true
 
-                    API.updateRecipe(id, updatedSession2)
+                    API.updateRecipe(id, updatedSession2, this.headers)
                         .then(res => this.loadRecipes(this.state.user.user._id))
                 }
             })
@@ -63,12 +66,12 @@ class Brewing extends React.Component {
     };
 
     handleBatchRemove = (id, index) => {
-        API.findRecipe(id)
+        API.findRecipe(id, this.headers)
         .then(res => {
             const deleteSession = res.data[0]
             deleteSession.sessions.splice(index,1)
 
-            API.updateRecipe(id, deleteSession)
+            API.updateRecipe(id, deleteSession, this.headers)
             .then(res => this.loadRecipes(this.state.user.user._id))
         })
     }

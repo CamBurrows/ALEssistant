@@ -91,7 +91,13 @@ export default {
     });
   },
 
-  newBrew: function(id, brew) {
-    return axios.put("/api/recipes/brews/" + id, brew)
+  newBrew: function(id, brew, headers) {
+    //return axios.put("/api/recipes/brews/" + id, brew)
+    return axios({
+      method: 'put',
+      url: "/api/recipes/brews/" + id,
+      data: brew,
+      headers: headers
+    });
   }
 };
