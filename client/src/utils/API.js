@@ -54,15 +54,25 @@ export default {
       headers: headers
     });
   },
-  updateRecipe: function(id, recipe){
-    return axios.put("/api/recipes/"+ id, recipe)
+  updateRecipe: function(id, recipe, headers){
+    //return axios.put("/api/recipes/"+ id, recipe)
+    return axios({
+      method: 'put',
+      url: "/api/recipes/" + id,
+      data: recipe,
+      headers: headers
+    });
   },
-  findRecipe: function(id) {
-    return axios.get("/api/recipes/edit/" + id)
+  findRecipe: function(id, headers) {
+    //return axios.get("/api/recipes/edit/" + id)
+    return axios({
+      method: 'get',
+      url: "/api/recipes/edit/" + id,
+      headers: headers
+    });
   },
   // Deletes a recipe
   removeRecipe: function(id, headers) {
-    //return axios.delete("/api/recipes/" + id);
     return axios({
       method: 'delete',
       url: "/api/recipes/" + id,

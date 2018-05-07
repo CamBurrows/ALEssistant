@@ -147,7 +147,7 @@ class Recipes extends React.Component {
     };
 
     editOnClick = id => {
-        API.findRecipe(id)
+        API.findRecipe(id, this.headers)
         // .then(res => console.log("trying to get recipe info: " + JSON.stringify(res.data[0].name)))
         // .then(res => console.log("trying to get recipe info: " + JSON.stringify(res.data[0].name)))
         .then(res => {
@@ -533,7 +533,7 @@ class Recipes extends React.Component {
             updateRecipe.hops = hopsArray;
             updateRecipe.exotics = exoticsArray;
             
-            API.updateRecipe(id, updateRecipe)
+            API.updateRecipe(id, updateRecipe, this.headers)
 
             .then(console.log("updated recipe: " + updateRecipe))
             .then(res => this.loadRecipes(this.state.user.user._id))
