@@ -42,9 +42,7 @@ class Inventory extends React.Component {
     token = (JSON.parse(localStorage.getItem('user'))).token;
     headers = {Authorization: 'Bearer ' + this.token};
 
-    loadInventory = (userId) => {
-    console.log(this.token);    
-    console.log(this.headers);    
+    loadInventory = (userId) => {  
     API.getIngredients(userId, this.headers)
       .then(res =>
         this.setState({ allIngredients: res.data, name: "", type: "", quantity: 0 , unit: "", cost: 0})
@@ -71,7 +69,8 @@ class Inventory extends React.Component {
              units: this.state.unit,
              cost: this.state.cost,
              _userId: this.state.user.user._id
-           })
+           },
+            this.headers)
             .then(console.log("sent recipe" + this.state))
              .then(res => this.loadInventory(this.state.user.user._id))
              .catch(err => console.log(err));

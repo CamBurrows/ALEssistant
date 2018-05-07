@@ -10,7 +10,6 @@ export default {
   },
 
   getIngredients: function(id, headers) {
-    //return axios.get("/api/ingredients/" + id);
     return axios({
       method: 'get',
       url: "/api/ingredients/" + id,
@@ -18,8 +17,14 @@ export default {
     });
   },
   // Adds an ingredient
-  addIngredient: function(ingredient) {
-    return axios.post("/api/ingredients", ingredient);
+  addIngredient: function(ingredient, headers) {
+    //return axios.post("/api/ingredients", ingredient);
+    return axios({
+      method: 'post',
+      url: "/api/ingredients",
+      data: ingredient,
+      headers: headers
+    });
   },
   findIngredient: function (id) {
     return axios.get("/api/ingredients/edit/" + id)
