@@ -401,8 +401,9 @@ class Recipes extends React.Component {
         newRecipe.exotics = exoticsArray;
         
             API.addRecipe({
-             newRecipe
-           })
+                newRecipe
+            },
+            this.headers)
             .then(console.log("sent recipe: " + newRecipe))
             .then(res => this.loadRecipes(this.state.user.user._id))
             .catch(err => console.log(err));

@@ -39,16 +39,21 @@ export default {
 
   // Get all recipes
   getRecipes: function(id, headers) {
-    //return axios.get("/api/recipes/" + id);
     return axios({
       method: 'get',
-      url: "/api/ingredients/" + id,
+      url: "/api/recipes/" + id,
       headers: headers
     });
   },
   // Adds a recipe
-  addRecipe: function(recipe) {
-    return axios.post("/api/recipes", recipe);
+  addRecipe: function(recipe, headers) {
+    // return axios.post("/api/recipes", recipe);
+    return axios({
+      method: 'post',
+      url: "/api/recipes",
+      data: recipe,
+      headers: headers
+    });
   },
   updateRecipe: function(id, recipe){
     return axios.put("/api/recipes/"+ id, recipe)
