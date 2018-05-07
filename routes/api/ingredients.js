@@ -5,10 +5,10 @@ const ingredientsController = require("../../controllers/ingredientsController.j
 router.post('/ingredients', ingredientsController.create);
 
 //possible refinement of the above
-router.post('/ingredients/:id', function(req, res) {
-  db.IngredientsInventory.create({name: req.params.name, type: req.params.type, quantity: req.params.quantity, units: req.params.units, cost: req.params.cost, _userId: req.params.userId})
-  .then(function(dbIngredients){res.json(dbIngredients)})
-});
+// router.post('/ingredients/:id', function(req, res) {
+//   db.IngredientsInventory.create({name: req.params.name, type: req.params.type, quantity: req.params.quantity, units: req.params.units, cost: req.params.cost, _userId: req.params.userId})
+//   .then(function(dbIngredients){res.json(dbIngredients)})
+// });
 
 
 //PostMan says it works

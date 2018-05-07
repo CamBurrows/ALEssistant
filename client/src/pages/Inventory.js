@@ -4,8 +4,9 @@ import InvPageTitle from '../components/InvPageTitle';
 import InventoryModal from '../components/InventoryModal';
 import Wrapper from '../components/Wrapper';
 import IngredientLine from '../components/IngredientLine';
-import API from '../utils/API.js'
-import EditInventoryModal from "../components/EditInventoryModal/EditInventoryModal";
+import API from '../utils/API.js';
+import EditInventoryModal from "../components/EditInventoryModal";
+import AddNoteModal from "../components/AddNoteModal"
 
 class Inventory extends React.Component {
 
@@ -23,6 +24,7 @@ class Inventory extends React.Component {
         }
     }
     
+
     // static getDerivedStateFromProps(nextProps, prevState) {
     //     return {user: nextProps.user};
     // }  
@@ -38,8 +40,11 @@ class Inventory extends React.Component {
   
     }
 
-    loadInventory = (userId) => {
-    API.getIngredients(userId)
+    token = (JSON.parse(localStorage.getItem('user'))).token;
+    headers = {Authorization: 'Bearer ' + this.token};
+
+    loadInventory = (userId) => {  
+    API.getIngredients(userId, this.headers)
       .then(res =>
         this.setState({ allIngredients: res.data, name: "", type: "", quantity: 0 , unit: "", cost: 0})
       )
@@ -65,7 +70,8 @@ class Inventory extends React.Component {
              units: this.state.unit,
              cost: this.state.cost,
              _userId: this.state.user.user._id
-           })
+           },
+            this.headers)
             .then(console.log("sent recipe" + this.state))
              .then(res => this.loadInventory(this.state.user.user._id))
              .catch(err => console.log(err));
@@ -73,7 +79,8 @@ class Inventory extends React.Component {
     };
 
     editUpdateForm = id => {
-        API.findIngredient(id)
+        console.log(this.headers);
+        API.findIngredient(id, this.headers)
         .then(res => {
             console.log(JSON.stringify(res.data[0]))
             this.setState({
@@ -96,7 +103,7 @@ class Inventory extends React.Component {
             cost: this.state.cost,
             _userId: this.state.user.user._id
         }
-        API.updateIngredient(id, updatedIngredient)
+        API.updateIngredient(id, updatedIngredient, this.headers)
         .then(
             res => {
                 this.loadInventory(this.state.user.user._id)
@@ -115,7 +122,7 @@ class Inventory extends React.Component {
     }
 
     removeIngredient = id => {
-        API.removeIngredient(id)
+        API.removeIngredient(id, this.headers)
         .then(res => this.loadInventory(this.state.user.user._id))
         .catch(err => console.log(err));
     }
