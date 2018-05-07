@@ -16,15 +16,21 @@ class Home extends React.Component {
     //     return {user: nextProps.user};
     // }
 
-    componentDidMount(){
-        this.setState({user: JSON.parse(localStorage.getItem('user'))});
+    componentWillMount = () => {
+        this.setState({user: JSON.parse(localStorage.getItem('user'))})
+    }
+    
+    componentDidMount = () => {
+        // this.setState({user: JSON.parse(localStorage.getItem('user'))})
+        console.log(this.state.user.user._id)
+  
     }
     
     render(){
         // console.log(this.state.logout);
         return (
             <Wrapper>
-                <Navbar logout={this.props.logout}/>
+                <Navbar userName={this.state.user.user.userName} logout={this.props.logout}/>
             </Wrapper>
         )
     }

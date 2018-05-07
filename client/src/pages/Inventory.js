@@ -17,7 +17,7 @@ class Inventory extends React.Component {
             type: "",
             quantity: 0,
             unit: "",
-            cost: 0,
+            cost: 0
         }
     }
     
@@ -84,7 +84,7 @@ class Inventory extends React.Component {
         console.log(this.props)
         return (
             <Wrapper>
-                <Navbar logout={this.props.logout}/>
+                <Navbar userName={this.state.user.user.userName} logout={this.props.logout}/>
                 <InvPageTitle />
                 <InventoryModal 
                     onChange={this.handleInputChange}

@@ -30,6 +30,7 @@ module.exports = {
     db.Recipe.find({_id:req.params.id})
     .then(function(dbRecipe) {
       res.json(dbRecipe)
+      console.log("got recipe in controller: " + dbRecipe)
     })
     .catch(function(err) {
       console.log(err);
@@ -44,13 +45,18 @@ module.exports = {
       console.log(err);
     });
   },
-  // update: function(req, res) {
-  //   db.Recipe.findOneAndUpdate({_id:req.body._id}, req.body)
-  //   .then(function(dbRecipes){
-  //     res.json(dbRecipes)
-  //   })
-  //     .catch(function(err) {
-  //       console.log(err);
-  //     });
-  // }
+  update: function(req, res) {
+    db.Recipe.findOneAndUpdate(
+      {_id:req.params.id}, 
+      req.body,
+      { new: true, overwrite: true }
+    )
+    .then(function(dbRecipes){
+      res.json(dbRecipes)
+      console.log("updated recipe from controller: " + dbRecipes)
+    })
+      .catch(function(err) {
+        console.log(err);
+      });
+  }
 };

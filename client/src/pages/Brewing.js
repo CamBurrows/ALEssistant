@@ -18,8 +18,15 @@ class Brewing extends React.Component {
         }
     }
 
-    componentDidMount(){
-        this.setState({user: JSON.parse(localStorage.getItem('user'))});
+    componentWillMount = () => {
+        this.setState({user: JSON.parse(localStorage.getItem('user'))})
+    }
+    
+    componentDidMount = () => {
+        // this.setState({user: JSON.parse(localStorage.getItem('user'))})
+        console.log(this.state.user.user._id)
+        this.loadRecipes(this.state.user.user._id)
+  
     }
     
     loadRecipes = () => {
@@ -42,8 +49,8 @@ class Brewing extends React.Component {
     render(){
         return (
             <Wrapper>
-                <Navbar logout={this.props.logout}/>
-                <BrewPageTitle />
+                <Navbar userName={this.state.user.user.userName} logout={this.props.logout}/>
+                <BrewPageTitle/>
                 <BrewingPanel/>
             
             </Wrapper>

@@ -1,14 +1,12 @@
 import React from 'react';
 import './Navbar.css';
 import {
-  Link,
-  Redirect
+  Link
 } from "react-router-dom";
 
 const Navbar = (props) => (
   <nav className="navbar">
-      <h2>Welcome back,</h2>
-      <h1>{props.username}</h1>
+      <h2>Welcome back,<br /><h1>{props.userName}</h1></h2>
 
       <ul className="nav justify-content-end">
         <Link to='/home'>

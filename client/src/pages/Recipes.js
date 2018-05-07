@@ -147,136 +147,121 @@ class Recipes extends React.Component {
 
     editOnClick = id => {
         API.findRecipe(id)
-        .then(res =>console.log(res.data))
-        .then(res => this.setState({
-            
-        recipeName: res.data.name,
-        style: res.data.style,
-        mashTemp: res.data.mashTemp,
-        mashTime: res.data.mashTime,
-        boilTime: res.data.boilTime,
-        fermTime: res.data.fermTime,
-        outputVol: res.data.outputVol,
-        yeastName: res.data.yeast.name,
-        yeastAmount: res.data.yeast.amount,
-        yeastUnit: res.data.yeast.units,
-        currentRecipeId: res.data._id
-        //fields for grain inputs
-        }))
-        //conditionals to check which grains fields exist in current recipe
+        // .then(res => console.log("trying to get recipe info: " + JSON.stringify(res.data[0].name)))
+        // .then(res => console.log("trying to get recipe info: " + JSON.stringify(res.data[0].name)))
         .then(res => {
-            if(res.data.grains[0].name){
-                this.setState({grainName1: res.data.grains[0].name})
-            }
-            if(res.data.grains[0].amount){
-                this.setState({grainAmt1: res.data.grains[0].amount})
-            }
-            if(res.data.grains[1].name){
-                this.setState({grainName2: res.data.grains[1].name})
-            }
-            if(res.data.grains[1].amount){
-                this.setState({grainAmt2: res.data.grains[1].amount})
-            }
-            if(res.data.grains[2].name){
-                this.setState({grainName3: res.data.grains[2].name})
-            }
-            if(res.data.grains[2].amount){
-                this.setState({grainAmt3: res.data.grains[2].amount})
-            }
-            if(res.data.grains[3].name){
-                this.setState({grainName4: res.data.grains[3].name})
-            }
-            if(res.data.grains[3].amount){
-                this.setState({grainAmt4: res.data.grains[3].amount})
-            }
-        })
-        //conditionals to check what hops fields exist in current recipe
+            console.log(res.data[0])
+            console.log(res.data[0].grains[0].name)
+        
+            this.setState ({
+            recipeName: res.data[0].name,
+            style: res.data[0].style,
+            mashTemp: parseInt(res.data[0].mashTemp),
+            mashTime: parseInt(res.data[0].mashTime),
+            boilTime: parseInt(res.data[0].boilTime),
+            fermTime: parseInt(res.data[0].fermentationTime),
+            outputVol: parseInt(res.data[0].batchSize),
+            yeastName: res.data[0].yeast.name,
+            yeastAmount: res.data[0].yeast.amount,
+            yeastUnit: res.data[0].yeast.units,
+            currentRecipeId: res.data[0]._id
+            })
+            return res})
+        // .then(console.log("state after adding certain field form incoming data:" + JSON.stringify(data)))
+        
         .then(res => {
-            if(res.data.hops[0].name){
-                this.setState({hopsName1: res.data.hops[0].name})
-            }
-            if(res.data.hops[0].amount){
-                this.setState({hopsAmt1: res.data.hops[0].amount})
-            }
-            if(res.data.hops[0].timeAdded){
-                this.setState({hopsTime1: res.data.hops[0].timeAdded})
-            }
+            console.log ("promise chain: " + JSON.stringify(res.data))
+            const data = res.data[0]
+            console.log(data)
 
-            if(res.data.hops[1].name){
-                this.setState({hopsName2: res.data.hops[1].name})
-            }
-            if(res.data.hops[1].amount){
-                this.setState({hopsAmt2: res.data.hops[1].amount})
-            }
-            if(res.data.hops[1].timeAdded){
-                this.setState({hopsTime2: res.data.hops[1].timeAdded})
-            }
+        //conditional to check which grains exist
+        if (typeof data.grains[0] !== 'undefined'){
+            this.setState({
+            grainName1: data.grains[0].name,
+            grainAmt1: data.grains[0].amount})
+        }
+        if (typeof data.grains[1] !== 'undefined'){
+            this.setState({
+            grainName2: data.grains[1].name,
+            grainAmt2: data.grains[1].amount})
+        }
+        if (typeof data.grains[2] !== 'undefined'){
+            this.setState({
+            grainName3: data.grains[2].name,
+            grainAmt3: data.grains[2].amount})
+        }
+        if (typeof data.grains[3] !== 'undefined'){
+            this.setState({
+            grainName4: data.grains[3].name,
+            grainAmt4: data.grains[3].amount})
+        }
 
-            if(res.data.hops[2].name){
-                this.setState({hopsName3: res.data.hops[2].name})
-            }
-            if(res.data.hops[2].amount){
-                this.setState({hopsAmt3: res.data.hops[2].amount})
-            }
-            if(res.data.hops[2].timeAdded){
-                this.setState({hopsTime3: res.data.hops[2].timeAdded})
-            }
+        
+        //conditions for checking hops
+        if (typeof data.hops[0] !== 'undefined'){
+            this.setState({
+            hopsName1: data.hops[0].name,
+            hopsAmt1: data.hops[0].amount,
+            hopsTime1: data.hops[0].timeAdded
+            })
+        }
+        if (typeof data.hops[1] !== 'undefined'){
+            this.setState({
+            hopsName2: data.hops[1].name,
+            hopsAmt2: data.hops[1].amount,
+            hopsTime2: data.hops[1].timeAdded
+            })
+        }
+        if (typeof data.hops[2] !== 'undefined'){
+            this.setState({
+            hopsName3: data.hops[2].name,
+            hopsAmt3: data.hops[2].amount,
+            hopsTime3: data.hops[2].timeAdded
+            })
+        }
+        if (typeof data.hops[3] !== 'undefined'){
+            this.setState({
+            hopsName4: data.hops[3].name,
+            hopsAmt4: data.hops[3].amount,
+            hopsTime4: data.hops[3].timeAdded
+            })
+        }
 
-            if(res.data.hops[3].name){
-                this.setState({hopsName4: res.data.hops[3].name})
-            }
-            if(res.data.hops[3].amount){
-                this.setState({hopsAmt4: res.data.hops[3].amount})
-            }
-            if(res.data.hops[3].timeAdded){
-                this.setState({hopsTime4: res.data.hops[3].timeAdded})
-            }
+        //conditions for checking exotics
+        if (typeof data.exotics[0] !== 'undefined'){
+            this.setState({
+            exoticsName1: data.exotics[0].name,
+            exoticsAmt1: data.exotics[0].amount,
+            exoticsUnit1: data.exotics[0].units
+            })
+        }
+        if (typeof data.exotics[1] !== 'undefined'){
+            this.setState({
+            exoticsName2: data.exotics[1].name,
+            exoticsAmt2: data.exotics[1].amount,
+            exoticsUnit2: data.exotics[1].units
+            })
+        }
+        if (typeof data.exotics[2] !== 'undefined'){
+            this.setState({
+            exoticsName3: data.exotics[2].name,
+            exoticsAmt3: data.exotics[2].amount,
+            exoticsUnit3: data.exotics[2].units
+            })
+        }
+        if (typeof data.exotics[3] !== 'undefined'){
+            this.setState({
+            exoticsName4: data.exotics[3].name,
+            exoticsAmt4: data.exotics[3].amount,
+            exoticsUnit4: data.exotics[3].units
+            })
+        }
+    
+        console.log(JSON.stringify(this.state))
         })
-        //conditionals to check which exotics fields exist in current recipe
-        .then(res => {
-            if(res.data.exotics[0].name){
-                this.setState({exoticsName1: res.data.exotics[0].name})
-            }
-            if(res.data.exotics[0].amount){
-                this.setState({exoticsAmt1: res.data.exotics[0].amount})
-            }
-            if(res.data.exotics[0].units){
-                this.setState({exoticsUnit1: res.data.exotics[0].units})
-            }
-
-            if(res.data.exotics[1].name){
-                this.setState({exoticsName2: res.data.exotics[1].name})
-            }
-            if(res.data.exotics[1].amount){
-                this.setState({exoticsAmt2: res.data.exotics[1].amount})
-            }
-            if(res.data.exotics[1].units){
-                this.setState({exoticsUnit2: res.data.exotics[1].units})
-            }
-
-            if(res.data.exotics[2].name){
-                this.setState({exoticsName3: res.data.exotics[2].name})
-            }
-            if(res.data.exotics[2].amount){
-                this.setState({exoticsAmt3: res.data.exotics[2].amount})
-            }
-            if(res.data.exotics[2].units){
-                this.setState({exoticsUnit3: res.data.exotics[2].units})
-            }
-
-            if(res.data.exotics[3].name){
-                this.setState({exoticsName4: res.data.exotics[3].name})
-            }
-            if(res.data.exotics[3].amount){
-                this.setState({exoticsAmt4: res.data.exotics[3].amount})
-            }
-            if(res.data.exotics[3].units){
-                this.setState({exoticsUnit4: res.data.exotics[3].units})
-            }
-        })
-        // console.log(this.state)
         .catch(err => console.log(err))
-    };
+    }
+
 
 
 
@@ -543,11 +528,11 @@ class Recipes extends React.Component {
             updateRecipe.hops = hopsArray;
             updateRecipe.exotics = exoticsArray;
             
-            // API.updateRecipe(id,{updateRecipe})
+            API.updateRecipe(id, updateRecipe)
 
-            // .then(console.log("sent recipe: " + updateRecipe))
-            // .then(res => this.loadRecipes())
-            // .catch(err => console.log(err));
+            .then(console.log("updated recipe: " + updateRecipe))
+            .then(res => this.loadRecipes(this.state.user.user._id))
+            .catch(err => console.log(err));
             
         };
     
@@ -555,7 +540,7 @@ class Recipes extends React.Component {
     render(){
         return (
             <Wrapper>
-                <Navbar logout={this.props.logout}/>
+                <Navbar userName={this.state.user.user.userName} logout={this.props.logout}/>
                 <RecipePageTitle />
                 <AddRecipeModal
                 grains = {this.state.grains}

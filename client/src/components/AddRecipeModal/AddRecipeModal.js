@@ -42,7 +42,7 @@ const AddRecipeModal = (props) => (
                 </div>
                 <div className ="col-sm-6">
                     <div className="form-group">
-                        <label htmlFor="grains-amt1">Amount</label>
+                        <label htmlFor="grains-amt1">Amount (lbs)</label>
                         <input type="number" name="grainAmt1" value={props.grainAmt1} onChange={props.onChange} className="form-control" id="grains-amt1" />
                     </div>
                 </div>
@@ -122,13 +122,13 @@ const AddRecipeModal = (props) => (
                 </div>
                 <div className ="col-sm-2">
                     <div className="form-group">
-                        <label htmlFor="hops-amt1">Amount</label>
+                        <label htmlFor="hops-amt1">Amount(lbs)</label>
                         <input type="number" name="hopsAmt1" value={props.hopsAmt1} onChange={props.onChange} className="form-control" id="hops-amt1" />
                     </div>
                 </div>
                 <div className ="col-sm-4">
                     <div className="form-group">
-                        <label htmlFor="hops-time1">Time Added</label>
+                        <label htmlFor="hops-time1">Time into Brew Added (min)</label>
                         <input type="number" name="hopsTime1" value={props.hopsTime1} onChange={props.onChange} className="form-control" id="hops-time1" />
                     </div>
                 </div>
