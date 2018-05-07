@@ -179,6 +179,7 @@ const RecipePanel = props => (
         </div>
       </div>
     </div>
+    <br></br>
   </div>
 )
 export default RecipePanel;

@@ -574,11 +574,15 @@ class Recipes extends React.Component {
             <Wrapper>
                 <Navbar userName={this.state.user.user.userName} logout={this.props.logout}/>
                 <RecipePageTitle />
+
+                <br></br>
+
                 <AddNoteModal 
                 onChange = {this.handleInputChange}
                 submitOnClick = {()=>this.handleNoteSubmit(this.state.currentRecipeId)}
                 value = {this.state.commentBody}
                 />
+
                 <AddRecipeModal
                 grains = {this.state.grains}
                 hops = {this.state.hops}

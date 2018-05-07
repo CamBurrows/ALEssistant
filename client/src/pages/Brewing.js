@@ -79,6 +79,7 @@ class Brewing extends React.Component {
             <Wrapper>
                 <Navbar userName={this.state.user.user.userName} logout={this.props.logout} />
                 <BrewPageTitle />
+                <br></br>
                 {this.state.allRecipes.length ? (
                     this.state.allRecipes.map(recipe => (
 
@@ -92,6 +93,7 @@ class Brewing extends React.Component {
                                 packaged={session.packaged}
                                 recipeName={recipe.name}
                             />
+
                         ))
                         
                     ))
