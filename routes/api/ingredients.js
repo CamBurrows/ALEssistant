@@ -12,19 +12,23 @@ router.post('/ingredients/:id', function(req, res) {
 
 
 //PostMan says it works
-router.get('/ingredients', ingredientsController.findAll);
+router.get('/ingredients/:id', ingredientsController.findAll);
 
 
 //PostMan says it works
-router.get('/ingredients/:id', ingredientsController.findOne);
+
+router.get('/ingredients/edit/:id', ingredientsController.findOne);
 
 
+router.put('/ingredients/:id', ingredientsController.update);
 
-router.delete('/ingredients/:id', function(req, res) {
-  db.IngredientsInventory.remove({_id:req.params.id})
-  .then(
-    dbIngredientsInventory => res.json(dbIngredientsInventory)
-  )
-});
+// router.delete('/ingredients/:id', function(req, res) {
+//   db.IngredientsInventory.remove({_id:req.params.id})
+//   .then(
+//     dbIngredientsInventory => res.json(dbIngredientsInventory)
+//   )
+// });
+
+router.delete('/ingredients/:id', ingredientsController.remove);
 
 module.exports = router;

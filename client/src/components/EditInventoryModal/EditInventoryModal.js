@@ -1,13 +1,13 @@
 import React from "react";
 
-const InventoryModal = props => (
+const EditInventoryModal = props => (
 
   <div className="row">
-    <div className="modal fade" id="inventoryModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div className="modal fade" id="editInventoryModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div className="modal-dialog" role="document">
         <div className="modal-content">
           <div className="modal-header">
-            <h5 className="modal-title" id="exampleModalLabel">Add Ingredient</h5>
+            <h5 className="modal-title" id="exampleModalLabel">Edit Ingredient</h5>
             <button type="button" className="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -16,7 +16,7 @@ const InventoryModal = props => (
 
             <form>
               <div className="form-group">
-                <label htmlFor="ingredient-name">Add Ingredient</label>
+                <label htmlFor="ingredient-name">Edit Ingredient</label>
                 <input type="name" name="name" onChange={props.onChange} value={props.newNameValue} className="form-control" id="ingredient-name" placeholder="Ingredient" />
               </div>
               <div className="row category-1">
@@ -57,7 +57,7 @@ const InventoryModal = props => (
                 </div>
                 <div className="modal-footer">
                   <button type="button" onClick={props.onClick} data-dismiss="modal" className="btn btn-primary ingredient-submit">
-                    Create Ingredient
+                    Edit Ingredient
                     </button>
                     <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
                 </div>
@@ -73,4 +73,4 @@ const InventoryModal = props => (
 
 );
 
-export default InventoryModal;
+export default EditInventoryModal;

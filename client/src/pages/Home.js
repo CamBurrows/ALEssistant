@@ -9,19 +9,29 @@ class Home extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            user: props.user
+            user: null
         }
     }
+    
+    // static getDerivedStateFromProps(nextProps, prevState) {
+    //     return {user: nextProps.user};
+    // }
 
-    static getDerivedStateFromProps(nextProps, prevState) {
-        return { user: nextProps.user };
+    componentWillMount = () => {
+        this.setState({user: JSON.parse(localStorage.getItem('user'))})
     }
-
-    render() {
+    
+    componentDidMount = () => {
+        // this.setState({user: JSON.parse(localStorage.getItem('user'))})
+        console.log(this.state.user.user._id)
+  
+    }
+    
+    render(){
+        // console.log(this.state.logout);
         return (
             <Wrapper>
-                <Navbar />
-                <HomeCarousel />
+                <Navbar userName={this.state.user.user.userName} logout={this.props.logout}/>
             </Wrapper>
         )
     }

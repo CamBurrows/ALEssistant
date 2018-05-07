@@ -5,28 +5,43 @@ import InventoryModal from '../components/InventoryModal';
 import Wrapper from '../components/Wrapper';
 import IngredientLine from '../components/IngredientLine';
 import API from '../utils/API.js'
+import EditInventoryModal from "../components/EditInventoryModal/EditInventoryModal";
 
 class Inventory extends React.Component {
 
-    state = {
-        allIngredients: [],
-        name: "",
-        type: "",
-        quantity: 0,
-        unit: "",
-        cost: 0,
-        userId: "",
-        
+    constructor(props) {
+        super(props);
+        this.state = {
+            user: null,
+            allIngredients: [],
+            name: "",
+            type: "",
+            quantity: 0,
+            unit: "",
+            cost: 0,
+            currentIngredientId: ""
+        }
     }
+    
+    // static getDerivedStateFromProps(nextProps, prevState) {
+    //     return {user: nextProps.user};
+    // }  
 
+    componentWillMount = () => {
+        this.setState({user: JSON.parse(localStorage.getItem('user'))})
+    }
+    
     componentDidMount = () => {
-        this.loadInventory()
+        // this.setState({user: JSON.parse(localStorage.getItem('user'))})
+        console.log(this.state.user.user._id)
+        this.loadInventory(this.state.user.user._id)
+  
     }
 
-    loadInventory = () => {
-    API.getIngredients()
+    loadInventory = (userId) => {
+    API.getIngredients(userId)
       .then(res =>
-        this.setState({ allIngredients: res, name: "", type: "", quantity:0 , unit: "", cost: 0 })
+        this.setState({ allIngredients: res.data, name: "", type: "", quantity: 0 , unit: "", cost: 0})
       )
       .catch(err => console.log(err));
   };
@@ -48,31 +63,81 @@ class Inventory extends React.Component {
              quantity: this.state.quantity,
              units: this.state.unit,
              cost: this.state.cost,
-             _userId: this.state.userId
+             _userId: this.state.user.user._id
            })
-            .then(console.log("sent recipe"))
-             .then(res => this.loadInventory())
+            .then(console.log("sent recipe" + this.state))
+             .then(res => this.loadInventory(this.state.user.user._id))
              .catch(err => console.log(err));
         }
     };
 
-    // handleModifyClick = event => {
+    editUpdateForm = id => {
+        API.findIngredient(id)
+        .then(res => {
+            console.log(JSON.stringify(res.data[0]))
+            this.setState({
+                name: res.data[0].name,
+                type: res.data[0].type,
+                quantity: parseInt(res.data[0].quantity),
+                unit: res.data[0].units,
+                cost: parseInt(res.data[0].cost),
+                currentIngredientId: res.data[0]._id
+            })
+        })
+    }
+    
+    handleEditSubmit = id => {
+        const updatedIngredient = {
+            name: this.state.name,
+            type: this.state.type,
+            quantity: this.state.quantity,
+            units: this.state.unit,
+            cost: this.state.cost,
+            _userId: this.state.user.user._id
+        }
+        API.updateIngredient(id, updatedIngredient)
+        .then(
+            res => {
+                this.loadInventory(this.state.user.user._id)
+                this.setState(
+                    {
+                        name: "",
+                        type: "",
+                        quantity: 0,
+                        unit: "",
+                        cost: 0,
+                        currentIngredientId: ""
+                    }
+                )
+            }
+        )
+    }
 
-    // }
-
-    // handleDeleteClick = event => {
-
-    // }
+    removeIngredient = id => {
+        API.removeIngredient(id)
+        .then(res => this.loadInventory(this.state.user.user._id))
+        .catch(err => console.log(err));
+    }
 
 
     render() {
+        console.log(this.props)
         return (
             <Wrapper>
-                <Navbar />
+                <Navbar userName={this.state.user.user.userName} logout={this.props.logout}/>
                 <InvPageTitle />
                 <InventoryModal 
                     onChange={this.handleInputChange}
-                    onClick={this.handleFormSubmit}
+                    onClick={this.handleEditSubmit}
+                    newNameValue={this.state.name}
+                    newTypeValue={this.state.type}
+                    newQuantityValue={this.state.quantity}
+                    newUnitValue={this.state.unit}
+                    newCostValue={this.state.cost}
+                />
+                <EditInventoryModal 
+                    onChange={this.handleInputChange}
+                    onClick={()=> this.handleEditSubmit(this.state.currentIngredientId)}
                     newNameValue={this.state.name}
                     newTypeValue={this.state.type}
                     newQuantityValue={this.state.quantity}
@@ -92,17 +157,27 @@ class Inventory extends React.Component {
                         </tr>
                     </thead>
                     <tbody>
-                    {this.state.allIngredients.map(ingredient => (
+                    
+                    {this.state.allIngredients.length ? (
+                    this.state.allIngredients.map(ingredient => (
+
                         <IngredientLine
-                            //handleModifyClick
-                            //handleDeleteClick
+                            editOnClick = {()=> this.editUpdateForm(ingredient._id)}
+                            deleteOnClick = {() => this.removeIngredient(ingredient._id)}
                             name={ingredient.name}
                             type={ingredient.type}
                             quantity={ingredient.quantity}
-                            unit={ingredient.unit}
+                            unit={ingredient.units}
                             cost={ingredient.cost}
                         />
-                        ))}
+                        ))
+                    ) : (
+                        <tr>
+                            <td>
+                                <h4>No ingredients yet. Add some to get started!</h4>
+                            </td>
+                        </tr>
+                    )}
                     </tbody>
                     </table>
                 </div>

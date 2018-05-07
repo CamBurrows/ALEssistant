@@ -12,7 +12,7 @@ const LoginNav = props => (
 
       <ul className="nav justify-content-end">
 
-        <button type="button" class="btn login" data-toggle="modal" data-target="#loginModal" data-whatever="@mdo">
+        <button type="button" className="btn login" data-toggle="modal" data-target="#loginModal" data-whatever="@mdo">
           <img className="nav-icon-login" src="/images/keglogin.png" alt="" />
   
           <h2>Login</h2>

@@ -1,7 +1,4 @@
 import React, { Component } from 'react';
-import Navbar from './components/Navbar';
-import LoginNav from "./components/LoginNav";
-import InventoryModal from "./components/InventoryModal";
 import Brewing from './pages/Brewing.js';
 import Home from './pages/Home.js';
 import Inventory from './pages/Inventory.js';
@@ -19,30 +16,71 @@ import {
 class App extends Component {
   
   state = {
-    user:null
+    user:null,
+    loggedIn: false
   }
+
+  storage = window.localStorage; 
   
-  storeAuth = (data) => {
+  login = (data) => {
     this.setState({user:data});
-    console.log("App stored user data: " + this.state.user)
+    this.storage.setItem('user', JSON.stringify(data));
+    this.setState({
+      loggedIn: false,
+    })
+  }
+
+  logout = () => {
+    this.setState = {
+      user: null
+    }
+    this.storage.removeItem('user');
   }
 
   render() {
     return (
       <Router>
         <Switch>
-          <Route exact path="/" render={(props) => (
-            this.state.user ? (
+        <Route exact path="/" render={(props) => (
+            this.storage.getItem('user') ? (
               <Redirect to="/home"/>
             ) : (
-              <Landing storeAuth={this.storeAuth}/>
+              <Landing login={this.login}/>
             )
           )}/>
-          <Route path="/home" render={(props)=> <Home user={this.state.user} />} />
-          <Route path="/brewing" render={(props)=> <Brewing user={this.state.user} />} />
-          <Route path="/inventory" render={(props)=> <Inventory user={this.state.user} />} />
-          {/* <Route path="/recipes" render={(props)=> <Recipes user={this.state.user} />} /> */}
 
+          <Route path="/home" render={(props) => (
+            !this.storage.getItem('user') ? (
+              <Redirect to="/"/>
+            ) : (
+              <Home logout={this.logout} />
+            )
+          )}/>
+
+          <Route path="/brewing" render={(props) => (
+            !this.storage.getItem('user') ? (
+              <Redirect to="/"/>
+            ) : (
+              <Brewing logout={this.logout}/>
+            )
+          )}/>
+
+          <Route path="/inventory" render={(props) => (
+            !this.storage.getItem('user') ? (
+              <Redirect to="/"/>
+            ) : (
+              <Inventory logout={this.logout}/>
+            )
+          )}/>
+
+          <Route path="/recipes" render={(props) => (
+            !this.storage.getItem('user') ? (
+              <Redirect to="/"/>
+            ) : (
+              <Recipes logout={this.logout}/>
+            )
+          )}/>
+          
         </Switch>
       </Router>
     );
