@@ -121,9 +121,11 @@ var RecipeSchema = new Schema({
         type: Number,
         trim: true
     },
-    comments: {
+    comments: [{
+        comment:{
         type: String
-    },
+        }
+    }],
     _userId: {
         type: Schema.Types.ObjectId,
         ref: "User"

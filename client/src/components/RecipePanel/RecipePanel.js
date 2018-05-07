@@ -31,7 +31,7 @@ const RecipePanel = props => (
                 </button>
               </div>
               <div className="col-sm-1">
-                <button className="btn note-btn">
+                <button onClick={props.noteOnClick} data-toggle="modal" data-target="#addNoteModal" className="btn note-btn">
                   <h6>Make Note</h6>
                 </button>
               </div>
@@ -157,10 +157,18 @@ const RecipePanel = props => (
                   <div className="card">
                     <div className="card-body">
                       <p>Notes</p>
-                      <div className="card">
-                        <div className="card-body">
-                          This is a note about this Recipe
-                          </div>
+                          
+                          {props.comments ? (
+                            props.comments.map(comment=>(
+                              <div className="card">
+                              <div className="card-body">
+                                {comment.comment}
+                              </div>
+                              </div>
+                            )
+                            
+                            )): null }
+                        <div>
                       </div>
                     </div>
                   </div>
