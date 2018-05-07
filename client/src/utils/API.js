@@ -44,5 +44,9 @@ export default {
   // Deletes a recipe
   removeRecipe: function(id) {
     return axios.delete("/api/recipes/" + id);
+  },
+
+  newBrew: function(id, brew) {
+    return axios.put("/api/recipes/brews/" + id, brew)
   }
 };

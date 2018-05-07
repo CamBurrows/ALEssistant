@@ -43,7 +43,7 @@ const RecipePanel = props => (
               <div className="col-sm-1">
               </div>
               <div className="col-sm-2">
-                <button className="btn newbatch-btn">
+                <button onClick={props.brewOnClick} className="btn newbatch-btn">
                   <h6>Brew New Batch</h6>
                 </button>
               </div>

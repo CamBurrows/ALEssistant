@@ -58,5 +58,19 @@ module.exports = {
       .catch(function(err) {
         console.log(err);
       });
-  }
+  },
+  newBrew: function(req, res) {
+    db.Recipe.findOneAndUpdate(
+      {_id:req.params.id}, 
+      {$push: {sessions: req.body } }, 
+      { new: true }
+    )
+    .then(function(dbRecipes){
+      res.json(dbRecipes)
+      console.log("started new brew: " + dbRecipes)
+    })
+      .catch(function(err) {
+        console.log(err);
+      });
+  },
 };

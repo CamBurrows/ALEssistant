@@ -266,11 +266,14 @@ class Recipes extends React.Component {
 
 
     
-    // handleNewBrew = id => {
-    //     API.updateRecipe(id)
-    //     .then(res => this.loadRecipes())
-    //     .catch(err => console.log(err));
-    // }
+    handleNewBrew = id => {
+        const newBrew = {
+            brewed:true
+        }
+        
+        API.newBrew(id, newBrew)
+        .catch(err => console.log(err));
+    }
 
     handleFormSubmit = event => {
         event.preventDefault();
@@ -687,6 +690,7 @@ class Recipes extends React.Component {
                         this.state.allRecipes.map(recipe => (
                             
                                 <RecipePanel
+                                    brewOnClick = {()=> this.handleNewBrew(recipe._id)}
                                     editOnClick = {() => this.editOnClick(recipe._id)}
                                     deleteOnClick = {() => this.removeRecipe(recipe._id)}
                                     recipeName = {recipe.name}
