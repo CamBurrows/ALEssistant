@@ -22,9 +22,9 @@ const BrewingPanel = (props) => (
                         </div>
                     </div>
                     <div className="row">
-                        <div className="col-md-2">
+                        <div className="col-md-4">
                             <div className="card">
-                                <div className="card-body">
+                                <div className="card-body brewbox">
                                     <h4 className="brew">Brew Started at:</h4>
                                     <h6>{props.timestamp}</h6>
                                 </div>
@@ -32,7 +32,7 @@ const BrewingPanel = (props) => (
                         </div>
                         <div className="col-md-3">
                             <div className="card">
-                                <div className="card-body">
+                                <div className="card-body ferm">
                                     <h4 className="Fermentation">Fermentation</h4>
                                     <h6>{props.fermentationComplete ? (
                                         <p>Completed</p>
@@ -42,7 +42,7 @@ const BrewingPanel = (props) => (
                         </div>
                         <div className="col-md-3">
                             <div className="card">
-                                <div className="card-body">
+                                <div className="card-body pack">
                                     <h4 className="packaging">Packaging</h4>
                                     <h6>{props.packaged ? (
                                         <p>Ready to Drink!</p>
@@ -64,9 +64,9 @@ const BrewingPanel = (props) => (
                                 <img className="nav-icon-right" src="/images/right-arrow.png" alt="" />
                             </button>
                         </div>
-                        <div className="col-sm-2">
-                            <button onClick={props.deleteOnClick} type="button" className="btn">
-                                <img className="nav-icon-right" src="/images/x.png" alt="" />
+                        <div className="col-sm-1">
+                            <button onClick={props.deleteOnClick} type="button" className="btn x">
+                                <img className="nav-icon-delete" src="/images/x.png" alt="" />
                             </button>
                         </div>
                     </div>
@@ -86,7 +86,9 @@ const BrewingPanel = (props) => (
                 </div>
             </div>
         </div>
+        <br></br> 
     </div>
+   
 
 );
 

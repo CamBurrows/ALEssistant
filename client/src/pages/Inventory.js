@@ -134,6 +134,7 @@ class Inventory extends React.Component {
             <Wrapper>
                 <Navbar userName={this.state.user.user.userName} logout={this.props.logout}/>
                 <InvPageTitle />
+                <br></br>
                 <InventoryModal 
                     onChange={this.handleInputChange}
                     onClick={this.handleFormSubmit}

@@ -1,6 +1,6 @@
 .right {
-    height: 105px;
-    width: 55px;
+    height: 111px;
+    width: 75px;
     background-color: rgba(203, 243, 150, 0.856);
     border: 2px solid black;
 }
@@ -8,4 +8,27 @@
 .nav-icon-right {
     height: 90px;
     width: 30px;
+}
+
+.nav-icon-delete {
+    margin: -15px;
+    height: 115px;
+    width: 80px;
+}
+
+.x {
+    height: 111px;
+    width: 68px;
+    background-color: rgba(203, 243, 150, 0.856);
+    border: 2px solid black;
+}
+.card {
+    border: 2px solid black;
+   
+}
+
+
+.brewbox {
+    background-color: white;
+    height: 111px;
 }
