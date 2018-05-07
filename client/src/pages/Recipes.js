@@ -3,6 +3,7 @@ import Navbar from '../components/Navbar';
 import RecipePageTitle from '../components/RecipePageTitle';
 import AddRecipeModal from '../components/AddRecipeModal';
 import EditRecipeModal from '../components/EditRecipeModal';
+import AddNoteModal from '../components/AddNoteModal';
 import Wrapper from '../components/Wrapper';
 import RecipePanel from '../components/RecipePanel';
 import API from '../utils/API.js'
@@ -82,7 +83,8 @@ class Recipes extends React.Component {
         fermTime: 0,
         outputVol: 0,
 
-        currentRecipeId: ""
+        currentRecipeId: "",
+        commentBody: ""
         
     }
 }
@@ -539,12 +541,42 @@ class Recipes extends React.Component {
             
         };
     
+        
+        handleNoteSubmit = id => {
+            API.findRecipe(id)
+            .then(res => {
+                const updateNote = res.data[0]
+                updateNote.comments.push({comment: this.state.commentBody})
+    
+                API.updateRecipe(id, updateNote)
+                .then(res => 
+                    this.loadRecipes(this.state.user.user._id,
+                    this.setState({commentBody:""})
+                ))
+            })
+            
+        }
+
+        noteOnClick = id => {
+            API.findRecipe(id)
+            .then(res => {
+                this.setState({
+                    currentRecipeId: res.data[0]._id
+                })
+            })
+        }
+    
     
     render(){
         return (
             <Wrapper>
                 <Navbar userName={this.state.user.user.userName} logout={this.props.logout}/>
                 <RecipePageTitle />
+                <AddNoteModal 
+                onChange = {this.handleInputChange}
+                submitOnClick = {()=>this.handleNoteSubmit(this.state.currentRecipeId)}
+                value = {this.state.commentBody}
+                />
                 <AddRecipeModal
                 grains = {this.state.grains}
                 hops = {this.state.hops}
@@ -690,6 +722,7 @@ class Recipes extends React.Component {
                         this.state.allRecipes.map(recipe => (
                             
                                 <RecipePanel
+                                    noteOnClick = {() => this.noteOnClick(recipe._id)}
                                     brewOnClick = {()=> this.handleNewBrew(recipe._id)}
                                     editOnClick = {() => this.editOnClick(recipe._id)}
                                     deleteOnClick = {() => this.removeRecipe(recipe._id)}
@@ -705,6 +738,7 @@ class Recipes extends React.Component {
                                     boilTime = {recipe.boilTime}
                                     fermTime = {recipe.fermentationTime}
                                     outputVol = {recipe.batchSize}
+                                    comments = {recipe.comments}
                                 />
                             
                         ))

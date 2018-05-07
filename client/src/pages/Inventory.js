@@ -4,8 +4,9 @@ import InvPageTitle from '../components/InvPageTitle';
 import InventoryModal from '../components/InventoryModal';
 import Wrapper from '../components/Wrapper';
 import IngredientLine from '../components/IngredientLine';
-import API from '../utils/API.js'
-import EditInventoryModal from "../components/EditInventoryModal/EditInventoryModal";
+import API from '../utils/API.js';
+import EditInventoryModal from "../components/EditInventoryModal";
+import AddNoteModal from "../components/AddNoteModal"
 
 class Inventory extends React.Component {
 
