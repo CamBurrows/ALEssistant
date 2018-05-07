@@ -6,7 +6,7 @@ import {
 
 const Navbar = (props) => (
   <nav className="navbar">
-      <h2>Welcome back,<br /><h1>{props.userName}</h1></h2>
+      <h1>Welcome back,<br /><h1 className="user">{props.userName}</h1></h1>
 
       <ul className="nav justify-content-end">
         <Link to='/home'>

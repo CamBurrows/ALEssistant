@@ -545,6 +545,7 @@ class Recipes extends React.Component {
             <Wrapper>
                 <Navbar userName={this.state.user.user.userName} logout={this.props.logout}/>
                 <RecipePageTitle />
+                <br></br>
                 <AddRecipeModal
                 grains = {this.state.grains}
                 hops = {this.state.hops}
