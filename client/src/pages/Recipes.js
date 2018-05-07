@@ -99,22 +99,23 @@ class Recipes extends React.Component {
 
     }
 
-
+    token = (JSON.parse(localStorage.getItem('user'))).token;
+    headers = {Authorization: 'Bearer ' + this.token};
 
     // static getDerivedStateFromProps(nextProps, prevState) {
     //     return {user: nextProps.user};
     // } 
 
     loadRecipes = (userId) => {
-    API.getRecipes(userId)
-      .then(res =>
-        this.setState({ allRecipes: res.data })
-      )
-      .catch(err => console.log(err));
-  };
+        API.getRecipes(userId, this.headers)
+        .then(res =>
+            this.setState({ allRecipes: res.data })
+        )
+        .catch(err => console.log(err));
+    };
 
     getIngredients = (userId) => {
-        API.getIngredients(userId)
+        API.getIngredients(userId, this.headers)
       .then(res => {
         const grains = res.data.filter(ingredient=>ingredient.type === "Grains")
         const hops = res.data.filter(ingredient=>ingredient.type === "Hops")

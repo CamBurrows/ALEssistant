@@ -38,8 +38,13 @@ export default {
   },
 
   // Get all recipes
-  getRecipes: function(id) {
-    return axios.get("/api/recipes/" + id);
+  getRecipes: function(id, headers) {
+    //return axios.get("/api/recipes/" + id);
+    return axios({
+      method: 'get',
+      url: "/api/ingredients/" + id,
+      headers: headers
+    });
   },
   // Adds a recipe
   addRecipe: function(recipe) {
