@@ -1,14 +1,14 @@
 import React from 'react';
-import "./AddRecipeModal.css";
+import "./EditRecipeModal.css";
 
 const AddRecipeModal = (props) => (
 
-<div className="modal fade" tabIndex="-1" role="dialog" id="addRecipeModal">
+<div className="modal fade" tabIndex="-1" role="dialog" id="editRecipeModal">
   <div className="modal-dialog modal-lg" role="document">
     <div className="modal-content">
       
       <div className="modal-header">
-        <h2 className="modal-title">Add a New Recipe</h2>
+        <h2 className="modal-title">Edit Recipe</h2>
         <button type="button" className="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -42,7 +42,7 @@ const AddRecipeModal = (props) => (
                 </div>
                 <div className ="col-sm-6">
                     <div className="form-group">
-                        <label htmlFor="grains-amt1">Amount (lbs)</label>
+                        <label htmlFor="grains-amt1">Amount</label>
                         <input type="number" name="grainAmt1" value={props.grainAmt1} onChange={props.onChange} className="form-control" id="grains-amt1" />
                     </div>
                 </div>
@@ -122,13 +122,13 @@ const AddRecipeModal = (props) => (
                 </div>
                 <div className ="col-sm-2">
                     <div className="form-group">
-                        <label htmlFor="hops-amt1">Amount(lbs)</label>
+                        <label htmlFor="hops-amt1">Amount</label>
                         <input type="number" name="hopsAmt1" value={props.hopsAmt1} onChange={props.onChange} className="form-control" id="hops-amt1" />
                     </div>
                 </div>
                 <div className ="col-sm-4">
                     <div className="form-group">
-                        <label htmlFor="hops-time1">Time into Brew Added (min)</label>
+                        <label htmlFor="hops-time1">Time Added</label>
                         <input type="number" name="hopsTime1" value={props.hopsTime1} onChange={props.onChange} className="form-control" id="hops-time1" />
                     </div>
                 </div>
@@ -396,7 +396,7 @@ const AddRecipeModal = (props) => (
       
 
       <div className="modal-footer">
-        <button type="button" onClick={props.onClick} data-dismiss="modal" className="btn btn-primary addRecipe-btn">Add Recipe</button>
+        <button type="button" onClick={props.onClick} data-dismiss="modal" className="btn btn-primary addRecipe-btn">Edit Recipe</button>
         <button type="button" className="btn btn-secondary closeRecipe-btn" data-dismiss="modal">Close</button>
       </div>
       
