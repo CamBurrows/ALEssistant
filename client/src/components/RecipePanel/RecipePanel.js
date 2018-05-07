@@ -53,13 +53,14 @@ const RecipePanel = props => (
                           <p>Grains</p>
                           <table className="table table-hover table-sm">
                             <tbody>
-                              {props.grains.map(grain => (
+                              {props.grains ? (
+                              props.grains.map(grain => (
                                 <tr key={grain.name}>
                                   <td>{grain.name}</td>
                                   <td>{grain.amount} lbs</td>
                                   <td></td>
                                 </tr>
-                              ))}
+                              ))) : null }
                             </tbody>
                           </table>
                         </div>
@@ -71,13 +72,14 @@ const RecipePanel = props => (
                           <p>Hops</p>
                           <table className="table table-hover table-sm">
                             <tbody>
-                              {props.hops.map(hop => (
+                              {props.hops ? (
+                              props.hops.map(hop => (
                                 <tr key={hop.name}>
                                   <td>{hop.name}</td>
                                   <td>{hop.amount} lbs</td>
                                   <td>{hop.timeAdded}</td>
                                 </tr>
-                              ))}
+                              ))) : null }
                             </tbody>
                           </table>
                         </div>
@@ -92,9 +94,9 @@ const RecipePanel = props => (
                           <table className="table table-hover table-sm">
                             <tbody>
                               <tr>
-                                <td>{props.yeast.name}</td>
-                                <td>{props.yeast.amount}</td>
-                                <td>{props.yeast.units}</td>
+                                <td>{props.yeast ? props.yeast.name  : null}</td>
+                                <td>{props.yeast ? props.yeast.amount  : null}</td>
+                                <td>{props.yeast ? props.yeast.units  : null}</td>
                               </tr>
                             </tbody>
                           </table>
@@ -107,13 +109,14 @@ const RecipePanel = props => (
                           <p>Exotics</p>
                           <table className="table table-hover table-sm">
                             <tbody>
-                              {props.exotics.map(exotic => (
+                              {props.exotics ? (
+                              props.exotics.map(exotic => (
                                 <tr key={exotic.name}>
                                   <td>{exotic.name}</td>
                                   <td>{exotic.amount}</td>
                                   <td>{exotic.units}</td>
                                 </tr>
-                              ))}
+                              ))) : null }
                             </tbody>
                           </table>
                         </div>

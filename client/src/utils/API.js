@@ -9,41 +9,86 @@ export default {
     return axios.post("/signup", user)
   },
 
-  getIngredients: function(id) {
-    return axios.get("/api/ingredients/" + id);
+  getIngredients: function(id, headers) {
+    return axios({
+      method: 'get',
+      url: "/api/ingredients/" + id,
+      headers: headers
+    });
   },
   // Adds an ingredient
-  addIngredient: function(ingredient) {
-    return axios.post("/api/ingredients", ingredient);
+  addIngredient: function(ingredient, headers) {
+    return axios({
+      method: 'post',
+      url: "/api/ingredients",
+      data: ingredient,
+      headers: headers
+    });
   },
-  findIngredient: function (id) {
-    return axios.get("/api/ingredients/edit/" + id)
+  findIngredient: function (id, headers) {
+    return axios({
+      method: 'get',
+      url: "/api/ingredients/edit/" + id,
+      headers: headers
+    });
   },
-  updateIngredient: function (id, ingredient){
-    return axios.put("/api/ingredients/" + id, ingredient)
+  updateIngredient: function (id, ingredient, headers){
+    return axios({
+      method: 'put',
+      url: "/api/ingredients/" + id,
+      data: ingredient,
+      headers: headers
+    });
   },
   // Gets the ingredient with the given id
-  removeIngredient: function(id) {
-    return axios.delete("/api/ingredients/" + id);
+  removeIngredient: function(id, headers) {
+    console.log(headers);
+    return axios({
+      method: 'delete',
+      url: "/api/ingredients/" + id,
+      headers: headers
+    });
   },
 
   // Get all recipes
-  getRecipes: function(id) {
-    return axios.get("/api/recipes/" + id);
+  getRecipes: function(id, headers) {
+    return axios({
+      method: 'get',
+      url: "/api/recipes/" + id,
+      headers: headers
+    });
   },
   // Adds a recipe
-  addRecipe: function(recipe) {
-    return axios.post("/api/recipes", recipe);
+  addRecipe: function(recipe, headers) {
+    return axios({
+      method: 'post',
+      url: "/api/recipes",
+      data: recipe,
+      headers: headers
+    });
   },
-  updateRecipe: function(id, recipe){
-    return axios.put("/api/recipes/"+ id, recipe)
+  updateRecipe: function(id, recipe, headers){
+    return axios({
+      method: 'put',
+      url: "/api/recipes/" + id,
+      data: recipe,
+      headers: headers
+    });
   },
-  findRecipe: function(id) {
-    return axios.get("/api/recipes/edit/" + id)
+  findRecipe: function(id, headers) {
+    return axios({
+      method: 'get',
+      url: "/api/recipes/edit/" + id,
+      headers: headers
+    });
   },
   // Deletes a recipe
-  removeRecipe: function(id) {
-    return axios.delete("/api/recipes/" + id);
+  removeRecipe: function(id, headers) {
+    return axios({
+      method: 'delete',
+      url: "/api/recipes/" + id,
+      headers: headers
+    });
   },
 
   newBrew: function(id, brew) {

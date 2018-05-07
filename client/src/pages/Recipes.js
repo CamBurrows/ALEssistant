@@ -99,22 +99,23 @@ class Recipes extends React.Component {
 
     }
 
-
+    token = (JSON.parse(localStorage.getItem('user'))).token;
+    headers = {Authorization: 'Bearer ' + this.token};
 
     // static getDerivedStateFromProps(nextProps, prevState) {
     //     return {user: nextProps.user};
     // } 
 
     loadRecipes = (userId) => {
-    API.getRecipes(userId)
-      .then(res =>
-        this.setState({ allRecipes: res.data })
-      )
-      .catch(err => console.log(err));
-  };
+        API.getRecipes(userId, this.headers)
+        .then(res =>
+            this.setState({ allRecipes: res.data })
+        )
+        .catch(err => console.log(err));
+    };
 
     getIngredients = (userId) => {
-        API.getIngredients(userId)
+        API.getIngredients(userId, this.headers)
       .then(res => {
         const grains = res.data.filter(ingredient=>ingredient.type === "Grains")
         const hops = res.data.filter(ingredient=>ingredient.type === "Hops")
@@ -140,13 +141,13 @@ class Recipes extends React.Component {
     };
 
     removeRecipe = id => {
-        API.removeRecipe(id)
+        API.removeRecipe(id, this.headers)
         .then(res => this.loadRecipes(this.state.user.user._id))
         .catch(err => console.log(err));
     };
 
     editOnClick = id => {
-        API.findRecipe(id)
+        API.findRecipe(id, this.headers)
         // .then(res => console.log("trying to get recipe info: " + JSON.stringify(res.data[0].name)))
         // .then(res => console.log("trying to get recipe info: " + JSON.stringify(res.data[0].name)))
         .then(res => {
@@ -400,8 +401,9 @@ class Recipes extends React.Component {
         newRecipe.exotics = exoticsArray;
         
             API.addRecipe({
-             newRecipe
-           })
+                newRecipe
+            },
+            this.headers)
             .then(console.log("sent recipe: " + newRecipe))
             .then(res => this.loadRecipes(this.state.user.user._id))
             .catch(err => console.log(err));
@@ -531,7 +533,7 @@ class Recipes extends React.Component {
             updateRecipe.hops = hopsArray;
             updateRecipe.exotics = exoticsArray;
             
-            API.updateRecipe(id, updateRecipe)
+            API.updateRecipe(id, updateRecipe, this.headers)
 
             .then(console.log("updated recipe: " + updateRecipe))
             .then(res => this.loadRecipes(this.state.user.user._id))
