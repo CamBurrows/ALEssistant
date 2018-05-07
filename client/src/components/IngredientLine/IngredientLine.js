@@ -8,7 +8,7 @@ const IngredientLine = (props) => (
         <td>{props.quantity}</td>
         <td>{props.unit}</td>
         <td>${props.cost}/{props.unit}</td>
-        <td><button className="btn editIng-btn">Modify Field</button></td>
+        <td><button onClick={props.editOnClick} data-toggle="modal" data-target="#editInventoryModal" className="btn editIng-btn">Modify Field</button></td>
         <td><button onClick={props.deleteOnClick} className="btn deleteIng-btn">Delete</button></td>
     </tr>
 

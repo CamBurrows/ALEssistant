@@ -43,5 +43,19 @@ module.exports = {
     .catch(function(err) {
       console.log(err);
     });
+  },
+  update: function(req, res) {
+    db.IngredientsInventory.findOneAndUpdate(
+      {_id:req.params.id}, 
+      req.body,
+      { new:true, overwrite: true }
+    )
+    .then(function(dbIngredients){
+      res.json(dbIngredients)
+      console.log("updated recipe from controller: " + dbIngredients)
+    })
+      .catch(function(err) {
+        console.log(err);
+      });
   }
 };

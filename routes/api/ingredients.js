@@ -20,7 +20,7 @@ router.get('/ingredients/:id', ingredientsController.findAll);
 router.get('/ingredients/edit/:id', ingredientsController.findOne);
 
 
-
+router.put('/ingredients/:id', ingredientsController.update);
 
 // router.delete('/ingredients/:id', function(req, res) {
 //   db.IngredientsInventory.remove({_id:req.params.id})

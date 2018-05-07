@@ -5,6 +5,7 @@ import InventoryModal from '../components/InventoryModal';
 import Wrapper from '../components/Wrapper';
 import IngredientLine from '../components/IngredientLine';
 import API from '../utils/API.js'
+import EditInventoryModal from "../components/EditInventoryModal/EditInventoryModal";
 
 class Inventory extends React.Component {
 
@@ -17,7 +18,8 @@ class Inventory extends React.Component {
             type: "",
             quantity: 0,
             unit: "",
-            cost: 0
+            cost: 0,
+            currentIngredientId: ""
         }
     }
     
@@ -69,9 +71,47 @@ class Inventory extends React.Component {
         }
     };
 
-    // handleModifyClick = event => {
-
-    // }
+    editUpdateForm = id => {
+        API.findIngredient(id)
+        .then(res => {
+            console.log(JSON.stringify(res.data[0]))
+            this.setState({
+                name: res.data[0].name,
+                type: res.data[0].type,
+                quantity: parseInt(res.data[0].quantity),
+                unit: res.data[0].units,
+                cost: parseInt(res.data[0].cost),
+                currentIngredientId: res.data[0]._id
+            })
+        })
+    }
+    
+    handleEditSubmit = id => {
+        const updatedIngredient = {
+            name: this.state.name,
+            type: this.state.type,
+            quantity: this.state.quantity,
+            units: this.state.unit,
+            cost: this.state.cost,
+            _userId: this.state.user.user._id
+        }
+        API.updateIngredient(id, updatedIngredient)
+        .then(
+            res => {
+                this.loadInventory(this.state.user.user._id)
+                this.setState(
+                    {
+                        name: "",
+                        type: "",
+                        quantity: 0,
+                        unit: "",
+                        cost: 0,
+                        currentIngredientId: ""
+                    }
+                )
+            }
+        )
+    }
 
     removeIngredient = id => {
         API.removeIngredient(id)
@@ -88,7 +128,16 @@ class Inventory extends React.Component {
                 <InvPageTitle />
                 <InventoryModal 
                     onChange={this.handleInputChange}
-                    onClick={this.handleFormSubmit}
+                    onClick={this.handleEditSubmit}
+                    newNameValue={this.state.name}
+                    newTypeValue={this.state.type}
+                    newQuantityValue={this.state.quantity}
+                    newUnitValue={this.state.unit}
+                    newCostValue={this.state.cost}
+                />
+                <EditInventoryModal 
+                    onChange={this.handleInputChange}
+                    onClick={()=> this.handleEditSubmit(this.state.currentIngredientId)}
                     newNameValue={this.state.name}
                     newTypeValue={this.state.type}
                     newQuantityValue={this.state.quantity}
@@ -113,7 +162,7 @@ class Inventory extends React.Component {
                     this.state.allIngredients.map(ingredient => (
 
                         <IngredientLine
-                            //handleModifyClick
+                            editOnClick = {()=> this.editUpdateForm(ingredient._id)}
                             deleteOnClick = {() => this.removeIngredient(ingredient._id)}
                             name={ingredient.name}
                             type={ingredient.type}
