@@ -47,7 +47,6 @@ export default {
   },
   // Adds a recipe
   addRecipe: function(recipe, headers) {
-    // return axios.post("/api/recipes", recipe);
     return axios({
       method: 'post',
       url: "/api/recipes",
@@ -62,8 +61,13 @@ export default {
     return axios.get("/api/recipes/edit/" + id)
   },
   // Deletes a recipe
-  removeRecipe: function(id) {
-    return axios.delete("/api/recipes/" + id);
+  removeRecipe: function(id, headers) {
+    //return axios.delete("/api/recipes/" + id);
+    return axios({
+      method: 'delete',
+      url: "/api/recipes/" + id,
+      headers: headers
+    });
   },
 
   newBrew: function(id, brew) {

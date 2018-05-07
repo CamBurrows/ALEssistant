@@ -141,7 +141,7 @@ class Recipes extends React.Component {
     };
 
     removeRecipe = id => {
-        API.removeRecipe(id)
+        API.removeRecipe(id, this.headers)
         .then(res => this.loadRecipes(this.state.user.user._id))
         .catch(err => console.log(err));
     };
