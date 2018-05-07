@@ -36,7 +36,6 @@ class App extends Component {
     }
     this.storage.removeItem('user');
   }
-  
 
   render() {
     return (

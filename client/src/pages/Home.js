@@ -2,9 +2,11 @@ import React from "react";
 import Navbar from '../components/Navbar';
 import Wrapper from '../components/Wrapper';
 // import API from '../utils/API.js'
+import HomeCarousel from '../components/HomeCarousel';
+import HomePageTitle from "../components/HomePageTitle";
 
 class Home extends React.Component {
-    
+
     constructor(props) {
         super(props);
         this.state = {
@@ -31,6 +33,9 @@ class Home extends React.Component {
         return (
             <Wrapper>
                 <Navbar userName={this.state.user.user.userName} logout={this.props.logout}/>
+                <HomePageTitle/>
+               <br></br>
+                <HomeCarousel/>
             </Wrapper>
         )
     }

@@ -7,19 +7,19 @@ const LoginNav = props => (
     <div className="container">
 
       <div className="main-header">
-        <img src="images/logo.png" />
+        <img src="images/logo.png" alt="logo" />
       </div>
 
       <ul className="nav justify-content-end">
 
         <button type="button" className="btn login" data-toggle="modal" data-target="#loginModal" data-whatever="@mdo">
           <img className="nav-icon-login" src="/images/keglogin.png" alt="" />
-  
+
           <h2>Login</h2>
         </button>
 
         <button type="button" className="btn signup" data-toggle="modal" data-target="#signUpModal" data-whatever="@mdo">
-          <img className="nav-icon-login" src="/images/document.png" alt="" />
+          <img className="nav-icon-login" src="/images/document.png" alt="doc" />
           <h2>Sign Up</h2>
         </button>
 
@@ -72,7 +72,6 @@ const LoginNav = props => (
                     </div>
                     <div className="modal-body">
                       <form>
-
                         <div className="form-group">
                           <label>User Name</label>
                           <input type="email" className="form-control" name="signUpUsername" onChange={props.onChange} value={props.signUpUsernameValue} id="user-name" aria-describedby="emailHelp" placeholder="User Name" />
@@ -99,9 +98,10 @@ const LoginNav = props => (
           </div>
         </li>
       </ul>
-
     </div>
   </nav>
+
+
 );
 
 export default LoginNav;

@@ -5,7 +5,6 @@ import BrewPageTitle from '../components/BrewPageTitle';
 import BrewingPanel from '../components/BrewingPanel';
 import API from '../utils/API.js'
 
-
 class Brewing extends React.Component {
 
     constructor(props) {

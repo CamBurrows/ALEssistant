@@ -1,9 +1,6 @@
 import React from 'react';
 import './RecipePanel.css';
-
-
 const RecipePanel = props => (
-
   <div className="container-fluid" key={props.name}>
     <div className="row">
       <div className="col-sm-12">
@@ -11,10 +8,8 @@ const RecipePanel = props => (
           <div className="card-body">
             <div className="row top-row">
               <div className="col-sm-3">
-
                 <h3 className="card-title">{props.recipeName}</h3>
                 <h6>{props.beerStyle}</h6>
-
               </div>
               <div className="col-sm-1">
               </div>
@@ -48,12 +43,9 @@ const RecipePanel = props => (
                 </button>
               </div>
             </div>
-
             <div className="collapse" id={props.recipeName}>
               <div className="row content">
-
                 <div className="col-sm-9 ingredients">
-
                   <div className="row">
                     <div className="col-sm-6">
                       <div className="card">
@@ -88,13 +80,10 @@ const RecipePanel = props => (
                               ))}
                             </tbody>
                           </table>
-
                         </div>
                       </div>
                     </div>
                   </div>
-
-
                   <div className="row">
                     <div className="col-sm-6">
                       <div className="card">
@@ -112,7 +101,6 @@ const RecipePanel = props => (
                         </div>
                       </div>
                     </div>
-
                     <div className="col-sm-6">
                       <div className="card">
                         <div className="card-body">
@@ -132,8 +120,6 @@ const RecipePanel = props => (
                       </div>
                     </div>
                   </div>
-
-
                   <div className="row">
                     <div className="col-sm-12">
                       <div className="card">
@@ -163,10 +149,7 @@ const RecipePanel = props => (
                       </div>
                     </div>
                   </div>
-
                 </div>
-
-
                 <div className="col-sm-3 notes">
                   <div className="card">
                     <div className="card-body">
@@ -179,18 +162,12 @@ const RecipePanel = props => (
                     </div>
                   </div>
                 </div>
-
               </div>
             </div>
-
           </div>
         </div>
       </div>
     </div>
   </div>
-
-
-
 )
-
 export default RecipePanel;

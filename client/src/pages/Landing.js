@@ -2,6 +2,8 @@ import React from "react";
 import LoginNav from '../components/LoginNav';
 import "./Landing.css"
 import API from '../utils/API.js'
+import LoginPageTitle from "../components/LoginPageTitle";
+import Wrapper from '../components/Wrapper';
 
 class Landing extends React.Component {
 
@@ -63,6 +65,7 @@ class Landing extends React.Component {
     render() {
         console.log(this.props);
         return (
+            <Wrapper>
             <div>
                 <LoginNav
                     onChange={this.handleInputChange}
@@ -75,6 +78,7 @@ class Landing extends React.Component {
                     handleFormSubmitSignUp={this.handleFormSubmitSignUp}
 
                 />
+                <LoginPageTitle/>
                 <div className="container">
                     <div className='row'>
                         <div id="info-box" className="col-sm-6">
@@ -95,6 +99,8 @@ class Landing extends React.Component {
                     </div>
                 </div>
             </div>
+            
+            </Wrapper>
         )
     }
 }
