@@ -9,8 +9,13 @@ export default {
     return axios.post("/signup", user)
   },
 
-  getIngredients: function(id) {
-    return axios.get("/api/ingredients/" + id);
+  getIngredients: function(id, headers) {
+    //return axios.get("/api/ingredients/" + id);
+    return axios({
+      method: 'get',
+      url: "/api/ingredients/" + id,
+      headers: headers
+    });
   },
   // Adds an ingredient
   addIngredient: function(ingredient) {

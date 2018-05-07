@@ -23,6 +23,7 @@ class Inventory extends React.Component {
         }
     }
     
+
     // static getDerivedStateFromProps(nextProps, prevState) {
     //     return {user: nextProps.user};
     // }  
@@ -38,8 +39,13 @@ class Inventory extends React.Component {
   
     }
 
+    token = (JSON.parse(localStorage.getItem('user'))).token;
+    headers = {Authorization: 'Bearer ' + this.token};
+
     loadInventory = (userId) => {
-    API.getIngredients(userId)
+    console.log(this.token);    
+    console.log(this.headers);    
+    API.getIngredients(userId, this.headers)
       .then(res =>
         this.setState({ allIngredients: res.data, name: "", type: "", quantity: 0 , unit: "", cost: 0})
       )
