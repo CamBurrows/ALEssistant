@@ -12,6 +12,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 // Serve up static assets
+app.use(express.static("client/build"));
 app.use(express.static("public"));
 
 // Connect to the Mongo DB
