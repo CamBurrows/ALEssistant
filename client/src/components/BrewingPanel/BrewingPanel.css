@@ -1,8 +1,14 @@
 .right {
     height: 111px;
     width: 75px;
-    background-color: rgba(203, 243, 150, 0.856);
-    border: 2px solid black;
+}
+
+.right:hover {
+    background-color: rgba(78, 194, 78, 0.589)
+}
+
+.x:hover {
+    background-color:rgba(224, 13, 13, 0.726)
 }
 
 .nav-icon-right {
@@ -19,16 +25,9 @@
 .x {
     height: 111px;
     width: 68px;
-    background-color: rgba(203, 243, 150, 0.856);
-    border: 2px solid black;
-}
-.card {
-    border: 2px solid black;
-   
 }
 
 
-.brewbox {
-    background-color: white;
-    height: 111px;
+.status-icon{
+    height: 50px;
 }

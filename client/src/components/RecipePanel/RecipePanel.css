@@ -47,8 +47,6 @@
     font-family: 'Gothic A1', sans-serif;
 }
 
-
-
 .newbatch-btn {
     margin: 8px 8px 8px 10px;
     background-color: black;
@@ -68,4 +66,14 @@
     font-family: 'Gothic A1', sans-serif;
     font-size: 20px;
     font-weight: 800
+}
+
+.recipe-section {
+    background: linear-gradient( rgba(255, 255, 255,1),rgb(248, 247, 226));
+    margin: 4px;
+    border: 3px solid rgb(220, 220, 220)
+}
+
+.recipe-table {
+    text-align: center
 }

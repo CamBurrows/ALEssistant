@@ -1,10 +1,12 @@
-
-
 .brew-cont {
     color: white;
-    background-color: black;
+    background: linear-gradient( grey,black, black);
 }
 
 .h2-brew {
-    margin: 12px;
+    margin-top: 10px;
+    margin-bottom: 18px;
+    color: white;
+    font-family: 'Gothic A1', sans-serif;
+    margin-left: 12px;
 }

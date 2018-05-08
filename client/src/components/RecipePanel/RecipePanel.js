@@ -45,7 +45,7 @@ const RecipePanel = props => (
                       <div className="card recipe-section">
                         <div className="card-body">
                           <p className="r-panel-card-title">Grains</p>
-                          <table className="table table-hover table-sm">
+                          <table className="table recipe-table table-hover table-sm">
                             <tbody>
                               {props.grains ? (
                               props.grains.map(grain => (
@@ -64,14 +64,14 @@ const RecipePanel = props => (
                       <div className="card recipe-section">
                         <div className="card-body">
                           <p className="r-panel-card-title">Hops</p>
-                          <table className="table table-hover table-sm">
+                          <table className="table recipe-table table-hover table-sm">
                             <tbody>
                               {props.hops ? (
                               props.hops.map(hop => (
                                 <tr key={hop.name}>
                                   <td>{hop.name}</td>
                                   <td>{hop.amount} lbs</td>
-                                  <td>{hop.timeAdded}</td>
+                                  <td>Add {hop.timeAdded} min in</td>
                                 </tr>
                               ))) : null }
                             </tbody>
@@ -85,7 +85,7 @@ const RecipePanel = props => (
                       <div className="card recipe-section">
                         <div className="card-body">
                           <p className="r-panel-card-title">Yeast</p>
-                          <table className="table table-hover table-sm">
+                          <table className="table recipe-table table-hover table-sm">
                             <tbody>
                               <tr>
                                 <td>{props.yeast ? props.yeast.name  : null}</td>
@@ -101,7 +101,7 @@ const RecipePanel = props => (
                       <div className="card recipe-section">
                         <div className="card-body">
                           <p className="r-panel-card-title">Exotics</p>
-                          <table className="table table-hover table-sm">
+                          <table className="table recipe-table table-hover table-sm">
                             <tbody>
                               {props.exotics ? (
                               props.exotics.map(exotic => (
@@ -122,23 +122,25 @@ const RecipePanel = props => (
                       <div className="card recipe-section">
                         <div className="card-body">
                           <p className="r-panel-card-title">Process</p>
-                          <table className="table table-hover table-sm">
+                          <table className="table recipe-table table-hover table-sm">
                             <thead>
                               <tr>
-                                <th>Mash Temp</th>
+                                <th>Mash Temp
+                                  (Farenheit)
+                                </th>
                                 <th>Mash Time</th>
                                 <th>Boil Time</th>
-                                <th>Fermentation time</th>
+                                <th>Fermentation Time</th>
                                 <th>Output Volume</th>
                               </tr>
                             </thead>
                             <tbody>
                               <tr>
-                                <td>{props.mashTemp}</td>
-                                <td>{props.mashTime}</td>
-                                <td>{props.boilTime}</td>
-                                <td>{props.fermTime}</td>
-                                <td>{props.outputVol}</td>
+                                <td>{props.mashTemp}°F</td>
+                                <td>{props.mashTime} min</td>
+                                <td>{props.boilTime} min</td>
+                                <td>{props.fermTime} days</td>
+                                <td>{props.outputVol} gallons</td>
                               </tr>
                             </tbody>
                           </table>
