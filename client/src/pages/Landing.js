@@ -34,7 +34,7 @@ class Landing extends React.Component {
             })
             .then(function(user) {
                 login(user.data);
-                console.log(user.data);
+                // console.log(user.data);
             })
             // .then(res => this.loadBooks())
             .catch(err => console.log(err));

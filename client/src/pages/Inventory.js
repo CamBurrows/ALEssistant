@@ -23,18 +23,11 @@ class Inventory extends React.Component {
         }
     }
 
-
-    // static getDerivedStateFromProps(nextProps, prevState) {
-    //     return {user: nextProps.user};
-    // }  
-
     componentWillMount = () => {
         this.setState({ user: JSON.parse(localStorage.getItem('user')) })
     }
 
     componentDidMount = () => {
-        // this.setState({user: JSON.parse(localStorage.getItem('user'))})
-        // console.log(this.state.user.user._id)
         this.loadInventory(this.state.user.user._id)
 
     }

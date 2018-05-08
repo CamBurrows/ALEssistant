@@ -22,8 +22,6 @@ class Brewing extends React.Component {
     }
 
     componentDidMount = () => {
-        // this.setState({user: JSON.parse(localStorage.getItem('user'))})
-        console.log(this.state.user.user._id)
         this.loadRecipes(this.state.user.user._id)
 
     }
