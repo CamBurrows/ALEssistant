@@ -8,7 +8,6 @@ import Landing from './pages/Landing.js'
 import {
   BrowserRouter as Router,
   Route,
-  Link,
   Switch,
   Redirect
 } from "react-router-dom";
@@ -35,6 +34,7 @@ class App extends Component {
       user: null
     }
     this.storage.removeItem('user');
+    window.location.reload();
   }
 
   render() {

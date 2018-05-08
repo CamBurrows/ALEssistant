@@ -2,9 +2,6 @@
 
 .login-cont {
     color: white;
-    background-color: black;
-}
-
-.h2-login {
-    margin: 12px;
+    background: linear-gradient( grey, black);
+    height: 50px
 }

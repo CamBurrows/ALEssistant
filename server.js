@@ -6,17 +6,17 @@ const expressJWT = require('express-jwt');
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-// Connect to the Mongo DB
-mongoose.connect("mongodb://localhost/alessistantdb");
 
 // Configure body parser for AJAX requests
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use(express.static("public"));
+
 // Serve up static assets
+app.use(express.static("client/build"));
 app.use(express.static("public"));
 
-mongoose.connect("mongodb://localhost/alessistantdb");
+// Connect to the Mongo DB
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/alessistantdb");
 
 //Verify token on every request
 app.use(expressJWT({secret:'my secret'}).unless({path: ['/signin', '/signup']}));

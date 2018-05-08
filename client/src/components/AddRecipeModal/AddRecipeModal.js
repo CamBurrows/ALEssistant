@@ -122,7 +122,7 @@ const AddRecipeModal = (props) => (
                 </div>
                 <div className ="col-sm-2">
                     <div className="form-group">
-                        <label htmlFor="hops-amt1">Amount(lbs)</label>
+                        <label htmlFor="hops-amt1">Amount (oz)</label>
                         <input type="number" name="hopsAmt1" value={props.hopsAmt1} onChange={props.onChange} className="form-control" id="hops-amt1" />
                     </div>
                 </div>

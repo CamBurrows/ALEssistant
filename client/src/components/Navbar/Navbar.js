@@ -6,7 +6,7 @@ import {
 
 const Navbar = (props) => (
   <nav className="navbar">
-      <h1>Welcome back,<br /><h1 className="user">{props.userName}</h1></h1>
+      <h1 className="nav-welcome" >Welcome back,<br /><span className="user">{props.userName}</span></h1>
 
       <ul className="nav justify-content-end">
         <Link to='/home'>
@@ -61,8 +61,8 @@ const Navbar = (props) => (
           </li>
         </Link>
 
-        <a href="" onClick={props.logout}>
-          <li className="nav-item">
+        <a href='#'>
+          <li onClick={props.logout} className="nav-item">
             <div className="item">
               <div className = "row">
                 <img className = "nav-icon logout" src="/images/logout.png" alt=""/>

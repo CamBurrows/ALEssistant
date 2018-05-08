@@ -15,19 +15,19 @@ const LoginNav = props => (
         <button type="button" className="btn login" data-toggle="modal" data-target="#loginModal" data-whatever="@mdo">
           <img className="nav-icon-login" src="/images/keglogin.png" alt="" />
 
-          <h2>Login</h2>
+          <h2 className="login-icon-text">Login</h2>
         </button>
 
         <button type="button" className="btn signup" data-toggle="modal" data-target="#signUpModal" data-whatever="@mdo">
           <img className="nav-icon-login" src="/images/document.png" alt="doc" />
-          <h2>Sign Up</h2>
+          <h2 className="login-icon-text">Sign Up</h2>
         </button>
 
         <li className="nav-item">
           <div>
             <div className="row">
               <div className="modal fade" id="loginModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div className="modal-dialog" role="document">
+                <div className="modal-dialog modal-dialog-centered" role="document">
                   <div className="modal-content">
                     <div className="modal-header">
                       <h5 className="modal-title" id="exampleModalLabel">ALEssistant Login</h5>
@@ -62,7 +62,7 @@ const LoginNav = props => (
           <div>
             <div className="row">
               <div className="modal fade" id="signUpModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div className="modal-dialog" role="document">
+                <div className="modal-dialog modal-dialog-centered" role="document">
                   <div className="modal-content">
                     <div className="modal-header">
                       <h5 className="modal-title" id="exampleModalLabel">ALEssistant Sign up</h5>

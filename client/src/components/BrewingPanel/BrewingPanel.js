@@ -23,42 +23,62 @@ const BrewingPanel = (props) => (
                     </div>
                     <div className="row">
                         <div className="col-md-4">
-                            <div className="card">
+                            <div className="card brew-card">
                                 <div className="card-body brewbox">
-                                    <h4 className="brew">Brew Started at:</h4>
-                                    <h6>{props.timestamp}</h6>
+                                    <div className="row">
+                                        <div className="col-lg-8">
+                                            <h4 className="brew">Brew Started at:</h4>
+                                            <h6>{props.timestamp}</h6>
+                                        </div>
+                                        <div className="col-lg-4">
+                                            <img className="status-icon" src="/images/brewing.png" alt="brewing" />
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                         <div className="col-md-3">
                             <div className="card">
                                 <div className="card-body ferm">
-                                    <h4 className="Fermentation">Fermentation</h4>
-                                    <h6>{props.fermentationComplete ? (
-                                        <p>Completed</p>
-                                    ): (<p>Still in fermentation</p> )}</h6>
+                                    <div className="row">
+                                        <div className="col-lg-8">
+                                            <h4 className="Fermentation">Fermentation</h4>
+                                            <h6>{props.fermentationComplete ? (
+                                                <p>Completed</p>
+                                            ) : (<p>Still in fermentation</p>)}</h6>
+                                        </div>
+                                        <div className="col-lg-4">
+                                            {props.fermentationComplete ? (
+                                                <img className="status-icon" src="/images/keg3.png" alt="distill" />
+                                            ) : null}
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                         <div className="col-md-3">
                             <div className="card">
                                 <div className="card-body pack">
-                                    <h4 className="packaging">Packaging</h4>
-                                    <h6>{props.packaged ? (
-                                        <p>Ready to Drink!</p>
-                                    ): (<p>Still in fermenter</p> )}</h6>
+                                    <div className="row">
+                                        <div className="col-lg-8">
+
+                                            <h4 className="packaging">Packaging</h4>
+                                            <h6>{props.packaged ? (
+                                                <div>
+                                                    <p>Completed!</p>
+                                                </div>
+                                            ) : (<p>Still in fermenter</p>)}</h6>
+                                        </div>
+                                        <div className="col-lg-4">
+                                            {props.packaged ? (
+                                                <img className="status-icon" src="/images/bottled-icon.png" alt="bottled" />
+                                            ) : null}
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                       
-                        {/* <div className="col-sm-3">
-                            <div className="card">
-                                <div className="card-body">
-                                    <h4 className="current-state">Current State</h4>
-                                    <h6></h6>
-                                </div>
-                            </div>
-                        </div> */}
+
                         <div className="col-sm-1">
                             <button onClick={props.onClick} type="button" className="btn right">
                                 <img className="nav-icon-right" src="/images/right-arrow.png" alt="" />
@@ -70,25 +90,12 @@ const BrewingPanel = (props) => (
                             </button>
                         </div>
                     </div>
-                    {/* <br></br> */}
-                    {/* <div className="row">
-                        <div className="col-md-12">
-                            <div className="card">
-                                <div className="card-body">
-                                    <h4 className="notes-header">Notes</h4>
-                                    <p>
-
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div> */}
                 </div>
             </div>
         </div>
-        <br></br> 
+        <br></br>
     </div>
-   
+
 
 );
 

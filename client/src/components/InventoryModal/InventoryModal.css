@@ -1,0 +1,9 @@
+.ingredient-submit {
+    background-color:white;
+    color: black
+}
+
+.ingredient-submit:hover {
+    color:black;
+    background-color: yellow
+}

@@ -1,13 +1,15 @@
 .modal-content {
 color: white;
-opacity: .8;
+opacity: .9;
 background-color: black;
 }
 
 .addRecipe-btn {
-background-color: rgba(203, 243, 150, 0.856);
+background-color: white;
+color: black
 }
 
-.closeRecipe-btn {
-background-color: rgba(203, 243, 150, 0.856);
+.addRecipe-btn:hover {
+    background-color:yellow;
+    color: black
 }

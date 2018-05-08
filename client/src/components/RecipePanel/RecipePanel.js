@@ -7,39 +7,33 @@ const RecipePanel = props => (
         <div className="card">
           <div className="card-body">
             <div className="row top-row">
-              <div className="col-sm-3">
-                <h3 className="card-title">{props.recipeName}</h3>
-                <h6>{props.beerStyle}</h6>
+              <div className="col-md-4">
+                <h3 className="card-title recipe-panel-title">{props.recipeName} - </h3>
+                <h4 className="recipe-panel-subtitle">{props.beerStyle}</h4>
               </div>
-              <div className="col-sm-1">
-              </div>
-              <div className="col-sm-2">
-                <p>
-                  <button className="btn shrink-btn" type="button" data-toggle="collapse" data-target={"#" + props.recipeName} aria-expanded="false" aria-controls="collapseExample">
-                    <h6>Expand/Collapse</h6>
+              
+              <div className="col-md-8 recipe-card-btns">
+                
+                  <button className="btn editIng-btn shrink-btn" type="button" data-toggle="collapse" data-target={"#" + props.recipeName} aria-expanded="false" aria-controls="collapseExample">
+                    <h6>Expand/Collapse <span className="oi oi-elevator" title="elevator"></span></h6>
                   </button>
-                </p>
-              </div>
-              <div className="col-sm-1">
-                <button className="btn edit-btn" onClick={props.editOnClick} data-toggle="modal" data-target="#editRecipeModal">
-                  <h6>Edit Recipe</h6>
+                
+              
+                <button className="btn editIng-btn edit-btn" onClick={props.editOnClick} data-toggle="modal" data-target="#editRecipeModal">
+                  <h6>Edit Recipe <span className="oi oi-book" title="book"></span></h6>
                 </button>
-              </div>
-              <div className="col-sm-1">
-                <button className="btn delete-btn" onClick={props.deleteOnClick}>
-                  <h6>Delete</h6>
+              
+                <button onClick={props.noteOnClick} data-toggle="modal" data-target="#addNoteModal" className="btn editIng-btn note-btn">
+                  <h6>Make Note <span className="oi oi-comment-square" title="comment-square"></span></h6>
                 </button>
-              </div>
-              <div className="col-sm-1">
-                <button onClick={props.noteOnClick} data-toggle="modal" data-target="#addNoteModal" className="btn note-btn">
-                  <h6>Make Note</h6>
+
+                <button className="btn deleteIng-btn delete-btn" onClick={props.deleteOnClick}>
+                  <h6>Delete <span className="oi oi-trash" title="trash"></span></h6>
                 </button>
-              </div>
-              <div className="col-sm-1">
-              </div>
-              <div className="col-sm-2">
-                <button onClick={props.brewOnClick} className="btn newbatch-btn">
-                  <h6>Brew New Batch</h6>
+              
+              
+                <button onClick={props.brewOnClick} data-toggle="modal" data-target="#newBrewModal" className="btn newbatch-btn">
+                  <h6>Brew New Batch <span className="oi oi-timer" title="timer"></span></h6>
                 </button>
               </div>
             </div>
@@ -48,10 +42,10 @@ const RecipePanel = props => (
                 <div className="col-sm-9 ingredients">
                   <div className="row">
                     <div className="col-sm-6">
-                      <div className="card">
+                      <div className="card recipe-section">
                         <div className="card-body">
-                          <p>Grains</p>
-                          <table className="table table-hover table-sm">
+                          <p className="r-panel-card-title">Grains</p>
+                          <table className="table recipe-table table-hover table-sm">
                             <tbody>
                               {props.grains ? (
                               props.grains.map(grain => (
@@ -67,17 +61,17 @@ const RecipePanel = props => (
                       </div>
                     </div>
                     <div className="col-sm-6">
-                      <div className="card">
+                      <div className="card recipe-section">
                         <div className="card-body">
-                          <p>Hops</p>
-                          <table className="table table-hover table-sm">
+                          <p className="r-panel-card-title">Hops</p>
+                          <table className="table recipe-table table-hover table-sm">
                             <tbody>
                               {props.hops ? (
                               props.hops.map(hop => (
                                 <tr key={hop.name}>
                                   <td>{hop.name}</td>
                                   <td>{hop.amount} lbs</td>
-                                  <td>{hop.timeAdded}</td>
+                                  <td>Add {hop.timeAdded} min in</td>
                                 </tr>
                               ))) : null }
                             </tbody>
@@ -88,10 +82,10 @@ const RecipePanel = props => (
                   </div>
                   <div className="row">
                     <div className="col-sm-6">
-                      <div className="card">
+                      <div className="card recipe-section">
                         <div className="card-body">
-                          <p>Yeast</p>
-                          <table className="table table-hover table-sm">
+                          <p className="r-panel-card-title">Yeast</p>
+                          <table className="table recipe-table table-hover table-sm">
                             <tbody>
                               <tr>
                                 <td>{props.yeast ? props.yeast.name  : null}</td>
@@ -104,10 +98,10 @@ const RecipePanel = props => (
                       </div>
                     </div>
                     <div className="col-sm-6">
-                      <div className="card">
+                      <div className="card recipe-section">
                         <div className="card-body">
-                          <p>Exotics</p>
-                          <table className="table table-hover table-sm">
+                          <p className="r-panel-card-title">Exotics</p>
+                          <table className="table recipe-table table-hover table-sm">
                             <tbody>
                               {props.exotics ? (
                               props.exotics.map(exotic => (
@@ -125,26 +119,28 @@ const RecipePanel = props => (
                   </div>
                   <div className="row">
                     <div className="col-sm-12">
-                      <div className="card">
+                      <div className="card recipe-section">
                         <div className="card-body">
-                          <p>Process</p>
-                          <table className="table table-hover table-sm">
+                          <p className="r-panel-card-title">Process</p>
+                          <table className="table recipe-table table-hover table-sm">
                             <thead>
                               <tr>
-                                <th>Mash Temp</th>
+                                <th>Mash Temp
+                                  (Farenheit)
+                                </th>
                                 <th>Mash Time</th>
                                 <th>Boil Time</th>
-                                <th>Fermentation time</th>
+                                <th>Fermentation Time</th>
                                 <th>Output Volume</th>
                               </tr>
                             </thead>
                             <tbody>
                               <tr>
-                                <td>{props.mashTemp}</td>
-                                <td>{props.mashTime}</td>
-                                <td>{props.boilTime}</td>
-                                <td>{props.fermTime}</td>
-                                <td>{props.outputVol}</td>
+                                <td>{props.mashTemp}°F</td>
+                                <td>{props.mashTime} min</td>
+                                <td>{props.boilTime} min</td>
+                                <td>{props.fermTime} days</td>
+                                <td>{props.outputVol} gallons</td>
                               </tr>
                             </tbody>
                           </table>
@@ -154,16 +150,16 @@ const RecipePanel = props => (
                   </div>
                 </div>
                 <div className="col-sm-3 notes">
-                  <div className="card">
+                  <div className="card recipe-section">
                     <div className="card-body">
-                      <p>Notes</p>
+                      <p className="r-panel-card-title">Notes</p>
                           
                           {props.comments ? (
                             props.comments.map(comment=>(
-                              <div className="card">
-                              <div className="card-body">
-                                {comment.comment}
-                              </div>
+                              <div key = {comment.comment} className="card">
+                                <div className="card-body">
+                                  {comment.comment}
+                                </div>
                               </div>
                             )
                             
