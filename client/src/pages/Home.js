@@ -34,7 +34,6 @@ class Home extends React.Component {
             <Wrapper>
                 <Navbar userName={this.state.user.user.userName} logout={this.props.logout}/>
                 <HomePageTitle/>
-               <br></br>
                 <HomeCarousel/>
             </Wrapper>
         )
