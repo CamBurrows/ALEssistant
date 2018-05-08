@@ -31,8 +31,8 @@ const HomeCarousel = (props) => (
             <div className="carousel-item">
                 <img className="d-block w-100" src="http://cdn.pastemagazine.com/www/articles/trillium-brewing-taps-2.jpg" alt="Third slide" />
                 <div className="carousel-caption d-none d-md-block">
-                    <h5 className="slider-caption-heading">Duplicating Recipes</h5>
-                    <p>To clone a recipe thats already been created: Click edit on the recipe you wish to copy, cancel the edit, then click new recipe
+                    <h5 className="slider-caption-heading">Create New Recipe from Current Recipe</h5>
+                    <p>Make a second version of the same recipe: Click edit on the recipe you wish to copy, cancel the edit, then click new recipe
                         and the form will be populated with the recipe you wish to duplicate.
                 </p>
                 </div>
