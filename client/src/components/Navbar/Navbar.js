@@ -61,8 +61,8 @@ const Navbar = (props) => (
           </li>
         </Link>
 
-        <a href="" onClick={props.logout}>
-          <li className="nav-item">
+        <Link to='/'>
+          <li onClick={props.logout} className="nav-item">
             <div className="item">
               <div className = "row">
                 <img className = "nav-icon logout" src="/images/logout.png" alt=""/>
@@ -72,7 +72,7 @@ const Navbar = (props) => (
               </div>
             </div>
           </li>
-        </a>
+        </Link>
       
       </ul>
   </nav>
