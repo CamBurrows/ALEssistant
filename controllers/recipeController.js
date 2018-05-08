@@ -4,10 +4,9 @@ module.exports = {
   create: function(req, res) {
     db.Recipe.create(req.body.newRecipe)
     .then(function(dbRecipes){
-      return db.User.findOneAndUpdate({_id: dbRecipes._userId}, {$push: {recipe: dbRecipes._id } }, { new: true }) // The Money Shot
+      return db.User.findOneAndUpdate({_id: dbRecipes._userId}, {$push: {recipe: dbRecipes._id } }, { new: true })
     })
     .then(function(dbRecipes){
-      console.log("dbRecipes = " + dbRecipes)
       res.json(dbRecipes)
     })
     .catch(function(err) {
