@@ -9,3 +9,7 @@
 .title-row {
     background: linear-gradient( grey,black, black);
 }
+
+.inv-page-bar{
+    text-align: right
+}
