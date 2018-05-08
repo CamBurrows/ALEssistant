@@ -1,15 +1,18 @@
 body {
     background-image: url("/images/main-bg-image.png");
     background-size: cover;
-   
 }
+   
+
 
 #info-box {
-    margin-top: 10%;
+    margin-top: 40px;
     color: white;
     font-size: 30px;
     background-color: rgba(0, 0, 0, .75);
-    padding: 10px
+    padding: 20px;
+    border-radius: 10px;
+    font-family: 'Gothic A1', sans-serif;
 }
 
 .brew-btn {
@@ -17,5 +20,23 @@ body {
     background-color: black;
     color: white;
     border: 4px solid yellow;
+    font-family: 'Gothic A1', sans-serif;
+    font-size: 36px;
+    margin-bottom: 34%;
+}
+
+.brew-btn:hover {
+    background-color: yellow;
+    color: black
+}
+
+.brew-btn:focus {
+    outline: none;
+}
+
+.landing {
+    max-height: 100%;
+    background-image: url("https://media.giphy.com/media/5Uz5O4ZAQE2xWKL14t/giphy.gif");
+    background-size: cover;
 }
 

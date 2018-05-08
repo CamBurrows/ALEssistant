@@ -6,7 +6,6 @@ import Wrapper from '../components/Wrapper';
 import IngredientLine from '../components/IngredientLine';
 import API from '../utils/API.js';
 import EditInventoryModal from "../components/EditInventoryModal";
-import AddNoteModal from "../components/AddNoteModal"
 
 class Inventory extends React.Component {
 
@@ -35,7 +34,7 @@ class Inventory extends React.Component {
     
     componentDidMount = () => {
         // this.setState({user: JSON.parse(localStorage.getItem('user'))})
-        console.log(this.state.user.user._id)
+        // console.log(this.state.user.user._id)
         this.loadInventory(this.state.user.user._id)
   
     }
@@ -86,9 +85,9 @@ class Inventory extends React.Component {
             this.setState({
                 name: res.data[0].name,
                 type: res.data[0].type,
-                quantity: parseInt(res.data[0].quantity),
+                quantity: parseInt(res.data[0].quantity, 10),
                 unit: res.data[0].units,
-                cost: parseInt(res.data[0].cost),
+                cost: parseInt(res.data[0].cost, 10),
                 currentIngredientId: res.data[0]._id
             })
         })
@@ -129,7 +128,6 @@ class Inventory extends React.Component {
 
 
     render() {
-        console.log(this.props)
         return (
             <Wrapper>
                 <Navbar userName={this.state.user.user.userName} logout={this.props.logout}/>
@@ -178,6 +176,7 @@ class Inventory extends React.Component {
                             quantity={ingredient.quantity}
                             unit={ingredient.units}
                             cost={ingredient.cost}
+                            key={ingredient._id}
                         />
                         ))
                     ) : (

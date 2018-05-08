@@ -2,10 +2,12 @@
 
 .home-cont {
     color: white;
-    background-color: black;
+    background: linear-gradient( grey,black, black);
 }
 
 .h2-home {
-    margin: 12px;
+    margin-left: 14px;
+    margin-top: 10px;
+    margin-bottom: 18px;
     font-family: 'Gothic A1', sans-serif;
 }

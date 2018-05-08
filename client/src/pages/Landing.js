@@ -65,8 +65,9 @@ class Landing extends React.Component {
     render() {
         console.log(this.props);
         return (
+            
             <Wrapper>
-            <div>
+            <div className="landing">
                 <LoginNav
                     onChange={this.handleInputChange}
                     loginEmailValue={this.state.loginEmail}
@@ -81,16 +82,14 @@ class Landing extends React.Component {
                 <LoginPageTitle/>
                 <div className="container">
                     <div className='row'>
-                        <div id="info-box" className="col-sm-6">
+                        <div id="info-box" className="col-lg-6">
                             <p>ALEssistant helps you manage your inventory, recipes, and batches in brew like never before. An invaluable assistant for a brewery of any size.</p>
                         </div>
                     </div>
 
-                    <br></br>
-                    <br></br>
                     <div className="row">
 
-                        <div className="col-sm-3">
+                        <div className="col-lg-6">
                             <button className="btn btn-lg btn-block brew-btn" data-toggle="modal" data-target="#signUpModal" data-whatever="@mdo">
                                 BREW BETTER!
 

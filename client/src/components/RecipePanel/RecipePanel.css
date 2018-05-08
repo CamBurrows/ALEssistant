@@ -1,40 +1,71 @@
+.recipe-panel-title {
+    display:inline;
+    font-family: 'Gothic A1', sans-serif;
+    font-weight: 800
+}
+
+.recipe-panel-subtitle {
+    display:inline;
+    font-family: 'Gothic A1', sans-serif;
+    font-weight: 500
+}
+
+.recipe-card-btns {
+    text-align: right
+}
+
 .shrink-btn {
-    margin: 7px;
+    margin: 8px 15px 10px 0px;
     background-color: black;
     color: white;
-    position: relative;
     text-align: center;
+    font-family: 'Gothic A1', sans-serif;
     
 }
 
 .edit-btn {
-    margin: 7px;
+    margin: 8px 10px 8px 10px;
     background-color: black;
     color: white;
-    position: relative;
     text-align: center;
-}
-
-.delete-btn {
-    margin: 7px;
-    background-color: black;
-    color: white;
-    position: relative;
-    text-align: center;
+    font-family: 'Gothic A1', sans-serif;
 }
 
 .note-btn {
-    margin: 7px;
+    margin: 8px 10px 8px 0px;
     background-color: black;
     color: white;
-    position: relative;
     text-align: center;
+    font-family: 'Gothic A1', sans-serif;
 }
 
-.newbatch-btn {
-    margin: 7px;
+.delete-btn {
+    margin: 8px 15px 8px 15px;
     background-color: black;
     color: white;
-    position: relative;
     text-align: center;
+    font-family: 'Gothic A1', sans-serif;
+}
+
+
+
+.newbatch-btn {
+    margin: 8px 8px 8px 10px;
+    background-color: black;
+    color: white;
+    text-align: center;
+    font-family: 'Gothic A1', sans-serif;
+}
+
+.newbatch-btn:hover {
+    background-color:yellow;
+    color:black;
+    border: 1px solid black
+}
+
+.r-panel-card-title {
+    text-align: center;
+    font-family: 'Gothic A1', sans-serif;
+    font-size: 20px;
+    font-weight: 800
 }

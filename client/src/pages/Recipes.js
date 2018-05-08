@@ -4,6 +4,7 @@ import RecipePageTitle from '../components/RecipePageTitle';
 import AddRecipeModal from '../components/AddRecipeModal';
 import EditRecipeModal from '../components/EditRecipeModal';
 import AddNoteModal from '../components/AddNoteModal';
+import NewBrewModal from '../components/NewBrewModal';
 import Wrapper from '../components/Wrapper';
 import RecipePanel from '../components/RecipePanel';
 import API from '../utils/API.js'
@@ -95,7 +96,7 @@ class Recipes extends React.Component {
 
     componentDidMount = () => {
         // this.setState({user: JSON.parse(localStorage.getItem('user'))})
-        console.log(this.state.user.user._id)
+        // console.log(this.state.user.user._id)
         this.loadRecipes(this.state.user.user._id)
         this.getIngredients(this.state.user.user._id)
 
@@ -130,7 +131,7 @@ class Recipes extends React.Component {
             exotics: exotics,
             yeast: yeast
         })
-        console.log(this.state)
+        // console.log(this.state)
       })
       .catch(err => console.log(err));
     };
@@ -159,11 +160,11 @@ class Recipes extends React.Component {
             this.setState ({
             recipeName: res.data[0].name,
             style: res.data[0].style,
-            mashTemp: parseInt(res.data[0].mashTemp),
-            mashTime: parseInt(res.data[0].mashTime),
-            boilTime: parseInt(res.data[0].boilTime),
-            fermTime: parseInt(res.data[0].fermentationTime),
-            outputVol: parseInt(res.data[0].batchSize),
+            mashTemp: parseInt(res.data[0].mashTemp, 10),
+            mashTime: parseInt(res.data[0].mashTime, 10),
+            boilTime: parseInt(res.data[0].boilTime, 10),
+            fermTime: parseInt(res.data[0].fermentationTime, 10),
+            outputVol: parseInt(res.data[0].batchSize, 10),
             yeastName: res.data[0].yeast.name,
             yeastAmount: res.data[0].yeast.amount,
             yeastUnit: res.data[0].yeast.units,
@@ -651,7 +652,7 @@ class Recipes extends React.Component {
                 fermTime = {this.state.fermTime}
                 outputVol = {this.state.outputVol}
                 />
-                
+                <NewBrewModal />
                 <EditRecipeModal
                 
                 grains = {this.state.grains}
@@ -745,6 +746,7 @@ class Recipes extends React.Component {
                                     fermTime = {recipe.fermentationTime}
                                     outputVol = {recipe.batchSize}
                                     comments = {recipe.comments}
+                                    key = {recipe._id}
                                 />
                             
                         ))

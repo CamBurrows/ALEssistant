@@ -1,5 +1,10 @@
-
-
 .title-row {
     background-color: black;
+}
+
+.h2-recipe {
+    font-family: 'Gothic A1', sans-serif;
+    margin-left: 12px;
+    margin-top: 10px;
+    color: white
 }

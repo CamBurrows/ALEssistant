@@ -1,13 +1,10 @@
 .recipe-btn {
     margin: 8px;
-    background-color: rgba(203, 243, 150, 0.856);
-    color: black;
-    position: relative;
+    background: linear-gradient( white, white, white, grey);
+    color: rgb(0, 0, 0);
     text-align: center;
 }
 
-.h2-recipe {
-    Margin: 8px;
-    color: white;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+.recipe-btn:hover {
+background: linear-gradient( grey, white, white, white);
 }

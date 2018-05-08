@@ -8,7 +8,6 @@ import Landing from './pages/Landing.js'
 import {
   BrowserRouter as Router,
   Route,
-  Link,
   Switch,
   Redirect
 } from "react-router-dom";
