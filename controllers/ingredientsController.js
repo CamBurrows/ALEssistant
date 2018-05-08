@@ -1,15 +1,12 @@
 const db = require('../models');
 
-
 module.exports = {
   create: function(req, res) {
     db.IngredientsInventory.create(req.body)
     .then(function(dbIngredients){
-      console.log(dbIngredients)
       return db.User.findOneAndUpdate({_id: dbIngredients._userId}, {$push: {ingredientsInventory: dbIngredients._id } }, { new: true }) // The Money Shot
     })
     .then(function(dbIngredients){
-      console.log("dbIngredients = " + dbIngredients)
       res.json(dbIngredients)
     })
     .catch(function(err) {
@@ -17,7 +14,6 @@ module.exports = {
     });
   },
   findAll: function(req, res) {
-    //console.log("req.params = " + JSON.stringify(req.params))
     db.IngredientsInventory.find({_userId: req.params.id})
     .then(function(dbIngredients) {
       res.json(dbIngredients);
@@ -52,7 +48,6 @@ module.exports = {
     )
     .then(function(dbIngredients){
       res.json(dbIngredients)
-      console.log("updated recipe from controller: " + dbIngredients)
     })
       .catch(function(err) {
         console.log(err);
