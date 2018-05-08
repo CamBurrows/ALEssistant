@@ -2,5 +2,10 @@
 .h1-inv {
     margin-top: 9px;
     color: white;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Gothic A1', sans-serif;
+    margin-left: 12px;
+}
+
+.title-row {
+    background: linear-gradient( grey,black, black);
 }

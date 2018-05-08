@@ -1,9 +1,11 @@
 .ingredient-btn {
         margin: 8px;
-        background-color: rgba(203, 243, 150, 0.856);
+        background: linear-gradient( white, white, white, grey);
         color: rgb(0, 0, 0);
-        position: relative;
         text-align: center;
-        /* font-family: 'Times New Roman', Times, serif */
-    }
-    
+}
+
+.ingredient-btn:hover {
+    background: linear-gradient( grey, white, white, white);
+}
+

@@ -1,23 +1,42 @@
 .editIng-btn {
-    margin-top: 4px;
     background-color: black;
     color: white;
-    position: relative;
     text-align: center;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Gothic A1', sans-serif;
+    margin-right: 5px;
+    font-weight: 600
+}
+
+.editIng-btn:hover{
+    background-color: white;
+    color: black;
+    border: 1px solid black
 }
 
 .deleteIng-btn {
-    margin-top: 4px;
     background-color: black;
     color: white;
-    position: relative;
     text-align: center;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Gothic A1', sans-serif;
+    font-weight: 600
 }
 
+.deleteIng-btn:hover{
+    background-color: red;
+}
+
+
 td {
-    font-weight: 600;
+    font-weight: 500;
     font-size: 20px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Gothic A1', sans-serif;
+    text-align: center
+}
+
+.ing-table {
+    font-family: 'Gothic A1', sans-serif;
+    font-weight: 900;
+    font-size: 22px;
+    text-align: center;
+    border-radius: 4px
 }
