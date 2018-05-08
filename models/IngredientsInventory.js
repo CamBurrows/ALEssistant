@@ -1,24 +1,21 @@
 const mongoose = require("mongoose");
 
-// Save a reference to the Schema constructor
 const Schema = mongoose.Schema;
 
-// Using the Schema constructor, create a new UserSchema object
-// This is similar to a Sequelize model
 const IngredientsInventorySchema = new Schema({
     name: {
-        type: String, //Pale Malt, Crystal, Roasted Barley, Cascade, US-05, etc
+        type: String, //Pale Malt, Roasted Barley, Cascade hops, US-05, etc
         trim: true,
         required: true
     },
-    type: { // grain, hops, or yeast
+    type: { // grain, hops, yeast, or "exotic" (ie vanilla beans, honey, etc) ingredients
         type: String,
         trim: true,
         required: true
     },
-    quantity: { //not required in case we want to list something that we might not have in inventory yet
-        type: Number,
-        trim: true,
+    quantity: {         // not required in case we want to list something
+        type: Number,   // that we might not have in inventory yet,
+        trim: true,     // that is why it defaults to zero
         default: 0
     },
     units: { //pounds, ounces, grams
@@ -29,13 +26,12 @@ const IngredientsInventorySchema = new Schema({
         type: Number, //not required in case we are adding something we don't yet know the cost of
         trim: true
     },
-    _userId: {
+    _userId: {  // will be used to link to the specific account that made this ingredient
         type: Schema.Types.ObjectId,
         ref: "User"
     }
 });
 
-// This creates our model from the above schema, using mongoose's model method
 const IngredientsInventory = mongoose.model("IngredientsInventory", IngredientsInventorySchema);
+
 module.exports = IngredientsInventory;
-// Export the IngredientsInventory
