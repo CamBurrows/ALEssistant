@@ -34,6 +34,7 @@ class App extends Component {
       user: null
     }
     this.storage.removeItem('user');
+    window.location.reload();
   }
 
   render() {
