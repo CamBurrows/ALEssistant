@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const ingredientsController = require("../../controllers/ingredientsController.js");
 
+//IngredientsInventory model related routes
 router.post('/ingredients', ingredientsController.create);
 
 router.get('/ingredients/:id', ingredientsController.findAll);

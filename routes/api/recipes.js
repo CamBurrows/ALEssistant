@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const recipeController = require("../../controllers/recipeController.js");
 
+//Recipe model related routes
 router.get('/recipes/:id', recipeController.findAll);
 
 router.get('/recipes/edit/:id', recipeController.findOne);
