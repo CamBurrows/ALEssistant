@@ -40,3 +40,13 @@ td {
     text-align: center;
     border-radius: 4px
 }
+
+@media screen and (max-width:500px){
+    .ing-table, .ing-table-td, .editIng-btn, .deleteIng-btn {
+        font-size: 9px;
+    }
+
+    .phone-buttons {
+        text-align: left
+    }
+}

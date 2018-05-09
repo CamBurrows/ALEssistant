@@ -77,3 +77,9 @@
 .recipe-table {
     text-align: center
 }
+
+@media screen and (max-width:500px){
+    .process-table {
+        font-size: 10px
+    }
+}

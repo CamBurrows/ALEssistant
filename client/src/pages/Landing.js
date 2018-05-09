@@ -34,7 +34,7 @@ class Landing extends React.Component {
             })
             .then(function(user) {
                 login(user.data);
-                console.log(user.data);
+                // console.log(user.data);
             })
             // .then(res => this.loadBooks())
             .catch(err => console.log(err));
@@ -63,7 +63,7 @@ class Landing extends React.Component {
     };
 
     render() {
-        console.log(this.props);
+        // console.log(this.props);
         return (
             
             <Wrapper>

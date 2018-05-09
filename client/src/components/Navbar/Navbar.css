@@ -83,3 +83,64 @@ a {
     margin-left: 30px;
     font-family: 'Gothic A1', sans-serif
 }
+
+@media screen and (max-width:840px){
+
+    .nav-icon {
+        height: 40px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+    }
+
+    a {
+        font-size: 16px;
+    }
+
+    .item {
+        text-align: center;
+        margin: 10px 15px 0px 15px;
+    }
+
+    .nav-welcome{
+        margin-left: 30px;
+        font-family: 'Gothic A1', sans-serif;
+        font-size:20px
+    }
+
+    .user{
+        margin: 0 auto;
+        font-family: 'Cinzel Decorative', cursive;
+        font-size: 24px;
+    }
+}
+
+@media screen and (max-width:500px){
+    
+    .nav-icon {
+        height: 20px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+    }
+
+    a {
+        font-size: 8px;
+    }
+
+    .item {
+        text-align: center;
+        margin: 10px 6px 0px 6px;
+    }
+
+    .nav-welcome{
+        margin-left: 30px;
+        font-family: 'Gothic A1', sans-serif;
+        font-size:12px
+    }
+
+    .user{
+        margin: 0 auto;
+        font-family: 'Cinzel Decorative', cursive;
+        font-size: 14px;
+    }
+
+}
