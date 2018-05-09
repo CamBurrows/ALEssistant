@@ -12,11 +12,6 @@ var RecipeSchema = new Schema({
         type: Number,
         trim: true
     },
-    batchUnit: {
-        type: String,
-        trim: true,
-        required: true
-    },
     style: {
         type: String,
         trim: true
