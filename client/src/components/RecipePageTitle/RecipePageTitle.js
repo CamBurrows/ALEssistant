@@ -10,9 +10,9 @@ const RecipePageTitle = (props) => (
                     <h2 className="h2-recipe">Recipes</h2>
                 </div>
             </div>
-            <div className="col-sm-7">
+            <div className="col-sm-5">
             </div>
-            <div className="col-sm-2">
+            <div className="col-sm-4 inv-page-bar">
             <AddRecipeButton />
             </div>
         </div>

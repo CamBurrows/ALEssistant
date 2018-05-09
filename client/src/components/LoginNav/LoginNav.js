@@ -7,7 +7,7 @@ const LoginNav = props => (
     <div className="container">
 
       <div className="main-header">
-        <img src="images/logo.png" alt="logo" />
+        <img className="logo" src="images/logo.png" alt="logo" />
       </div>
 
       <ul className="nav justify-content-end">

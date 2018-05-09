@@ -39,9 +39,9 @@ const RecipePanel = props => (
             </div>
             <div className="collapse" id={props.recipeName}>
               <div className="row content">
-                <div className="col-sm-9 ingredients">
+                <div className="col-xl-8 col-lg-12 ingredients">
                   <div className="row">
-                    <div className="col-sm-6">
+                    <div className="col-xl-6 col-lg-12">
                       <div className="card recipe-section">
                         <div className="card-body">
                           <p className="r-panel-card-title">Grains</p>
@@ -60,7 +60,7 @@ const RecipePanel = props => (
                         </div>
                       </div>
                     </div>
-                    <div className="col-sm-6">
+                    <div className="col-xl-6 col-lg-12">
                       <div className="card recipe-section">
                         <div className="card-body">
                           <p className="r-panel-card-title">Hops</p>
@@ -70,7 +70,7 @@ const RecipePanel = props => (
                               props.hops.map(hop => (
                                 <tr key={hop.name}>
                                   <td>{hop.name}</td>
-                                  <td>{hop.amount} lbs</td>
+                                  <td>{hop.amount} oz</td>
                                   <td>Add {hop.timeAdded} min in</td>
                                 </tr>
                               ))) : null }
@@ -81,7 +81,7 @@ const RecipePanel = props => (
                     </div>
                   </div>
                   <div className="row">
-                    <div className="col-sm-6">
+                    <div className="col-xl-6 col-lg-12">
                       <div className="card recipe-section">
                         <div className="card-body">
                           <p className="r-panel-card-title">Yeast</p>
@@ -97,7 +97,7 @@ const RecipePanel = props => (
                         </div>
                       </div>
                     </div>
-                    <div className="col-sm-6">
+                    <div className="col-xl-6 col-lg-12">
                       <div className="card recipe-section">
                         <div className="card-body">
                           <p className="r-panel-card-title">Exotics</p>
@@ -122,7 +122,7 @@ const RecipePanel = props => (
                       <div className="card recipe-section">
                         <div className="card-body">
                           <p className="r-panel-card-title">Process</p>
-                          <table className="table recipe-table table-hover table-sm">
+                          <table className="table recipe-table table-hover table-sm process-table">
                             <thead>
                               <tr>
                                 <th>Mash Temp
@@ -136,11 +136,11 @@ const RecipePanel = props => (
                             </thead>
                             <tbody>
                               <tr>
-                                <td>{props.mashTemp}°F</td>
-                                <td>{props.mashTime} min</td>
-                                <td>{props.boilTime} min</td>
-                                <td>{props.fermTime} days</td>
-                                <td>{props.outputVol} gallons</td>
+                                <td className="process-table">{props.mashTemp}°F</td>
+                                <td className="process-table">{props.mashTime} min</td>
+                                <td className="process-table">{props.boilTime} min</td>
+                                <td className="process-table">{props.fermTime} days</td>
+                                <td className="process-table">{props.outputVol} gallons</td>
                               </tr>
                             </tbody>
                           </table>
@@ -149,8 +149,8 @@ const RecipePanel = props => (
                     </div>
                   </div>
                 </div>
-                <div className="col-sm-3 notes">
-                  <div className="card recipe-section">
+                <div className="col-xl-4 col-lg-12 notes">
+                  <div className="card recipe-section note-card">
                     <div className="card-body">
                       <p className="r-panel-card-title">Notes</p>
                           
@@ -163,7 +163,7 @@ const RecipePanel = props => (
                               </div>
                             )
                             
-                            )): null }
+                            )): <p>No notes yet.</p> }
                         <div>
                       </div>
                     </div>

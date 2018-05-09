@@ -1,10 +1,7 @@
 const mongoose = require("mongoose");
 
-// Save a reference to the Schema constructor
 const Schema = mongoose.Schema;
 
-// Using the Schema constructor, create a new UserSchema object
-// This is similar to a Sequelize model
 var RecipeSchema = new Schema({
     name: {
         type: String,
@@ -15,12 +12,11 @@ var RecipeSchema = new Schema({
         type: Number,
         trim: true
     },
-    // batchUnit: {
-    //     type: String,
-    //     trim: true,
-    //     required: true
-    // }, 
-    //possibly add in future
+    batchUnit: {
+        type: String,
+        trim: true,
+        required: true
+    },
     style: {
         type: String,
         trim: true
@@ -28,7 +24,7 @@ var RecipeSchema = new Schema({
     yeast: {
         name: {
             type: String,
-            // required: true,
+            required: true,
             trim: true
         },
         amount: {
@@ -37,6 +33,7 @@ var RecipeSchema = new Schema({
         units: {
             type: String
         }
+
     },
     grains: [{
         name: {
@@ -46,8 +43,7 @@ var RecipeSchema = new Schema({
         amount: {
             type: Number,
             trim: true
-        }
-        //        required: true,
+        },        //  required: true //eliminated this in case the user wants to make a mead
     }],
     hops: [{
         name: {
@@ -58,7 +54,7 @@ var RecipeSchema = new Schema({
             type: Number,
             trim: true
         },
-        // alphaAcids: {  ***Possible later implementation***
+        // alphaAcids: {  //for later implementation when we are calculating IBUs.
         //     type: Number,
         //     trim: true
         // },
@@ -100,38 +96,38 @@ var RecipeSchema = new Schema({
             default: false,
             required: true
         },
-        notes: { //Anything odd that might have happened during the brew session/fermentation/packaging
-            type: String,
-            trim: true
-        }
+        notes: {          // this allows the user to save notes on anything odd that
+            type: String, // might have happened during this specific brew session
+            trim: true    // such as a stuck mash, non-optimal mash temp, or off
+        }                 // flavors in the final beer and possible causes thereof
     }],
-    mashTemp: {
+        comments: [{
+            comment:{           // This is for comments on the recipe in general,
+            type: String
+            }      // such as "toast the oats at 300F for 15 minutes"
+        }],
+        mashTemp: {
         type: Number,
         trim: true
-    },
-    mashTime: {
+        },
+        mashTime: {
         type: Number,
         trim: true
-    },
-    boilTime: {
+        },
+        boilTime: {
         type: Number,
         trim: true
-    },
-    fermentationTime: {
+        },
+        fermentationTime: {
         type: Number,
         trim: true
-    },
-    comments: [{
-        comment:{
-        type: String
-        }
-    }],
-    _userId: {
+        },
+        _userId: {
         type: Schema.Types.ObjectId,
         ref: "User"
-    }
+        }
 });
 
-// This creates our model from the above schema, using mongoose's model method
 const Recipe = mongoose.model("Recipe", RecipeSchema);
+
 module.exports = Recipe;

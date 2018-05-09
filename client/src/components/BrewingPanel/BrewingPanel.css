@@ -1,3 +1,9 @@
+.brew, .fermentation, .packaging{
+    font-size: 24px;
+    font-family: 'Gothic A1', sans-serif;
+    font-weight: 600
+}
+
 .right {
     height: 111px;
     width: 75px;
@@ -30,4 +36,37 @@
 
 .status-icon{
     height: 50px;
+}
+
+@media screen and (max-width:840px){
+    .brew, .fermentation, .packaging{
+        font-size: 16px;
+        font-weight: 900
+    }
+    .x {
+        height: 68px;
+        width: 30px;
+    }
+    .right {
+        height: 68px;
+        width: 30px;
+        margin-bottom: 20px;
+    }
+    .nav-icon-right {
+        height: 45px;
+        width: 15px;
+        margin: -15px
+    }
+    
+    .nav-icon-delete {
+        margin: -15px;
+        height: 60px;
+        width: 30px;
+    }
+}
+
+@media screen and (max-width:600px){
+    .progress-row {
+        text-align: center
+    }
 }

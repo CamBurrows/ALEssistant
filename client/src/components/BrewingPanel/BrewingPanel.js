@@ -42,9 +42,9 @@ const BrewingPanel = (props) => (
                                 <div className="card-body ferm">
                                     <div className="row">
                                         <div className="col-lg-8">
-                                            <h4 className="Fermentation">Fermentation</h4>
+                                            <h4 className="fermentation">Fermentation</h4>
                                             <h6>{props.fermentationComplete ? (
-                                                <p>Completed</p>
+                                                <p>Completed!</p>
                                             ) : (<p>Still in fermentation</p>)}</h6>
                                         </div>
                                         <div className="col-lg-4">
@@ -79,15 +79,19 @@ const BrewingPanel = (props) => (
                             </div>
                         </div>
 
-                        <div className="col-sm-1">
+                        <div className="col-md-2">
+                        <div className="row progress-row">
+                        <div className="col-xl-6 col-lg-12" >
                             <button onClick={props.onClick} type="button" className="btn right">
                                 <img className="nav-icon-right" src="/images/right-arrow.png" alt="" />
                             </button>
                         </div>
-                        <div className="col-sm-1">
+                        <div className="col-xl-6 col-lg-12">
                             <button onClick={props.deleteOnClick} type="button" className="btn x">
                                 <img className="nav-icon-delete" src="/images/x.png" alt="" />
                             </button>
+                        </div>
+                        </div>
                         </div>
                     </div>
                 </div>
