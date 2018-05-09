@@ -101,13 +101,31 @@ var RecipeSchema = new Schema({
             trim: true    // such as a stuck mash, non-optimal mash temp, or off
         }                 // flavors in the final beer and possible causes thereof
     }],
-    comments: {           // This is for comments on the recipe in general,
-        type: String      // such as "toast the oats at 300F for 15 minutes"
-    },
-    _userId: {
+        comments: [{
+            comment:{           // This is for comments on the recipe in general,
+            type: String
+            }      // such as "toast the oats at 300F for 15 minutes"
+        }],
+        mashTemp: {
+        type: Number,
+        trim: true
+        },
+        mashTime: {
+        type: Number,
+        trim: true
+        },
+        boilTime: {
+        type: Number,
+        trim: true
+        },
+        fermentationTime: {
+        type: Number,
+        trim: true
+        },
+        _userId: {
         type: Schema.Types.ObjectId,
         ref: "User"
-    }
+        }
 });
 
 const Recipe = mongoose.model("Recipe", RecipeSchema);

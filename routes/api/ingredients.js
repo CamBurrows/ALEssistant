@@ -3,15 +3,13 @@ const ingredientsController = require("../../controllers/ingredientsController.j
 
 router.post('/ingredients', ingredientsController.create);
 
-router.get('/ingredients', ingredientsController.findAll);
+router.get('/ingredients/:id', ingredientsController.findAll);
 
-router.get('/ingredients/:id', ingredientsController.findOne);
+router.get('/ingredients/edit/:id', ingredientsController.findOne);
 
-router.delete('/ingredients/:id', function(req, res) {
-  db.IngredientsInventory.remove({_id:req.params.id})
-  .then(
-    dbIngredientsInventory => res.json(dbIngredientsInventory)
-  )
-});
+router.put('/ingredients/:id', ingredientsController.update);
+
+router.delete('/ingredients/:id', ingredientsController.remove);
+
 
 module.exports = router;
