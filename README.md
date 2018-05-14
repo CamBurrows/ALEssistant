@@ -10,13 +10,18 @@ Once you have a recipe that you'd like to brew, click the brew new batch button.
 
 Brew Better!
 
-#Technical Breakdown
+
+## Technical Breakdown
 Frontend: React (JSX/HTML), CSS, Bootstrap, Openiconic Icons
+
 Backend: Node.js, Express, MongoDB, Mongoose, Express-JWT
 
-#Demo Account
+## Demo Account
 Feel free to log in and explore the apps' functionality!
+
 email: demo@foo.com
+
 pw: foo
+
 
 ©2018 Cameron Burrows, Tim Hayes, Juan Fox, Brandt Strait
