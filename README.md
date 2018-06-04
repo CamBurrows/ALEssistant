@@ -24,5 +24,3 @@ pw: foo
 
 
 ©2018 Cameron Burrows, Tim Hayes, Juan Fox, Brandt Strait
-
-This is a test
