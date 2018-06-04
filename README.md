@@ -10,7 +10,6 @@ Once you have a recipe that you'd like to brew, click the brew new batch button.
 
 Brew Better!
 
-
 ## Technical Breakdown
 Frontend: React (JSX/HTML), CSS, Bootstrap, Openiconic Icons
 
@@ -25,3 +24,5 @@ pw: foo
 
 
 ©2018 Cameron Burrows, Tim Hayes, Juan Fox, Brandt Strait
+
+This is a test
